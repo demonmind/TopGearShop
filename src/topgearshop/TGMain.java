@@ -38,6 +38,7 @@ public class TGMain extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setTitle("TopGear-Release 1.0");
 		setContentPane(contentPane);
+		
 	}
 
 }

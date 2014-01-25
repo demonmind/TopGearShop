@@ -5,3 +5,4 @@
 *.war
 *.ear
 /TopGearShop/nbproject/private/
+/TopGearShop/build/

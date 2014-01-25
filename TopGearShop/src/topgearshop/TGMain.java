@@ -10,28 +10,27 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import topgearshop.ConnectionManager;
-
 public class TGMain extends JFrame {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 203025447676050605L;
-	private JPanel contentPane;
-	private String pathImage = "/Users/klkita/Documents/workspace/TopGearShop/src/topgearshop/lada2.jpg";
+	private final JPanel contentPane;
+	private final String pathImage = "/Users/klkita/Documents/workspace/TopGearShop/src/topgearshop/lada2.jpg";
 
 	/**
 	 * Launch the application.
+     * @param args
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TGMain frame = new TGMain();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
+                    public void run() {
+			try {
+                        	TGMain frame = new TGMain();
+				frame.setVisible(true);
+			} catch (Exception e) {
+				e.printStackTrace();
 				}
 			}
 		});

@@ -10,12 +10,12 @@ package topgearshop.views;
  *
  * @author rmattaway
  */
-public class CreateCustomerView extends javax.swing.JPanel {
+public class CreateEditShopFeesView extends javax.swing.JPanel {
 
   /**
-   * Creates new form CreateCustomerView
+   * Creates new form CreateEditShopFeesView
    */
-  public CreateCustomerView() {
+  public CreateEditShopFeesView() {
     initComponents();
   }
 

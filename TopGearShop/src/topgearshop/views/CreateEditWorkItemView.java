@@ -10,12 +10,12 @@ package topgearshop.views;
  *
  * @author rmattaway
  */
-public class AddWorkItemView extends javax.swing.JPanel {
+public class CreateEditWorkItemView extends javax.swing.JPanel {
 
   /**
    * Creates new form AddWorkItemView
    */
-  public AddWorkItemView() {
+  public CreateEditWorkItemView() {
     initComponents();
   }
 

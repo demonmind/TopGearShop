@@ -10,12 +10,12 @@ package topgearshop.views;
  *
  * @author rmattaway
  */
-public class CreateVehicleView extends javax.swing.JPanel {
+public class CreateEditInventoryItemView extends javax.swing.JPanel {
 
   /**
-   * Creates new form CreateVehicleView
+   * Creates new form CreateInventoryItemView
    */
-  public CreateVehicleView() {
+  public CreateEditInventoryItemView() {
     initComponents();
   }
 

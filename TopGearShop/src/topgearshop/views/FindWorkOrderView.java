@@ -10,12 +10,12 @@ package topgearshop.views;
  *
  * @author rmattaway
  */
-public class CreateInventoryItemView extends javax.swing.JPanel {
+public class FindWorkOrderView extends javax.swing.JPanel {
 
   /**
-   * Creates new form CreateInventoryItemView
+   * Creates new form FindWorkOrderView
    */
-  public CreateInventoryItemView() {
+  public FindWorkOrderView() {
     initComponents();
   }
 

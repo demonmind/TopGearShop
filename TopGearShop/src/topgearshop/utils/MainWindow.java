@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package topgearshop;
+package topgearshop.utils;
 
 import java.sql.Connection;
 import java.util.HashSet;

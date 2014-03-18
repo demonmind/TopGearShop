@@ -7,7 +7,7 @@
 * static class
 */
 
-package topgearshop;
+package topgearshop.utils;
 
 import java.util.List;
 

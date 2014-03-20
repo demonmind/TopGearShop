@@ -24,21 +24,21 @@ public class EmployeeTypeModel {
 	
 	/** */
 	public Integer getEmployeeTypeID() {
-	
+    return this.employeeTypeId;
 	}
 	
 	/** */
 	public void setEmployeeTypeID(Integer employeeTypeID) {
-	
+    this.employeeTypeId = employeeTypeID;
 	}
 	
 	/** */
 	public String getEmployeeType() {
-	
+    return this.employeeType;
 	}
 	
 	/** */
 	public void setEmployeeType(String employeeType) {
-	
+    this.employeeType = employeeType;
 	}
 }

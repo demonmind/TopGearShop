@@ -13,6 +13,8 @@
 
 package topgearshop.models;
 
+import java.util.Date;
+
 
 /** */
 public class EmployeeModel {
@@ -39,71 +41,71 @@ public class EmployeeModel {
 	
 	/** */
 	public String getEmployeeID() {
-	
+    return this.employeeID;
 	}
 	
 	/** */
 	public void setEmployeeID(String employeeID) {
-	
+    this.employeeID = employeeID;
 	}
 	
 	/** */
 	public String getFirstName() {
-	
+    return this.firstName;
 	}
 	
 	/** */
 	public void setFirstName(String firstName) {
-	
+    this.firstName = firstName;
 	}
 	
 	/** */
 	public String getMiddleName() {
-	
+    return this.middleName;
 	}
 	
 	/** */
 	public void setMiddleName(String middleName) {
-	
+    this.middleName = middleName;
 	}
 	
 	/** */
 	public String getLastName() {
-	
+    return this.lastName;
 	}
 	
 	/** */
 	public void setLastName(String lastName) {
-	
+    this.lastName = lastName;
 	}
 	
 	/** */
 	public Date getDateOfBirth() {
-	
+    return this.dateOfBirth;
 	}
 	
 	/** */
 	public void setDateOfBirth(Date dateOfBirth) {
-	
+    this.dateOfBirth = dateOfBirth;
 	}
 	
 	/** */
 	public String getDriversLicenseNumber() {
-	
+    return this.driversLicenseNumber;
 	}
 	
 	/** */
 	public void setDriversLicenseNumber(String driversLicenseNumber) {
-	
+    this.driversLicenseNumber = driversLicenseNumber;
 	}
 	
 	/** */
 	public Integer getEmployeeTypeID() {
-	
+    return this.employeeTypeID;
 	}
 	
 	/** */
 	public void setEmployeeTypeID(Integer employeeTypeID) {
-	
+    this.employeeTypeID = employeeTypeID;
 	}
 }

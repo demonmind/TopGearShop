@@ -30,41 +30,41 @@ public class PartsModel {
 	
 	/** */
 	public Integer getPartID() {
-	
+    return this.partID;
 	}
 	
 	/** */
 	public void setPartID(Integer partID) {
-	
+    this.partID = partID;
 	}
 	
 	/** */
 	public String getPartName() {
-	
+    return this.partName;
 	}
 	
 	/** */
 	public void setPartName(String partName) {
-	
+    this.partName = partName;
 	}
 	
 	/** */
 	public Double getPartCost() {
-	
+    return this.partCost;
 	}
 	
 	/** */
 	public void setPartCost(Double partCost) {
-	
+    this.partCost = partCost;
 	}
 	
 	/** */
 	public Double getSellingPrice() {
-	
+    return this.sellingPrice;
 	}
 	
 	/** */
 	public void setSellingPrice(Double sellingPrice) {
-	
+    this.sellingPrice = sellingPrice;
 	}
 }

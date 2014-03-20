@@ -24,21 +24,21 @@ public class EmployeeRoleModel {
 	
 	/** */
 	public String getEmployeeID() {
-	
+    return this.employeeID;
 	}
 	
 	/** */
 	public void setEmployeeID(String employeeID) {
-	
+    this.employeeID = employeeID;
 	}
 	
 	/** */
 	public Integer getRoleID() {
-	
+    return this.roleID;
 	}
 	
 	/** */
 	public void setRoleID(Integer roleID) {
-	
+    this.roleID = roleID;
 	}
 }

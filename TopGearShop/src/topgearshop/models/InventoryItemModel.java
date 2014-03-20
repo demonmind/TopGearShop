@@ -42,81 +42,81 @@ public class InventoryItemModel {
 	
 	/** */
 	public Integer getInventoryItemID() {
-	
+    return this.inventoryItemID;
 	}
 	
 	/** */
 	public void setInventoryItemID(Integer inventoryItemID) {
-	
+    this.inventoryItemID = inventoryItemID;
 	}
 	
 	/** */
 	public String getItemName() {
-	
+    return this.itemName;
 	}
 	
 	/** */
 	public void setItemName(String itemName) {
-	
+    this.itemName = itemName;
 	}
 	
 	/** */
 	public Double getItemCost() {
-	
+    return this.itemCost;
 	}
 	
 	/** */
 	public void setItemCost(Double itemCost) {
-	
+    this.itemCost = itemCost;
 	}
 	
 	/** */
 	public Double getSellingPrice() {
-	
+    return this.sellingPrice;
 	}
 	
 	/** */
 	public void setSellingPrice(Double sellingPrice) {
-	
+    this.sellingPrice = sellingPrice;
 	}
 	
 	/** */
 	public String getLocationInShop() {
-	
+    return this.locationInShop;
 	}
 	
 	/** */
 	public void setLocationInShop(String locationInShop) {
-	
+    this.locationInShop = locationInShop;
 	}
 	
 	/** */
 	public Integer getQuantityOnHand() {
-	
+    return this.quantityOnHand;
 	}
 	
 	/** */
-	public void setQuantityOnHand(Integer quantittyOnHand) {
-	
+	public void setQuantityOnHand(Integer quantityOnHand) {
+    this.quantityOnHand = quantityOnHand;
 	}
 	
 	/** */
 	public Integer getReorderLevel() {
-	
+    return this.reorderLevel;
 	}
 	
 	/** */
 	public void setReorderLevel(Integer reorderLevel) {
-	
+    this.reorderLevel = reorderLevel;
 	}
 	
 	/** */
 	public Double getGrossProfit() {
-	
+    return this.grossProfit;
 	}
 	
 	/** */
 	public void setGrossProfit(Double grossProfit) {
-	
+    this.grossProfit = grossProfit;
 	}
 }

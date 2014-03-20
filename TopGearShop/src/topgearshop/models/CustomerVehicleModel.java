@@ -27,31 +27,31 @@ public class CustomerVehicleModel {
 	
 	/** */
 	public String getCustomerVehicleID() {
-	
+    return this.customerVehicleID;
 	}
 	
 	/** */
 	public void setCustomerVehicleID(String customerVehicleID) {
-	
+    this.customerVehicleID  = customerVehicleID;
 	}
 	
 	/** */
 	public Integer getCustomerID() {
-	
+    return this.customerID;
 	}
 	
 	/** */
 	public void setCustomerID(Integer customerID) {
-	
+    this.customerID = customerID;
 	}
 	
 	/** */
 	public String getVehicleIDNumber() {
-	
+    return this.vehicleIDNumber;
 	}
 	
 	/** */
 	public void setVehicleIDNumber(String vehicleIDNumber) {
-	
+    this.vehicleIDNumber = vehicleIDNumber;
 	}
 }

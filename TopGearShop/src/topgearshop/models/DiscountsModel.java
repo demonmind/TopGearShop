@@ -24,21 +24,21 @@ public class DiscountsModel {
 	
 	/** */
 	public Integer getServiceItemID() {
-	
+    return this.serviceItemID;
 	}
 	
 	/** */
 	public void setServiceItemID(Integer serviceItemID) {
-	
+    this.serviceItemID = serviceItemID;
 	}
 	
 	/** */
 	public Double getDiscount() {
-	
+    return this.discount;
 	}
 	
 	/** */
 	public void setDiscount(Double discount) {
-	
+    this.discount = discount;
 	}
 }

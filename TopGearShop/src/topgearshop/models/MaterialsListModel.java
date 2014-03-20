@@ -30,41 +30,41 @@ public class MaterialsListModel {
 	
 	/** */
 	public Integer getMaterialsListID() {
-	
+    return this.materialListID;
 	}
 	
 	/** */
-	public void setMaterialsListID(Integer materialsListID) {
-	
+	public void setMaterialsListID(Integer materialListID) {
+    this.materialListID = materialListID;
 	}
 	
 	/** */
 	public Integer getServiceItemID() {
-	
+    return this.serviceItemID;
 	}
 	
 	/** */
 	public void setServiceItemID(Integer serviceItemID) {
-	
+    this.serviceItemID = serviceItemID;
 	}
 	
 	/** */
 	public Integer getInventoryItemID() {
-	
+    return this.inventoryItemID;
 	}
 	
 	/** */
 	public void setInventoryItemID(Integer inventoryItemID) {
-	
+    this.inventoryItemID = inventoryItemID;
 	}
 	
 	/** */
 	public Integer getPartID() {
-	
+    return this.partID;
 	}
 	
 	/** */
 	public void setPartID(Integer partID) {
-	
+    this.partID = partID;
 	}
 }

@@ -24,21 +24,21 @@ public class PaymentTypesModel {
 	
 	/** */
 	public Integer getPaymentTypeID() {
-	
+    return this.paymentTypeID;
 	}
 	
 	/** */
 	public void setPaymentTypeID(Integer paymentTypeID) {
-	
+    this.paymentTypeID = paymentTypeID;
 	}
 	
 	/** */
 	public String getPaymentType() {
-	
+    return this.paymentType;
 	}
 	
 	/** */
 	public void setPaymentType(String paymentType) {
-	
+    this.paymentType = paymentType;
 	}
 }

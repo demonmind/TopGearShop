@@ -13,6 +13,8 @@
 
 package topgearshop.models;
 
+import java.util.Date;
+
 
 /** */
 public class WorkOrdersModel {
@@ -30,31 +32,41 @@ public class WorkOrdersModel {
 	
 	/** */
 	public Integer getWorkOrderID() {
-	
+    return this.workOrderID;
 	}
 	
 	/** */
 	public void setWorkOrderID(Integer workOrderID) {
-	
+    this.workOrderID = workOrderID;
 	}
 	
 	/** */
 	public Integer getCustomerID() {
-	
+    return this.customerID;
 	}
 	
 	/** */
 	public void setCustomerID(Integer customerID) {
-	
+    this.customerID = customerID;
 	}
 	
 	/** */
 	public String getVehicleIDNumber() {
-	
+    return this.vehicleIDNumber;
 	}
 	
 	/** */
 	public void setVehicleIDNumber(String vehicleIDNumber) {
+    this.vehicleIDNumber = vehicleIDNumber;
+	}
+  	
+	/** */
+	public Date getDateWorkCompleted() {
+    return this.dateWorkCompleted;
+	}
 	
+	/** */
+	public void setDateWorkCompleted(Date dateWorkCompleted) {
+    this.dateWorkCompleted = dateWorkCompleted;
 	}
 }

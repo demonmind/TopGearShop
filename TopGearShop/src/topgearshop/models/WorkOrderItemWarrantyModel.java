@@ -13,6 +13,8 @@
 
 package topgearshop.models;
 
+import java.util.Date;
+
 
 /** */
 public class WorkOrderItemWarrantyModel {
@@ -33,51 +35,51 @@ public class WorkOrderItemWarrantyModel {
 	
 	/** */
 	public Integer getWorkOrderID() {
-	
+    return this.workOrderID;
 	}
 	
 	/** */
 	public void setWorkOrderID(Integer workOrderID) {
-	
+    this.workOrderID = workOrderID;
 	}
 	
 	/** */
 	public Integer getWorkOrderDetailID() {
-	
+    return this.workOrderDetailID;
 	}
 	
 	/** */
 	public void setWorkOrderDetailID(Integer workOrderDetailID) {
-	
+    this.workOrderDetailID = workOrderDetailID;
 	}
 	
 	/** */
 	public Integer getWarrantyID() {
-	
+    return this.warrantyID;
 	}
 	
 	/** */
 	public void setWarrantyID(Integer warrantyID) {
-	
+    this.warrantyID = warrantyID;
 	}
 	
 	/** */
 	public Date getDateWarrantyBegins() {
-	
+    return this.dateWarrantyBegins;
 	}
 	
 	/** */
 	public void setDateWarrantyBegins(Date dateWarrantyBegins) {
-	
+    this.dateWarrantyBegins = dateWarrantyBegins;
 	}
 	
 	/** */
 	public Date getDateWarrantyEnds() {
-	
+    return this.dateWarrantyEnds;
 	}
 	
 	/** */
 	public void setDateWarrantyEnds(Date dateWarrantyEnds) {
-	
+    this.dateWarrantyEnds = dateWarrantyEnds;
 	}
 }

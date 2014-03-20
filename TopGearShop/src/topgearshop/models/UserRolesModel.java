@@ -24,21 +24,21 @@ public class UserRolesModel {
 	
 	/** */
 	public Integer getRoleID() {
-	
+    return this.roleID;
 	}
 	
 	/** */
 	public void setRoleID(Integer roleID) {
-	
+    this.roleID = roleID;
 	}
 	
 	/** */
 	public String getRoleName() {
-	
+    return this.roleName;
 	}
 	
 	/** */
 	public void setRoleName(String roleName) {
-	
+    this.roleName = roleName;
 	}
 }

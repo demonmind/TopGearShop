@@ -33,51 +33,51 @@ public class PaymentsModel {
 	
 	/** */
 	public Integer getPaymentID() {
-	
+    return this.paymentID;
 	}
 	
 	/** */
 	public void setPaymentID(Integer paymentID) {
-	
+    this.paymentID = paymentID;
 	}
 	
 	/** */
 	public Integer getWorkOrderID() {
-	
+    return this.workOrderID;
 	}
 	
 	/** */
 	public void setWorkOrderID(Integer workOrderID) {
-	
+    this.workOrderID = workOrderID;
 	}
 	
 	/** */
 	public Integer getPaymentTypeID() {
-	
+    return this.paymentTypeID;
 	}
 	
 	/** */
 	public void setPaymentTypeID(Integer paymentTypeID) {
-	
+    this.paymentTypeID = paymentTypeID;
 	}
 	
 	/** */
 	public Double getPaymentAmount() {
-	
+    return this.paymentAmount;
 	}
 	
 	/** */
 	public void setPaymentAmount(Double paymentAmount) {
-	
+    this.paymentAmount = paymentAmount;
 	}
 	
 	/** */
 	public String getApprovalCode() {
-	
+    return this.approvalCode;
 	}
 	
 	/** */
 	public void setApprovalCode(String approvalCode) {
-	
+    this.approvalCode = approvalCode;
 	}
 }

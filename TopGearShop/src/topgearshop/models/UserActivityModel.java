@@ -13,6 +13,8 @@
 
 package topgearshop.models;
 
+import java.util.Date;
+
 
 /** */
 public class UserActivityModel {
@@ -33,51 +35,51 @@ public class UserActivityModel {
 	
 	/** */
 	public String getEmployeeID() {
-	
+    return this.employeeID;
 	}
 	
 	/** */
 	public void setEmployeeID(String employeeID) {
-	
+    this.employeeID = employeeID;
 	}
 	
 	/** */
 	public Integer getActivityTypeID() {
-	
+    return this.activityTypeID;
 	}
 	
 	/** */
 	public void setActivityTypeID(Integer activityTypeID) {
-	
+    this.activityTypeID = activityTypeID;
 	}
 	
 	/** */
 	public Integer getWorkOrderID() {
-	
+    return this.workOrderID;
 	}
 	
 	/** */
 	public void setWorkOrderID(Integer workOrderID) {
-	
+    this.workOrderID = workOrderID;
 	}
 	
 	/** */
 	public Integer getWorkOrderDetailID() {
-	
+    return this.workOrderDetailID;
 	}
 	
 	/** */
 	public void setWorkOrderDetailID(Integer workOrderDetailID) {
-	
+    this.workOrderDetailID = workOrderDetailID;
 	}
 	
 	/** */
 	public Date getDateTimeOfActivity() {
-	
+    return this.dateTimeOfActivity;
 	}
 	
 	/** */
 	public void setDateTimeOfActivity(Date dateTimeOfActivity) {
-	
+    this.dateTimeOfActivity = dateTimeOfActivity;
 	}
 }

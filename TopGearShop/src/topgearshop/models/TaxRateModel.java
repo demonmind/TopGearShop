@@ -27,31 +27,31 @@ public class TaxRateModel {
 	
 	/** */
 	public Integer getTaxRateID() {
-	
+    return this.taxRateID;
 	}
 	
 	/** */
 	public void setTaxRateID(Integer taxRateID) {
-	
+    this.taxRateID = taxRateID;
 	}
 	
 	/** */
 	public Double getTaxRate() {
-	
+    return this.taxRate;
 	}
 	
 	/** */
 	public void setTaxRate(Double taxRate) {
-	
+    this.taxRate = taxRate;
 	}
 	
 	/** */
 	public String getGoverningRequirer() {
-	
+    return this.governingRequirer;
 	}
 	
 	/** */
 	public void setGoverningRequirer(String governingRequirer) {
-	
+    this.governingRequirer = governingRequirer;
 	}
 }

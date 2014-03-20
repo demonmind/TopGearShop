@@ -13,6 +13,8 @@
 
 package topgearshop.models;
 
+import java.util.Date;
+
 
 /** */
 public class WorkOrderDetailsModel {
@@ -45,91 +47,91 @@ public class WorkOrderDetailsModel {
 	
 	/** */
 	public Integer getWorkOrderDetailID() {
-	
+    return this.workOrderDetailID;
 	}
 	
 	/** */
 	public void setWorkOrderDetailID(Integer workOrderDetailID) {
-	
+    this.workOrderDetailID = workOrderDetailID;
 	}
 	
 	/** */
 	public Integer getWorkOrderID() {
-	
+    return this.workOrderID;
 	}
 	
 	/** */
 	public void setWorkOrderID(Integer workOrderID) {
-	
+    this.workOrderID = workOrderID;
 	}
 	
 	/** */
 	public String getEmployeeID() {
-	
+    return this.employeeID;
 	}
 	
 	/** */
 	public void setEmployeeID(String employeeID) {
-	
+    this.employeeID = employeeID;
 	}
 	
 	/** */
 	public Integer getServiceItemID() {
-	
+    return this.serviceItemID;
 	}
 	
 	/** */
 	public void setServiceItemID(Integer serviceItemID) {
-	
+    this.serviceItemID = serviceItemID;
 	}
 	
 	/** */
 	public Date getStartTime() {
-	
+    return this.startTime;
 	}
 	
 	/** */
 	public void setStartTime(Date startTime) {
-	
+    this.startTime = startTime;
 	}
 	
 	/** */
 	public Date getEndTime() {
-	
+    return this.endTime;
 	}
 	
 	/** */
 	public void setEndTime(Date endTime) {
-	
+    this.endTime = endTime;
 	}
 	
 	/** */
 	public String getNotes() {
-	
+    return this.notes;
 	}
 	
 	/** */
 	public void setNotes(String notes) {
-	
+    this.notes = notes;
 	}
 	
 	/** */
 	public Double getMaterialsCost() {
-	
+    return this.materialsCost;
 	}
 	
 	/** */
 	public void setMaterialsCost(Double materialsCost) {
-	
+    this.materialsCost = materialsCost;
 	}
 	
 	/** */
 	public Double getWorkOrderDetailCost() {
-	
+    return this.workOrderDetailCost;
 	}
 	
 	/** */
 	public void setWorkOrderDetailCost(Double workOrderDetailCost) {
-	
+    this.workOrderDetailCost = workOrderDetailCost;
 	}
 }

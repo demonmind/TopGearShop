@@ -24,21 +24,21 @@ public class WarrantyModel {
 	
 	/** */
 	public Integer getWarrantyID() {
-	
+    return this.warrantyID;
 	}
 	
 	/** */
 	public void setWarrantyID(Integer warrantyID) {
-	
+    this.warrantyID = warrantyID;
 	}
 	
 	/** */
 	public String getWarranty() {
-	
+    return this.warranty;
 	}
 	
 	/** */
 	public void setWarranty(String warranty) {
-	
+    this.warranty = warranty;
 	}
 }

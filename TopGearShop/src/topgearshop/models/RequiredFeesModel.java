@@ -33,51 +33,51 @@ public class RequiredFeesModel {
 	
 	/** */
 	public Integer getRequiredFeeID() {
-	
+    return this.requiredFeeID;
 	}
 	
 	/** */
 	public void setRequiredFeeID(Integer requiredFeeID) {
-	
+    this.requiredFeeID = requiredFeeID;
 	}
 	
 	/** */
 	public Integer getServiceItemID() {
-	
+    return this.serviceItemID;
 	}
 	
 	/** */
 	public void setServiceItemID(Integer serviceItemID) {
-	
+    this.serviceItemID = serviceItemID;
 	}
 	
 	/** */
 	public Double getFeeAmount() {
-	
+    return this.feeAmount;
 	}
 	
 	/** */
 	public void setFeeAmount(Double feeAmount) {
-	
+    this.feeAmount = feeAmount;
 	}
 	
 	/** */
 	public Boolean getStateRequired() {
-	
+    return this.stateRequired;
 	}
 	
 	/** */
 	public void setStateRequired(Boolean stateRequired) {
-	
+    this.stateRequired = stateRequired;
 	}
 	
 	/** */
 	public Boolean getLocalMunicipalityRequired() {
-	
+    return this.localMunicipalityRequired;
 	}
 	
 	/** */
 	public void setLocalMunicipalityRequired(Boolean localMunicipalityRequired) {
-	
+    this.localMunicipalityRequired = localMunicipalityRequired;
 	}
 }

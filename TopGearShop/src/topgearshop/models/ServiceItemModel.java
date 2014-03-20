@@ -36,41 +36,41 @@ public class ServiceItemModel {
 	
 	/** */
 	public Integer getServiceItemID() {
-	
+    return this.serviceItemID;
 	}
 	
 	/** */
 	public void setServiceItemID(Integer serviceItemID) {
-	
+    this.serviceItemID = serviceItemID;
 	}
 	
 	/** */
 	public String getServiceItemName() {
-	
+    return this.serviceItemName;
 	}
 	
 	/** */
 	public void setServiceItemName(String serviceItemName) {
-	
+    this.serviceItemName = serviceItemName;
 	}
 	
 	/** */
 	public Double getServiceItemCost() {
-	
+    return this.serviceItemCost;
 	}
 	
 	/** */
 	public void setServiceItemCost(Double serviceItemCost) {
-	
+    this.serviceItemCost = serviceItemCost;
 	}
 	
 	/** */
 	public Integer getTimeRequiredToComplete() {
-	
+    return this.timeRequiredToComplete;
 	}
 	
 	/** */
-	public void setTimeRequiredToComplete(INteger timeRequiredToComplete) {
-	
+	public void setTimeRequiredToComplete(Integer timeRequiredToComplete) {
+    this.timeRequiredToComplete = timeRequiredToComplete;
 	}
 }

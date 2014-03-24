@@ -73,4 +73,24 @@ public class ServiceItemModel {
 	public void setTimeRequiredToComplete(Integer timeRequiredToComplete) {
     this.timeRequiredToComplete = timeRequiredToComplete;
 	}
+	
+	/** */
+	public Integer getMaterialListID() {
+    return this.materialListID;
+	}
+	
+	/** */
+	public void setMaterialListID(Integer materialListID) {
+    this.materialListID = materialListID;
+	}  
+	
+	/** */
+	public Integer getTaxRateID() {
+    return this.taxRateID;
+	}
+	
+	/** */
+	public void setTaxRateID(Integer taxRateID) {
+    this.taxRateID = taxRateID;
+	}   
 }

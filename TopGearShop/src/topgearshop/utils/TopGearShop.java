@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package topgearshop;
+package topgearshop.utils;
 
 /**
  *
@@ -17,6 +17,12 @@ public class TopGearShop {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+      CredentialsModel cm = new CredentialsModel();
+      MainWindow mw = new MainWindow();
+      mw.SetCredentialModel(cm);
+      mw.setVisible(true);
+      System.out.println(cm.getPassword());
+      System.out.println(cm.getUserName());
     }
     
 }

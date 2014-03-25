@@ -28,19 +28,138 @@ public class CreateEditWorkItemView extends javax.swing.JPanel {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
+    VehcilePanel = new javax.swing.JPanel();
+    buttonGroup1 = new javax.swing.ButtonGroup();
+    buttonGroup2 = new javax.swing.ButtonGroup();
+    formTitle = new javax.swing.JLabel();
+    CustomerPanel = new javax.swing.JPanel();
+    VehiclePanel = new javax.swing.JPanel();
+    jPanel1 = new javax.swing.JPanel();
+    jLabel2 = new javax.swing.JLabel();
+    jButton1 = new javax.swing.JButton();
+    jButton2 = new javax.swing.JButton();
+    jButton3 = new javax.swing.JButton();
+
+    javax.swing.GroupLayout VehcilePanelLayout = new javax.swing.GroupLayout(VehcilePanel);
+    VehcilePanel.setLayout(VehcilePanelLayout);
+    VehcilePanelLayout.setHorizontalGroup(
+      VehcilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGap(0, 400, Short.MAX_VALUE)
+    );
+    VehcilePanelLayout.setVerticalGroup(
+      VehcilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGap(0, 100, Short.MAX_VALUE)
+    );
+
+    formTitle.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+    formTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    formTitle.setText("Work Order");
+
+    CustomerPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+    javax.swing.GroupLayout CustomerPanelLayout = new javax.swing.GroupLayout(CustomerPanel);
+    CustomerPanel.setLayout(CustomerPanelLayout);
+    CustomerPanelLayout.setHorizontalGroup(
+      CustomerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGap(0, 376, Short.MAX_VALUE)
+    );
+    CustomerPanelLayout.setVerticalGroup(
+      CustomerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGap(0, 100, Short.MAX_VALUE)
+    );
+
+    VehiclePanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+    javax.swing.GroupLayout VehiclePanelLayout = new javax.swing.GroupLayout(VehiclePanel);
+    VehiclePanel.setLayout(VehiclePanelLayout);
+    VehiclePanelLayout.setHorizontalGroup(
+      VehiclePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGap(0, 379, Short.MAX_VALUE)
+    );
+    VehiclePanelLayout.setVerticalGroup(
+      VehiclePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGap(0, 100, Short.MAX_VALUE)
+    );
+
+    jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+    javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+    jPanel1.setLayout(jPanel1Layout);
+    jPanel1Layout.setHorizontalGroup(
+      jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGap(0, 0, Short.MAX_VALUE)
+    );
+    jPanel1Layout.setVerticalGroup(
+      jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGap(0, 365, Short.MAX_VALUE)
+    );
+
+    jLabel2.setText("Work Order Items");
+
+    jButton1.setText("Save");
+
+    jButton2.setText("Close");
+
+    jButton3.setText("Cancel");
+
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
     this.setLayout(layout);
     layout.setHorizontalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 400, Short.MAX_VALUE)
+      .addComponent(formTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+      .addGroup(layout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addGroup(layout.createSequentialGroup()
+            .addComponent(CustomerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(18, 18, 18)
+            .addComponent(VehiclePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+          .addGroup(layout.createSequentialGroup()
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addComponent(jLabel2)
+              .addGroup(layout.createSequentialGroup()
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addGap(18, 18, 18)
+                .addComponent(jButton3)))
+            .addGap(0, 0, Short.MAX_VALUE)))
+        .addContainerGap())
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 300, Short.MAX_VALUE)
+      .addGroup(layout.createSequentialGroup()
+        .addComponent(formTitle)
+        .addGap(18, 18, 18)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addComponent(CustomerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(VehiclePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addComponent(jLabel2)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(jButton1)
+          .addComponent(jButton2)
+          .addComponent(jButton3))
+        .addContainerGap())
     );
   }// </editor-fold>//GEN-END:initComponents
 
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JPanel CustomerPanel;
+  private javax.swing.JPanel VehcilePanel;
+  private javax.swing.JPanel VehiclePanel;
+  private javax.swing.ButtonGroup buttonGroup1;
+  private javax.swing.ButtonGroup buttonGroup2;
+  private javax.swing.JLabel formTitle;
+  private javax.swing.JButton jButton1;
+  private javax.swing.JButton jButton2;
+  private javax.swing.JButton jButton3;
+  private javax.swing.JLabel jLabel2;
+  private javax.swing.JPanel jPanel1;
   // End of variables declaration//GEN-END:variables
 }

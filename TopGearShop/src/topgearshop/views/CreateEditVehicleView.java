@@ -28,19 +28,159 @@ public class CreateEditVehicleView extends javax.swing.JPanel {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
+    jLabel1 = new javax.swing.JLabel();
+    jLabel2 = new javax.swing.JLabel();
+    jLabel3 = new javax.swing.JLabel();
+    jLabel4 = new javax.swing.JLabel();
+    jLabel5 = new javax.swing.JLabel();
+    jLabel6 = new javax.swing.JLabel();
+    jLabel7 = new javax.swing.JLabel();
+    VehicleIDNumber = new javax.swing.JTextField();
+    Year = new javax.swing.JTextField();
+    Make = new javax.swing.JTextField();
+    Model = new javax.swing.JTextField();
+    Color = new javax.swing.JTextField();
+    Mileage = new javax.swing.JTextField();
+    cmdSave = new javax.swing.JButton();
+    cmdClose = new javax.swing.JButton();
+    cmdCancel = new javax.swing.JButton();
+
+    setPreferredSize(new java.awt.Dimension(400, 300));
+
+    jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+    jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    jLabel1.setText("Create/Edit Vehicle");
+
+    jLabel2.setText("Vehicle ID Number (VIN):");
+
+    jLabel3.setText("Year:");
+
+    jLabel4.setText("Make:");
+
+    jLabel5.setText("Model:");
+
+    jLabel6.setText("Color:");
+
+    jLabel7.setText("Mileage:");
+
+    cmdSave.setText("Save");
+
+    cmdClose.setText("Close");
+
+    cmdCancel.setText("Cancel");
+
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
     this.setLayout(layout);
     layout.setHorizontalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 400, Short.MAX_VALUE)
+      .addGroup(layout.createSequentialGroup()
+        .addGap(12, 12, 12)
+        .addComponent(jLabel2)
+        .addGap(5, 5, 5)
+        .addComponent(VehicleIDNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
+      .addGroup(layout.createSequentialGroup()
+        .addGap(126, 126, 126)
+        .addComponent(jLabel3)
+        .addGap(5, 5, 5)
+        .addComponent(Year, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
+      .addGroup(layout.createSequentialGroup()
+        .addGap(122, 122, 122)
+        .addComponent(jLabel4)
+        .addGap(5, 5, 5)
+        .addComponent(Make, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
+      .addGroup(layout.createSequentialGroup()
+        .addGap(118, 118, 118)
+        .addComponent(jLabel5)
+        .addGap(5, 5, 5)
+        .addComponent(Model, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
+      .addGroup(layout.createSequentialGroup()
+        .addGap(122, 122, 122)
+        .addComponent(jLabel6)
+        .addGap(5, 5, 5)
+        .addComponent(Color, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
+      .addGroup(layout.createSequentialGroup()
+        .addGap(108, 108, 108)
+        .addComponent(jLabel7)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(Mileage, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
+      .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+          .addContainerGap()
+          .addComponent(cmdSave, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addGap(18, 18, 18)
+          .addComponent(cmdClose)
+          .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(cmdCancel)
+          .addContainerGap())
+        .addGroup(layout.createSequentialGroup()
+          .addGap(0, 0, Short.MAX_VALUE)
+          .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
     );
+
+    layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cmdCancel, cmdClose, cmdSave});
+
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 300, Short.MAX_VALUE)
+      .addGroup(layout.createSequentialGroup()
+        .addComponent(jLabel1)
+        .addGap(7, 7, 7)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(layout.createSequentialGroup()
+            .addGap(3, 3, 3)
+            .addComponent(jLabel2))
+          .addComponent(VehicleIDNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addGap(13, 13, 13)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(layout.createSequentialGroup()
+            .addGap(3, 3, 3)
+            .addComponent(jLabel3))
+          .addComponent(Year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addGap(13, 13, 13)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(layout.createSequentialGroup()
+            .addGap(3, 3, 3)
+            .addComponent(jLabel4))
+          .addComponent(Make, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addGap(13, 13, 13)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(layout.createSequentialGroup()
+            .addGap(3, 3, 3)
+            .addComponent(jLabel5))
+          .addComponent(Model, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addGap(13, 13, 13)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addComponent(jLabel6)
+          .addComponent(Color, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addGap(10, 10, 10)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(jLabel7)
+          .addComponent(Mileage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(cmdSave)
+          .addComponent(cmdClose)
+          .addComponent(cmdCancel))
+        .addContainerGap())
     );
   }// </editor-fold>//GEN-END:initComponents
 
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JTextField Color;
+  private javax.swing.JTextField Make;
+  private javax.swing.JTextField Mileage;
+  private javax.swing.JTextField Model;
+  private javax.swing.JTextField VehicleIDNumber;
+  private javax.swing.JTextField Year;
+  private javax.swing.JButton cmdCancel;
+  private javax.swing.JButton cmdClose;
+  private javax.swing.JButton cmdSave;
+  private javax.swing.JLabel jLabel1;
+  private javax.swing.JLabel jLabel2;
+  private javax.swing.JLabel jLabel3;
+  private javax.swing.JLabel jLabel4;
+  private javax.swing.JLabel jLabel5;
+  private javax.swing.JLabel jLabel6;
+  private javax.swing.JLabel jLabel7;
   // End of variables declaration//GEN-END:variables
 }

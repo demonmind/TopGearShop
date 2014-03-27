@@ -4,3 +4,6 @@
 *.jar
 *.war
 *.ear
+/TopGearShop/nbproject/private/
+/TopGearShop/build/
+/TopGearShop/dist/

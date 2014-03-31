@@ -28,19 +28,130 @@ public class FindUserView extends javax.swing.JPanel {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
+    lblFindUser = new javax.swing.JLabel();
+    jLabel1 = new javax.swing.JLabel();
+    jLabel2 = new javax.swing.JLabel();
+    jLabel3 = new javax.swing.JLabel();
+    FirstName = new javax.swing.JTextField();
+    LastName = new javax.swing.JTextField();
+    DateOfBirth = new javax.swing.JTextField();
+    cmdSubmit = new javax.swing.JButton();
+    cmdFind = new javax.swing.JButton();
+    cmdCancel = new javax.swing.JButton();
+    jLabel4 = new javax.swing.JLabel();
+    EmployeeID = new javax.swing.JLabel();
+
+    lblFindUser.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+    lblFindUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    lblFindUser.setText("Find User");
+
+    jLabel1.setText("First Name:");
+
+    jLabel2.setText("Last Name:");
+
+    jLabel3.setText("Date of Birth:");
+
+    cmdSubmit.setText("Submit");
+
+    cmdFind.setText("Find");
+    cmdFind.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        cmdFindActionPerformed(evt);
+      }
+    });
+
+    cmdCancel.setText("Cancel");
+    cmdCancel.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        cmdCancelActionPerformed(evt);
+      }
+    });
+
+    jLabel4.setText("Employee ID:");
+
+    EmployeeID.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
     this.setLayout(layout);
     layout.setHorizontalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 400, Short.MAX_VALUE)
+      .addComponent(lblFindUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+      .addGroup(layout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(layout.createSequentialGroup()
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+              .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jLabel3)
+                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
+              .addComponent(jLabel1))
+            .addGap(18, 18, 18)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addComponent(FirstName)
+              .addComponent(LastName)
+              .addComponent(DateOfBirth)))
+          .addGroup(layout.createSequentialGroup()
+            .addComponent(cmdSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+            .addComponent(cmdFind, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(18, 18, 18)
+            .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addGroup(layout.createSequentialGroup()
+            .addComponent(jLabel4)
+            .addGap(18, 18, 18)
+            .addComponent(EmployeeID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        .addContainerGap())
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 300, Short.MAX_VALUE)
+      .addGroup(layout.createSequentialGroup()
+        .addComponent(lblFindUser)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(FirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jLabel1))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(jLabel2)
+          .addComponent(LastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addGap(7, 7, 7)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(jLabel3)
+          .addComponent(DateOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(jLabel4)
+          .addComponent(EmployeeID, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(cmdSubmit)
+          .addComponent(cmdFind)
+          .addComponent(cmdCancel))
+        .addContainerGap())
     );
   }// </editor-fold>//GEN-END:initComponents
 
+  private void cmdCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCancelActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_cmdCancelActionPerformed
+
+  private void cmdFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdFindActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_cmdFindActionPerformed
+
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JTextField DateOfBirth;
+  private javax.swing.JLabel EmployeeID;
+  private javax.swing.JTextField FirstName;
+  private javax.swing.JTextField LastName;
+  private javax.swing.JButton cmdCancel;
+  private javax.swing.JButton cmdFind;
+  private javax.swing.JButton cmdSubmit;
+  private javax.swing.JLabel jLabel1;
+  private javax.swing.JLabel jLabel2;
+  private javax.swing.JLabel jLabel3;
+  private javax.swing.JLabel jLabel4;
+  private javax.swing.JLabel lblFindUser;
   // End of variables declaration//GEN-END:variables
 }

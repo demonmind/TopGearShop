@@ -6,7 +6,7 @@ import java.sql.SQLException;
 public class ConnectionManager
 {
 	public static Connection getConnection() throws ClassNotFoundException, SQLException {
-	    String connURL = "jdbc:sqlite:data/database.db";
+	    String connURL = "jdbc:sqlite:data/main";
 	    Class.forName("org.sqlite.JDBC");
 	    Connection con = DriverManager.getConnection(connURL);
 	    return con;

@@ -36,9 +36,12 @@ public class CreateEditWorkItemView extends javax.swing.JPanel {
     VehiclePanel = new javax.swing.JPanel();
     jPanel1 = new javax.swing.JPanel();
     jLabel2 = new javax.swing.JLabel();
-    jButton1 = new javax.swing.JButton();
-    jButton2 = new javax.swing.JButton();
-    jButton3 = new javax.swing.JButton();
+    cmdSave = new javax.swing.JButton();
+    cmdClose = new javax.swing.JButton();
+    cmdCancel = new javax.swing.JButton();
+    jLabel1 = new javax.swing.JLabel();
+    jLabel3 = new javax.swing.JLabel();
+    WorkOrderNumber = new javax.swing.JLabel();
 
     javax.swing.GroupLayout VehcilePanelLayout = new javax.swing.GroupLayout(VehcilePanel);
     VehcilePanel.setLayout(VehcilePanelLayout);
@@ -74,7 +77,7 @@ public class CreateEditWorkItemView extends javax.swing.JPanel {
     VehiclePanel.setLayout(VehiclePanelLayout);
     VehiclePanelLayout.setHorizontalGroup(
       VehiclePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 379, Short.MAX_VALUE)
+      .addGap(0, 0, Short.MAX_VALUE)
     );
     VehiclePanelLayout.setVerticalGroup(
       VehiclePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,7 +90,7 @@ public class CreateEditWorkItemView extends javax.swing.JPanel {
     jPanel1.setLayout(jPanel1Layout);
     jPanel1Layout.setHorizontalGroup(
       jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 0, Short.MAX_VALUE)
+      .addGap(0, 774, Short.MAX_VALUE)
     );
     jPanel1Layout.setVerticalGroup(
       jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,11 +99,13 @@ public class CreateEditWorkItemView extends javax.swing.JPanel {
 
     jLabel2.setText("Work Order Items");
 
-    jButton1.setText("Save");
+    cmdSave.setText("Save");
 
-    jButton2.setText("Close");
+    cmdClose.setText("Close");
 
-    jButton3.setText("Cancel");
+    cmdCancel.setText("Cancel");
+
+    jLabel3.setText("Work Order Number:");
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
     this.setLayout(layout);
@@ -110,20 +115,27 @@ public class CreateEditWorkItemView extends javax.swing.JPanel {
       .addGroup(layout.createSequentialGroup()
         .addContainerGap()
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addGroup(layout.createSequentialGroup()
-            .addComponent(CustomerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(18, 18, 18)
-            .addComponent(VehiclePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
           .addGroup(layout.createSequentialGroup()
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addComponent(jLabel2)
+              .addComponent(CustomerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(jLabel2))
+            .addGap(18, 18, 18)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
               .addGroup(layout.createSequentialGroup()
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)))
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(WorkOrderNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addGap(62, 62, 62))
+              .addComponent(VehiclePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+          .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addGroup(layout.createSequentialGroup()
+            .addComponent(cmdSave)
+            .addGap(18, 18, 18)
+            .addComponent(cmdClose)
+            .addGap(18, 18, 18)
+            .addComponent(cmdCancel)
             .addGap(0, 0, Short.MAX_VALUE)))
         .addContainerGap())
     );
@@ -136,14 +148,18 @@ public class CreateEditWorkItemView extends javax.swing.JPanel {
           .addComponent(CustomerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(VehiclePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addComponent(jLabel2)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(jLabel2)
+          .addComponent(jLabel1)
+          .addComponent(jLabel3)
+          .addComponent(WorkOrderNumber))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-          .addComponent(jButton1)
-          .addComponent(jButton2)
-          .addComponent(jButton3))
+          .addComponent(cmdSave)
+          .addComponent(cmdClose)
+          .addComponent(cmdCancel))
         .addContainerGap())
     );
   }// </editor-fold>//GEN-END:initComponents
@@ -153,13 +169,16 @@ public class CreateEditWorkItemView extends javax.swing.JPanel {
   private javax.swing.JPanel CustomerPanel;
   private javax.swing.JPanel VehcilePanel;
   private javax.swing.JPanel VehiclePanel;
+  private javax.swing.JLabel WorkOrderNumber;
   private javax.swing.ButtonGroup buttonGroup1;
   private javax.swing.ButtonGroup buttonGroup2;
+  private javax.swing.JButton cmdCancel;
+  private javax.swing.JButton cmdClose;
+  private javax.swing.JButton cmdSave;
   private javax.swing.JLabel formTitle;
-  private javax.swing.JButton jButton1;
-  private javax.swing.JButton jButton2;
-  private javax.swing.JButton jButton3;
+  private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
+  private javax.swing.JLabel jLabel3;
   private javax.swing.JPanel jPanel1;
   // End of variables declaration//GEN-END:variables
 }

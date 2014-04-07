@@ -40,9 +40,6 @@ public class LoginController {
                 @Override public void windowClosing(WindowEvent we){
                 }
                                  });
-      
-      
-      
       modalDialog.add(loginView);
       modalDialog.setTitle("Top Gear System - Logon");
       credentials = new CredentialsModel();
@@ -54,16 +51,6 @@ public class LoginController {
     public CredentialsModel getCredentials()
     {
       return this.credentials;
-    }
-    private void ValidateCredentials()
-    {
-      credentials.setUserName(loginView.UserName.getText());
-      credentials.setPassword(loginView.Password.getText());
-      successfulLogin = topgearshop.utils.TestStubs.ValidateLogin(credentials);
-      if(successfulLogin)
-      {
-
-      }
     }
     
     public void validate(){
@@ -103,13 +90,6 @@ public class LoginController {
       credentials.setUserName(loginView.UserName.getText());
       credentials.setPassword(loginView.Password.getText());
         validate();
-    }
-    }
-    class SubmitActionListener implements ActionListener{
-    @Override
-    public void actionPerformed(ActionEvent ae) {
-      //System.out.println(jp.getSubmitText());
-      ValidateCredentials();
     }
   }
 }

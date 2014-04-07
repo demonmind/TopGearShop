@@ -8,172 +8,240 @@ package topgearshop.controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.HashSet;
-import java.util.Set;
-import javax.swing.JDialog;
-import topgearshop.models.*;
 import topgearshop.views.*;
+import topgearshop.models.*;
+
 /**
  *
  * @author rmattaway
  */
 public class TopGearShopMainUIController {
-  private TopGearShopMainUI tgsMainUI;
-  private ActivityTypeModel activityTypeModel;
-  private CredentialsModel credentialsModel;
+  private TopGearMainUI tgsUI;
+  private CredentialsModel credentials;
   
-  public TopGearShopMainUIController(){
-    tgsMainUI = new TopGearShopMainUI();
-    tgsMainUI.setChangePasswordAction(new ChangePasswordListener());
-    tgsMainUI.setCreateCustomerAction(new CreateCustomerListener());
-    tgsMainUI.setCreateInventoryAction(new CreateInventoryListener());
-    tgsMainUI.setCreateServiceAction(new CreateServiceListener());
-    tgsMainUI.setCreateUserAction(new CreateUserListener());
+  public TopGearShopMainUIController(CredentialsModel cm)
+  {
+    tgsUI = new TopGearMainUI();
+    tgsUI.setVisible(true);
+    credentials = cm;
+    tgsUI.setChangePasswordActionListener(new ChangePasswordListener());
+    tgsUI.setCompleteWorkOrderActionListener(new CompleteWorkOrderListener());
+    tgsUI.setCreateCustomerActionListener(new CreateCustomerListener());
+    tgsUI.setCreateInventoryActionListener(new CreateInventoryListener());
+    tgsUI.setCreateServiceActionListener(new CreateServiceListener());
+    tgsUI.setCreateUserActionListener(new CreateUserListener());
+    tgsUI.setCreateVehicleActionListener(new CreateVehicleListener());
+    tgsUI.setCreateWarrantyActionListener(new CreateWarrantyListener());
+    tgsUI.setCreateWorkOrderActionListener(new CreateWorkOrderListener());
+    tgsUI.setCustomerReportActionListener(new CustomerReportListener());
+    tgsUI.setEditCustomerActionListener(new EditCustomerListener());
+    tgsUI.setEditInventoryActionListener(new EditInventoryListener());
+    tgsUI.setEditServiceActionListener(new EditServiceListener());
+    tgsUI.setEditUserActionListener(new EditUserListener());
+    tgsUI.setEditVehicleActionListener(new EditVehicleListener());
+    tgsUI.setEditWarrantyActionListener(new EditWarrantyListener());
+    tgsUI.setEditWorkOrderActionListener(new EditWorkOrderListener());
+    tgsUI.setFindCustomerActionListener(new FindCustomerListener());
+    tgsUI.setFindInventoryActionListener(new FindInventoryListener());
+    tgsUI.setFindUserActionListener(new FindUserListener());
+    tgsUI.setFindVehicleActionListener(new FindVehicleListener());
+    tgsUI.setFindWarrantyActionListener(new FindWarrantyListener());
+    tgsUI.setFindWorkOrderActionListener(new FindWorkOrderListener());
+    tgsUI.setHoursWorkedReportActionListener(new HoursWorkedReportListener());
+    tgsUI.setProfitReportActionListener(new ProfitReportListener());
+    tgsUI.setRemoveInventoryActionListener(new RemoveInventoryListener());
+    tgsUI.setRemoveServiceActionListener(new RemoveServiceListener());
+    tgsUI.setRemoveWarrantyActionListener(new RemoveWarrantyListener());
+    tgsUI.setServicesPerformedActionListener(new ServicesPerformedListener());
+    tgsUI.setTechnicianReportActionListener(new TechnicianReportListener());
+    tgsUI.setVehicleHistoryActionListener(new VehicleHistoryListener());
+  }
+  public class ChangePasswordListener implements ActionListener{
     
-  }
-  public void setActivityModel(ActivityTypeModel am)
-  {
-    this.activityTypeModel = am;
-    tgsMainUI.viewActivity.setActiveActivity(am.getActivityName());
-  }
-  public void setCredentialsModel(CredentialsModel cm)
-  {
-    this.credentialsModel = cm;
-    tgsMainUI.viewActivity.setActiveUser(cm.getUserName());
-  }
-  public void showView()
-  {
-    tgsMainUI.setVisible(true);
-  }
-  
-  
-  
-  
-  
-  /* Action methods to create all controllers and views */
-  class ChangePasswordListener implements ActionListener{
+    @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("You want to change your password");
+      System.out.println("The ChangePassword event listner was called");
     }
   }
-  class CreateCustomerListener implements ActionListener{
+class CompleteWorkOrderListener implements ActionListener{
+    @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("You want to create a customer");
+      System.out.println("The CompleteWorkOrder event listner was called");
     }
   }
-  class CreateInventoryListener implements ActionListener{
+class CreateCustomerListener implements ActionListener{
+    @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("You want to create inventory");
+      System.out.println("The CreateCustomer event listner was called");
     }
   }
-  class CreateServiceListener implements ActionListener{
+class CreateInventoryListener implements ActionListener{
+    @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("You want to create a service provided by the shop");
+      System.out.println("The CreateInventory event listner was called");
     }
   }
-  class CreateUserListener implements ActionListener{
+class CreateServiceListener implements ActionListener{
+    @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("You want to create a user");
+      System.out.println("The CreateService event listner was called");
     }
   }
-  class CreateVehicleListener implements ActionListener{
+class CreateUserListener implements ActionListener{
+    @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("You want to create a vehicle");
+      System.out.println("The CreateUser event listner was called");
     }
   }
-  class CreateWarrantyListener implements ActionListener{
+class CreateVehicleListener implements ActionListener{
+    @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("You want to create a warranty");
+      System.out.println("The CreateVehicle event listner was called");
     }
   }
-  class CreateCustomerReportListener implements ActionListener{
+class CreateWarrantyListener implements ActionListener{
+    @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("You want to create a customer report");
+      System.out.println("The CreateWarranty event listner was called");
     }
   }
-  class EditCustomerListener implements ActionListener{
+class CreateWorkOrderListener implements ActionListener{
+    @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("You want to edit a customer");
+      System.out.println("The CreateWorkOrder event listner was called");
     }
   }
-  class EditInventoryListener implements ActionListener{
+class CustomerReportListener implements ActionListener{
+    @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("You want to edit inventory");
+      System.out.println("The CustomerReport event listner was called");
     }
   }
-  class EditServiceListener implements ActionListener{
+class EditCustomerListener implements ActionListener{
+    @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("You want to edit a service the shop provides");
+      System.out.println("The EditCustomer event listner was called");
     }
   }
-  class EditUserListener implements ActionListener{
+class EditInventoryListener implements ActionListener{
+    @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("You want to edit a user");
+      System.out.println("The EditInventory event listner was called");
     }
   }
-  class EditVehicleListener implements ActionListener{
+class EditServiceListener implements ActionListener{
+    @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("You want to edit a vehicle");
+      System.out.println("The EditService event listner was called");
     }
   }
-  class EditWarrantyListener implements ActionListener{
+class EditUserListener implements ActionListener{
+    @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("You want to edit a warranty");
+      System.out.println("The EditUser event listner was called");
     }
   }
-  class FindCustomerListener implements ActionListener{
+class EditVehicleListener implements ActionListener{
+    @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("You want to find a customer");
+      System.out.println("The EditVehicle event listner was called");
     }
   }
-  class FindInventoryListener implements ActionListener{
+class EditWarrantyListener implements ActionListener{
+    @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("You want to find inventory");
+      System.out.println("The EditWarranty event listner was called");
     }
   }
-  class FindUserListener implements ActionListener{
+class EditWorkOrderListener implements ActionListener{
+    @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("You want to find a user");
+      System.out.println("The EditWorkOrder event listner was called");
     }
   }
-  class FindVehicleListener implements ActionListener{
+class FindCustomerListener implements ActionListener{
+    @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("You want to find a vehicle");
+      System.out.println("The FindCustomer event listner was called");
     }
   }
-  class CreateHoursWorkedReportListener implements ActionListener{
+class FindInventoryListener implements ActionListener{
+    @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("You want to create an hours worked report");
+      System.out.println("The FindInventory event listner was called");
     }
   }
-  class CreateProfitReportListener implements ActionListener{
+class FindUserListener implements ActionListener{
+    @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("You want to create a profit report");
+      System.out.println("The FindUser event listner was called");
     }
   }
-  class RemoveServiceListener implements ActionListener{
+class FindVehicleListener implements ActionListener{
+    @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("You want to remove a service provided by the shop");
+      System.out.println("The FindVehicle event listner was called");
     }
   }
-  class RemoveWarrantyListener implements ActionListener{
+class FindWarrantyListener implements ActionListener{
+    @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("You want to remove a warranty that is no longer required");
+      System.out.println("The FindWarranty event listner was called");
     }
   }
-  class CreateServicesPerformedReportListener implements ActionListener{
+class FindWorkOrderListener implements ActionListener{
+    @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("You want to create  a services performed report");
+      System.out.println("The FindWorkOrder event listner was called");
     }
   }
-  class CreateTechnicianReportListener implements ActionListener{
+class HoursWorkedReportListener implements ActionListener{
+    @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("You want to create a technician report");
+      System.out.println("The HoursWorkedReport event listner was called");
     }
   }
-  class CreateVehicleHistoryReportListener implements ActionListener{
+class ProfitReportListener implements ActionListener{
+    @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("You want to create a vehicle history report");
+      System.out.println("The ProfitReport event listner was called");
     }
   }
+class RemoveInventoryListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      System.out.println("The RemoveInventory event listner was called");
+    }
+  }
+class RemoveServiceListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      System.out.println("The RemoveService event listner was called");
+    }
+  }
+class RemoveWarrantyListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      System.out.println("The RemoveWarranty event listner was called");
+    }
+  }
+class ServicesPerformedListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      System.out.println("The ServicesPerformed event listner was called");
+    }
+  }
+class TechnicianReportListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      System.out.println("The TechnicianReport event listner was called");
+    }
+  }
+class VehicleHistoryListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      System.out.println("The VehicleHistory event listner was called");
+    }
+  }
+
 }

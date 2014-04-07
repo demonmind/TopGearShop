@@ -6,6 +6,8 @@
 
 package topgearshop.utils;
 
+import topgearshop.models.CredentialsModel;
+
 
 /**
  *

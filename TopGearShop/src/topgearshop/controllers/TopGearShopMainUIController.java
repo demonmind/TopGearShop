@@ -60,6 +60,7 @@ public class TopGearShopMainUIController {
     
     @Override
     public void actionPerformed(ActionEvent e){
+      ChangePasswordController changePassword = new ChangePasswordController(credentials);
       System.out.println("The ChangePassword event listner was called");
     }
   }

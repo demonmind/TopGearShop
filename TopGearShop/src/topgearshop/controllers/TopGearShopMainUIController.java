@@ -73,6 +73,8 @@ class CompleteWorkOrderListener implements ActionListener{
 class CreateCustomerListener implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
+      CreateEditCustomerController customerController = new CreateEditCustomerController(null);
+      
       System.out.println("The CreateCustomer event listner was called");
     }
   }

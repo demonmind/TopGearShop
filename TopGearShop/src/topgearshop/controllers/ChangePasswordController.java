@@ -11,7 +11,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import topgearshop.models.CredentialsModel;
+import topgearshop.utils.DataAccessLayer;
 import topgearshop.views.ChangePassword;
 
 /**
@@ -41,6 +43,8 @@ public class ChangePasswordController {
       modalDialog.setModal(true);
       modalDialog.pack();
       modalDialog.setVisible(true);
+      
+      
   }
   
   
@@ -49,6 +53,17 @@ public class ChangePasswordController {
     @Override
     public void actionPerformed(ActionEvent e){
       System.out.println("The Submit New Password event listner was called");
+      String newPassword = cpwd.NewPassword.getText();
+      String ConfirmPassword = cpwd.ConfirmNewPassword.getText();
+      String oldPassword = cpwd.OldPassword.getText();
+      if(newPassword.equals(ConfirmPassword)&&credentials.getPassword().equals(oldPassword))
+      {
+        boolean success = DataAccessLayer.ChangePassword(credentials, newPassword);
+        System.out.println(success);
+      }
+      else{
+        JOptionPane.showMessageDialog(null, "The update to your password was not successful. Try again.", "Information",JOptionPane.INFORMATION_MESSAGE);
+      }
       modalDialog.dispose();
     }
   }

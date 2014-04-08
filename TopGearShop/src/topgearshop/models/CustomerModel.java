@@ -109,7 +109,7 @@ public class CustomerModel {
 	}
 	
 	/** */
-	public void setCitty(String city) {
+	public void setCity(String city) {
     this.city = city;
 	}
 	

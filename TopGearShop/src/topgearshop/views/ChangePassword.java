@@ -40,9 +40,9 @@ public class ChangePassword extends javax.swing.JPanel {
     jLabel1 = new javax.swing.JLabel();
     jLabel2 = new javax.swing.JLabel();
     jLabel3 = new javax.swing.JLabel();
-    jPasswordField1 = new javax.swing.JPasswordField();
-    jPasswordField2 = new javax.swing.JPasswordField();
-    jPasswordField3 = new javax.swing.JPasswordField();
+    OldPassword = new javax.swing.JPasswordField();
+    NewPassword = new javax.swing.JPasswordField();
+    ConfirmNewPassword = new javax.swing.JPasswordField();
     cmdSubmit = new javax.swing.JButton();
     cmdCancel = new javax.swing.JButton();
 
@@ -51,12 +51,6 @@ public class ChangePassword extends javax.swing.JPanel {
     jLabel2.setText("New Password:");
 
     jLabel3.setText("Confirm Password:");
-
-    jPasswordField1.setText("jPasswordField1");
-
-    jPasswordField2.setText("jPasswordField2");
-
-    jPasswordField3.setText("jPasswordField3");
 
     cmdSubmit.setText("Submit");
 
@@ -75,13 +69,11 @@ public class ChangePassword extends javax.swing.JPanel {
           .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addGroup(layout.createSequentialGroup()
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(jPasswordField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGap(0, 0, Short.MAX_VALUE))
-          .addComponent(cmdCancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+          .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            .addComponent(NewPassword)
+            .addComponent(OldPassword)
+            .addComponent(ConfirmNewPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))
+          .addComponent(cmdCancel, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))
         .addContainerGap())
     );
     layout.setVerticalGroup(
@@ -90,15 +82,15 @@ public class ChangePassword extends javax.swing.JPanel {
         .addContainerGap()
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel1)
-          .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addComponent(OldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel2)
-          .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addComponent(NewPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel3)
-          .addComponent(jPasswordField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addComponent(ConfirmNewPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(cmdCancel)
@@ -109,13 +101,13 @@ public class ChangePassword extends javax.swing.JPanel {
 
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  public javax.swing.JPasswordField ConfirmNewPassword;
+  public javax.swing.JPasswordField NewPassword;
+  public javax.swing.JPasswordField OldPassword;
   private javax.swing.JButton cmdCancel;
   private javax.swing.JButton cmdSubmit;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
   private javax.swing.JLabel jLabel3;
-  private javax.swing.JPasswordField jPasswordField1;
-  private javax.swing.JPasswordField jPasswordField2;
-  private javax.swing.JPasswordField jPasswordField3;
   // End of variables declaration//GEN-END:variables
 }

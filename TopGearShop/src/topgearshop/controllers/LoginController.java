@@ -28,7 +28,7 @@ import topgearshop.views.LoginView;
 public class LoginController {
   private final LoginView loginView;
   private final CredentialsModel credentials;
-  JDialog modalDialog;
+  private JDialog modalDialog;
   private Boolean successfulLogin = false;
     public LoginController()
     {
@@ -68,8 +68,9 @@ public class LoginController {
             resultSet = statement.executeQuery();
             
             while(resultSet.next()){
+                credentials.setEmployeeID(resultSet.getString(1));
                 exists = true;
-                JOptionPane.showMessageDialog(null, "Login Successful! Hello " + credentials.getUserName(),"Information",JOptionPane.INFORMATION_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "Login Successful! Hello " + credentials.getUserName(),"Information",JOptionPane.INFORMATION_MESSAGE);
                 modalDialog.dispose();
             
             }

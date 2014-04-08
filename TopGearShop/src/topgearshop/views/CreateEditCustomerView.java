@@ -6,6 +6,8 @@
 
 package topgearshop.views;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author rmattaway
@@ -28,7 +30,6 @@ public class CreateEditCustomerView extends javax.swing.JPanel {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
-    lblTitle = new javax.swing.JLabel();
     jLabel1 = new javax.swing.JLabel();
     jLabel2 = new javax.swing.JLabel();
     jLabel3 = new javax.swing.JLabel();
@@ -45,13 +46,8 @@ public class CreateEditCustomerView extends javax.swing.JPanel {
     PhoneNumber = new javax.swing.JTextField();
     State = new javax.swing.JTextField();
     EmailAddress = new javax.swing.JTextField();
-    cmdSave = new javax.swing.JButton();
-    cmdClose = new javax.swing.JButton();
+    cmdSubmit = new javax.swing.JButton();
     cmdCancel = new javax.swing.JButton();
-
-    lblTitle.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-    lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    lblTitle.setText("Create/Edit Customer");
 
     jLabel1.setText("First Name:");
 
@@ -69,14 +65,7 @@ public class CreateEditCustomerView extends javax.swing.JPanel {
 
     jLabel8.setText("Email:");
 
-    cmdSave.setText("Save");
-    cmdSave.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        cmdSaveActionPerformed(evt);
-      }
-    });
-
-    cmdClose.setText("Close");
+    cmdSubmit.setText("Submit");
 
     cmdCancel.setText("Cancel");
 
@@ -84,61 +73,55 @@ public class CreateEditCustomerView extends javax.swing.JPanel {
     this.setLayout(layout);
     layout.setHorizontalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
       .addGroup(layout.createSequentialGroup()
         .addContainerGap()
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addGroup(layout.createSequentialGroup()
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                  .addGroup(layout.createSequentialGroup()
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                      .addComponent(jLabel7)
-                      .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                      .addComponent(PhoneNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                      .addComponent(EmailAddress)))
-                  .addGroup(layout.createSequentialGroup()
-                    .addComponent(jLabel1)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(FirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                  .addComponent(jLabel4)
-                  .addComponent(jLabel2)
-                  .addComponent(jLabel5)
-                  .addComponent(jLabel6)))
-              .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(StreetAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addGroup(layout.createSequentialGroup()
-                .addComponent(LastName, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
               .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                  .addComponent(City, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                  .addComponent(State, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                  .addComponent(ZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                  .addComponent(jLabel7)
+                  .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                  .addComponent(PhoneNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                  .addComponent(EmailAddress)))
+              .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(FirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGap(19, 19, 19)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+              .addComponent(jLabel4)
+              .addComponent(jLabel2)
+              .addComponent(jLabel5)
+              .addComponent(jLabel6)))
           .addGroup(layout.createSequentialGroup()
-            .addGap(64, 64, 64)
-            .addComponent(cmdSave, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(18, 18, 18)
-            .addComponent(cmdClose, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(18, 18, 18)
-            .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jLabel3)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(StreetAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(layout.createSequentialGroup()
+            .addComponent(LastName, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(0, 0, Short.MAX_VALUE))
+          .addGroup(layout.createSequentialGroup()
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addComponent(City, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(State, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(ZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addComponent(cmdSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addGap(175, 175, 175))
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(layout.createSequentialGroup()
-        .addComponent(lblTitle)
-        .addGap(31, 31, 31)
+        .addContainerGap()
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(FirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jLabel2)
@@ -167,32 +150,33 @@ public class CreateEditCustomerView extends javax.swing.JPanel {
           .addComponent(jLabel6)
           .addComponent(EmailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jLabel8))
-        .addGap(18, 18, 18)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-          .addComponent(cmdSave)
-          .addComponent(cmdClose)
-          .addComponent(cmdCancel))
-        .addGap(0, 6, Short.MAX_VALUE))
+          .addComponent(cmdCancel)
+          .addComponent(cmdSubmit))
+        .addContainerGap())
     );
   }// </editor-fold>//GEN-END:initComponents
 
-  private void cmdSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdSaveActionPerformed
-    // TODO add your handling code here:
-  }//GEN-LAST:event_cmdSaveActionPerformed
-
-
+  public void setSubmitActionHandler(ActionListener al)
+  {
+    cmdSubmit.addActionListener(al);
+  }
+  public void setCancelActionListener(ActionListener al)
+  {
+    cmdCancel.addActionListener(al);
+  }  
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JTextField City;
-  private javax.swing.JTextField EmailAddress;
-  private javax.swing.JTextField FirstName;
-  private javax.swing.JTextField LastName;
-  private javax.swing.JTextField PhoneNumber;
-  private javax.swing.JTextField State;
-  private javax.swing.JTextField StreetAddress;
-  private javax.swing.JTextField ZipCode;
+  public javax.swing.JTextField City;
+  public javax.swing.JTextField EmailAddress;
+  public javax.swing.JTextField FirstName;
+  public javax.swing.JTextField LastName;
+  public javax.swing.JTextField PhoneNumber;
+  public javax.swing.JTextField State;
+  public javax.swing.JTextField StreetAddress;
+  public javax.swing.JTextField ZipCode;
   private javax.swing.JButton cmdCancel;
-  private javax.swing.JButton cmdClose;
-  private javax.swing.JButton cmdSave;
+  private javax.swing.JButton cmdSubmit;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
   private javax.swing.JLabel jLabel3;
@@ -201,6 +185,5 @@ public class CreateEditCustomerView extends javax.swing.JPanel {
   private javax.swing.JLabel jLabel6;
   private javax.swing.JLabel jLabel7;
   private javax.swing.JLabel jLabel8;
-  private javax.swing.JLabel lblTitle;
   // End of variables declaration//GEN-END:variables
 }

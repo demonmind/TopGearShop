@@ -5,27 +5,52 @@
  */
 
 package topgearshop.controllers;
+
 import topgearshop.views.LoginView;
 import topgearshop.models.CredentialsModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 import javax.swing.JOptionPane;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import javax.swing.JDialog;
+import topgearshop.utils.ConnectionManager;
+import topgearshop.views.LoginView;
+
 /**
  *
  * @author rmattaway
  */
 public class LoginController {
-  
-    private LoginView loginView;
-    private CredentialsModel credentialsModel;
-    
-    public LoginController(LoginView loginView, CredentialsModel credentialsModel){
-    
-        this.loginView = loginView;
-        this.credentialsModel = credentialsModel;
-        
-        this.loginView.addloginListener(new LoginListener());
+  private final LoginView loginView;
+  private final CredentialsModel credentials;
+  private JDialog modalDialog;
+  private Boolean successfulLogin = false;
+    public LoginController()
+    {
+      loginView = new LoginView();
+      modalDialog = new JDialog();
+      modalDialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+      modalDialog.addWindowListener(
+              new WindowAdapter(){
+                @Override public void windowClosing(WindowEvent we){
+                }
+                                 });
+      modalDialog.add(loginView);
+      modalDialog.setTitle("Top Gear System - Logon");
+      credentials = new CredentialsModel();
+      loginView.setSubmitActionHandler(new LoginListener());
+      modalDialog.setModal(true);
+      modalDialog.pack();
+      modalDialog.setVisible(true);
+    }
+    public CredentialsModel getCredentials()
+    {
+      return this.credentials;
     }
     
     public void validate(){
@@ -35,15 +60,18 @@ public class LoginController {
         ResultSet resultSet = null;
         try{
             Class.forName("org.sqlite.JDBC");
-            Connection conn = DriverManager.getConnection("jdbc:sqlite:/Users/Allan/csc4350.db");
-            statement = (PreparedStatement) conn.prepareStatement("select * from users where userName=? and password=?");
-            statement.setString(1,credentialsModel.getUserName());
-            statement.setString(2,credentialsModel.getPassword());
+            Connection conn = ConnectionManager.getConnection();
+            
+            statement = (PreparedStatement) conn.prepareStatement("select * from credentials where userName=? and password=?");
+            statement.setString(1,credentials.getUserName());
+            statement.setString(2,credentials.getPassword());
             resultSet = statement.executeQuery();
             
             while(resultSet.next()){
+                credentials.setEmployeeID(resultSet.getString(1));
                 exists = true;
-                JOptionPane.showMessageDialog(null, "Login Successful! Hello " + credentialsModel.getUserName(),"Information",JOptionPane.INFORMATION_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "Login Successful! Hello " + credentials.getUserName(),"Information",JOptionPane.INFORMATION_MESSAGE);
+                modalDialog.dispose();
             
             }
                 
@@ -60,10 +88,10 @@ public class LoginController {
     class LoginListener implements ActionListener{
     
     public void actionPerformed(ActionEvent e){
-        credentialsModel.setUserName(loginView.getUserName());
-        credentialsModel.setPassword(loginView.getUserPassword());
+      credentials.setUserName(loginView.UserName.getText());
+      credentials.setPassword(loginView.Password.getText());
         validate();
     }
-    }
+  }
 }
 

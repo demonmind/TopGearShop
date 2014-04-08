@@ -6,6 +6,10 @@
 
 package topgearshop.utils;
 
+import topgearshop.controllers.*;
+import topgearshop.models.CredentialsModel;
+import topgearshop.views.*;
+
 /**
  *
  * @author kleon
@@ -18,11 +22,8 @@ public class TopGearShop {
     public static void main(String[] args) {
         // TODO code application logic here
       CredentialsModel cm = new CredentialsModel();
-      MainWindow mw = new MainWindow();
-      mw.SetCredentialModel(cm);
-      mw.setVisible(true);
-      System.out.println(cm.getPassword());
-      System.out.println(cm.getUserName());
+      LoginController lc = new LoginController();
+      cm = lc.getCredentials();
+      TopGearShopMainUIController tgsUI = new TopGearShopMainUIController(cm);
     }
-    
 }

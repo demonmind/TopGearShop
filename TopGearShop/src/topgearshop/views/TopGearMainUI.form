@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="activityView1" max="32767" attributes="0"/>
+                  <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                                      <Component id="pnlWorkOrders" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="lblReports" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="pnlWorkOrders5" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="pnlCustomers" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblWarranty" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="pnlWarranties" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                              <Component id="lblWorkOrders" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
+                              <Component id="lblCustomers" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="lblInventory" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="pnlWorkOrders7" alignment="0" max="32767" attributes="0"/>
+                              <Component id="pnlVehicles" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="lblVehicles" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="pnlServices" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblServiceItems" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblUsers" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="pnlWorkOrders6" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
+              <Component id="activityView1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblWorkOrders" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblCustomers" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="pnlWorkOrders" min="-2" max="-2" attributes="0"/>
+                          <Component id="pnlCustomers" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblUsers" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="pnlWorkOrders6" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblWarranty" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="pnlWarranties" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="lblInventory" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="pnlWorkOrders7" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lblReports" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <Component id="pnlWorkOrders5" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblVehicles" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblServiceItems" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="pnlVehicles" min="-2" max="-2" attributes="0"/>
+                          <Component id="pnlServices" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="topgearshop.views.ActivityView" name="activityView1">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="24" style="1"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Top Gear Shop Portal"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblWorkOrders">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Work Orders"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblCustomers">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Customers"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblVehicles">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Vehicles"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblInventory">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Inventory"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblReports">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Reports"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblUsers">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Users"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblServiceItems">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Services"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblWarranty">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Warranty"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JPanel" name="pnlCustomers">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="cmdFindCustomer" max="32767" attributes="0"/>
+                      <Component id="cmdEditCustomer" max="32767" attributes="0"/>
+                      <Component id="cmdCreateCustomer" alignment="0" pref="135" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cmdCreateCustomer" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cmdEditCustomer" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="cmdFindCustomer" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="cmdCreateCustomer">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Create Customer"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="cmdEditCustomer">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Edit Customer"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="cmdFindCustomer">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Find Customer"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="pnlWorkOrders">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="cmdCompleteWorkOrder" alignment="0" max="32767" attributes="0"/>
+                      <Component id="cmdCreateWorkOrder" alignment="0" max="32767" attributes="0"/>
+                      <Component id="cmdEditWorkOrder" alignment="0" max="32767" attributes="0"/>
+                      <Component id="cmdFindWorkOrder" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cmdCreateWorkOrder" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cmdEditWorkOrder" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cmdFindWorkOrder" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cmdCompleteWorkOrder" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="14" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="cmdCreateWorkOrder">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Create Work Order"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="cmdEditWorkOrder">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Edit Work Order"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="cmdFindWorkOrder">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Find Work Order"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="cmdCompleteWorkOrder">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Complete Work Order"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="pnlVehicles">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="cmdCreateVehicle" linkSize="2" min="-2" pref="135" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="cmdEditVehicle" alignment="0" max="32767" attributes="0"/>
+                          <Component id="cmdFindVehicle" linkSize="2" alignment="0" pref="115" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cmdCreateVehicle" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cmdEditVehicle" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="cmdFindVehicle" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="cmdCreateVehicle">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Create Vehicle"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="cmdEditVehicle">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Edit Vehicle"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="cmdFindVehicle">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Find Vehicle"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="pnlWarranties">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="cmdRemoveWarranty" alignment="0" max="32767" attributes="0"/>
+                      <Component id="cmdEditWarranty" alignment="0" max="32767" attributes="0"/>
+                      <Component id="cmdCreateWarranty" alignment="0" max="32767" attributes="0"/>
+                      <Component id="cmdFindWarranty" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cmdCreateWarranty" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cmdEditWarranty" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="cmdFindWarranty" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cmdRemoveWarranty" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="cmdCreateWarranty">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Create Warranty"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="cmdEditWarranty">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Edit Warranty"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="cmdRemoveWarranty">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Remove Warranty"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="cmdFindWarranty">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Find Warranty"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="pnlServices">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="cmdCreateService" max="32767" attributes="0"/>
+                      <Component id="cmdEditService" max="32767" attributes="0"/>
+                      <Component id="cmdRemoveService" alignment="0" pref="135" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cmdCreateService" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cmdEditService" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="cmdRemoveService" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="cmdCreateService">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Create Service"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="cmdEditService">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Edit Service"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="cmdRemoveService">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Remove Service"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="pnlWorkOrders5">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="cmdProfitReport" linkSize="1" min="-2" pref="157" max="-2" attributes="0"/>
+                      <Component id="cmdServicesPerformed" linkSize="1" alignment="0" max="32767" attributes="0"/>
+                      <Component id="cmdTechnicianReport" linkSize="1" alignment="0" max="32767" attributes="0"/>
+                      <Component id="cmdHoursWorkedReport" linkSize="1" alignment="0" max="32767" attributes="0"/>
+                      <Component id="cmdCustomerReport" linkSize="1" alignment="0" max="32767" attributes="0"/>
+                      <Component id="cmdVehicleHistory" linkSize="1" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cmdProfitReport" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cmdTechnicianReport" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cmdHoursWorkedReport" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cmdCustomerReport" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cmdVehicleHistory" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cmdServicesPerformed" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="cmdProfitReport">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Profit"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="cmdTechnicianReport">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Technician"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="cmdHoursWorkedReport">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Hours Worked"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="cmdCustomerReport">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Customer"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="cmdVehicleHistory">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Vehicle History"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="cmdServicesPerformed">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Services Performed"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="pnlWorkOrders6">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="cmdCreateUser" linkSize="3" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmdEditUser" linkSize="3" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmdFindUser" linkSize="3" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmdChangePassword" linkSize="3" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cmdCreateUser" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cmdEditUser" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cmdFindUser" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="cmdChangePassword" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="cmdCreateUser">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Create User"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="cmdEditUser">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Edit User"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="cmdFindUser">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Find User"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="cmdChangePassword">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Change Password"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="pnlWorkOrders7">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="cmdEditInventory" max="32767" attributes="0"/>
+                      <Component id="cmdCreateInventory" alignment="1" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="cmdRemoveInventory" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Component id="cmdFindInventory" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cmdCreateInventory" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cmdEditInventory" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cmdFindInventory" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="cmdRemoveInventory" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="cmdCreateInventory">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Create Inventory"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="cmdEditInventory">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Edit Inventory"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="cmdRemoveInventory">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Remove Inventory"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="cmdFindInventory">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Find Inventory"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>

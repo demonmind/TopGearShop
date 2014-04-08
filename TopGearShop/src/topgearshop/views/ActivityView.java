@@ -15,6 +15,18 @@ public class ActivityView extends javax.swing.JPanel {
   /**
    * Creates new form ActivityView
    */
+  public void setActiveUser(String user)
+  {
+    this.userName.setText("Current User: " + user);
+  }
+  public void setActiveActivity(String activity)
+  {
+    this.activity.setText("Activity: " + activity);
+  }
+  public void setActiveTime(String time)
+  {
+    this.systemDateTime.setText("Date/Time: " + time);
+  }
   public ActivityView() {
     initComponents();
   }

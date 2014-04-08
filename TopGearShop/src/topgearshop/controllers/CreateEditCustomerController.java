@@ -46,9 +46,20 @@ public class CreateEditCustomerController {
     modalDialog.pack();
     if(!CreateCustomer)
     {
-      setCustomerInformation();      
+      loadCustomerInformation();      
     }
     modalDialog.setVisible(true);
+  }
+  private void loadCustomerInformation()
+  {
+    ceCustomerView.PhoneNumber.setText(customerModel.getPhoneNumber());
+    ceCustomerView.City.setText(customerModel.getCity());
+    ceCustomerView.EmailAddress.setText(customerModel.getEmailAddress());
+    ceCustomerView.FirstName.setText(customerModel.getFirstName());
+    ceCustomerView.LastName.setText(customerModel.getLastName());
+    ceCustomerView.State.setText(customerModel.getState());
+    ceCustomerView.StreetAddress.setText(customerModel.getStreetAddress());
+    ceCustomerView.ZipCode.setText(customerModel.getZipCode());
   }
   private void setCustomerInformation()
   {
@@ -70,7 +81,14 @@ public class CreateEditCustomerController {
         customerModel.setCustomerID(DataAccessLayer.GetNextCustomerID());
       }
       setCustomerInformation();
-      DataAccessLayer.CreateCustomer(customerModel);
+      if(CreateCustomer)
+      {
+        DataAccessLayer.CreateCustomer(customerModel);
+      }
+      else
+      {
+        DataAccessLayer.UpdateCustomer(customerModel);
+      }
       modalDialog.dispose();
     }
   }

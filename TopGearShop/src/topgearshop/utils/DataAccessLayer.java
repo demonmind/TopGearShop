@@ -82,6 +82,97 @@ public class DataAccessLayer {
     catch(Exception e){System.out.println(e.toString());}
     return false;
   }
+
+  public static boolean UpdateCustomer(CustomerModel customerModel)
+  {
+    PreparedStatement statement = null;
+    Connection conn;
+    try
+    {
+        Class.forName("org.sqlite.JDBC");
+        conn = ConnectionManager.getConnection();
+        
+        statement = (PreparedStatement) conn.prepareStatement("UPDATE customers "
+                + "SET phoneNumber = ?,firstName = ?,lastName = ?, "
+                + "emailAddress = ?, streetAddress = ?, city = ?, state = ?, "
+                + "zipCode = ? where customerID = ?");
+        statement.setString(1,customerModel.getPhoneNumber());
+        statement.setString(2,customerModel.getFirstName());
+        statement.setString(3,customerModel.getLastName());
+        statement.setString(4,customerModel.getEmailAddress());
+        statement.setString(5,customerModel.getStreetAddress());
+        statement.setString(6,customerModel.getCity());
+        statement.setString(7,customerModel.getState());
+        statement.setString(8,customerModel.getZipCode());
+        statement.setInt(9,customerModel.getCustomerID());
+        statement.execute();
+
+        conn.close();
+      return true;
+    }
+    catch(Exception e){System.out.println(e.toString());}
+    return false;
+  }
+  
+  public static CustomerModel getACustomer(String phone)
+  {
+    CustomerModel cm = new CustomerModel();
+    
+    PreparedStatement statement = null;
+    ResultSet resultSet = null;
+    try
+    {
+        Connection conn;
+        Class.forName("org.sqlite.JDBC");
+        conn = ConnectionManager.getConnection();
+
+        statement = (PreparedStatement) conn.prepareStatement("select * from customers where phoneNumber = ?;");
+        statement.setString(1,phone);
+        resultSet = statement.executeQuery();
+        if(resultSet.next())
+        {
+          //customerID,phoneNumber,firstName,lastName,emailAddress,streetAddress,city,state,zipCode
+          cm.setCustomerID(resultSet.getInt(1));
+          cm.setPhoneNumber(resultSet.getString(2));
+          cm.setFirstName(resultSet.getString(3));
+          cm.setLastName(resultSet.getString(4));
+          cm.setEmailAddress(resultSet.getString(5));
+          cm.setStreetAddress(resultSet.getString(6));
+          cm.setCity(resultSet.getString(7));
+          cm.setState(resultSet.getString(8));
+          cm.setZipCode(resultSet.getString(9));
+        }
+      conn.close();
+    }
+    catch(Exception e){}
+    return cm;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   public static int GetNextCustomerID()
   {

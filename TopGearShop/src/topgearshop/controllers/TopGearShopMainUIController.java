@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import topgearshop.views.*;
 import topgearshop.models.*;
+import topgearshop.utils.DataAccessLayer;
 
 /**
  *
@@ -123,6 +124,8 @@ class CustomerReportListener implements ActionListener{
 class EditCustomerListener implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
+      CustomerModel m = DataAccessLayer.getACustomer("404-791-6071");
+      CreateEditCustomerController cc = new CreateEditCustomerController(m);
       System.out.println("The EditCustomer event listner was called");
     }
   }

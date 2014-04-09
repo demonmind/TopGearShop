@@ -49,11 +49,13 @@ public class CreateEditUserController {
   class SaveListener implements ActionListener{
     
     public void actionPerformed(ActionEvent e){
+      modalDialog.dispose();
     }
   }    
   class CancelListener implements ActionListener{
     
     public void actionPerformed(ActionEvent e){
+      modalDialog.dispose();
     }
   }  
 }

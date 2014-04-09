@@ -94,6 +94,8 @@ class CreateServiceListener implements ActionListener{
 class CreateUserListener implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
+      CreateEditUserController createUser = new CreateEditUserController();
+      
       System.out.println("The CreateUser event listner was called");
     }
   }

@@ -83,6 +83,38 @@ public class DataAccessLayer {
     return false;
   }
 
+    public static boolean CreateUser(CredentialsModel credentials)
+  {
+    PreparedStatement statement = null;
+    ResultSet resultSet = null;
+    Connection conn;
+    try
+    {
+        Class.forName("org.sqlite.JDBC");
+        conn = ConnectionManager.getConnection();
+
+        statement = (PreparedStatement) conn.prepareStatement("select * from credentials where employeeID=?;");
+        statement.setString(1,credentials.getEmployeeID());
+        resultSet = statement.executeQuery();
+        
+        if(!resultSet.next())
+        {
+          conn.close();
+          conn = ConnectionManager.getConnection();
+          statement = (PreparedStatement) conn.prepareStatement("INSERT INTO credentials(employeeID,userName,password,salt) VALUES (?,?,?,?)");
+          statement.setString(1,credentials.getEmployeeID());
+          statement.setString(2,credentials.getUserName());
+          statement.setString(3,credentials.getPassword());
+          statement.setString(4,credentials.getSalt());
+          statement.execute();
+        }
+        conn.close();
+      return true;
+    }
+    catch(Exception e){System.out.println(e.toString());}
+    return false;
+  }
+    
   public static boolean UpdateCustomer(CustomerModel customerModel)
   {
     PreparedStatement statement = null;
@@ -242,5 +274,27 @@ public class DataAccessLayer {
     catch(Exception e){System.out.println(e.toString());}
     return foundCustomer; // Convert this to a static variable
     
+  }
+
+  public static Boolean UpdateUser(CredentialsModel systemUserModel) {
+    PreparedStatement statement = null;
+    Connection conn;
+    try
+    {
+        Class.forName("org.sqlite.JDBC");
+        conn = ConnectionManager.getConnection();
+        
+        statement = (PreparedStatement) conn.prepareStatement("UPDATE credentials "
+                + "SET password = ?, salt = ? where employeeID = ?" );
+        statement.setString(1,systemUserModel.getPassword());
+        statement.setString(2,systemUserModel.getSalt());
+        statement.setString(3,systemUserModel.getUserName());
+        statement.execute();
+
+        conn.close();
+      return true;
+    }
+    catch(Exception e){System.out.println(e.toString());}
+    return false;    
   }
 }

@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import topgearshop.models.CredentialsModel;
 import topgearshop.views.CreateEditUserView;
 import topgearshop.views.LoginView;
@@ -45,16 +46,30 @@ public class CreateEditUserController {
       modalDialog.pack();
       modalDialog.setVisible(true);
   }
-  
+  public Boolean getCancelledStatus()
+  {
+    return cancelled;
+  }
   class SaveListener implements ActionListener{
     
     public void actionPerformed(ActionEvent e){
+      systemUserModel.setEmployeeID(createEditUser.EmployeeID.getText());
+      systemUserModel.setPassword(createEditUser.Password.getText());
+      systemUserModel.setUserName(createEditUser.UserName.getText());
+      systemUserModel.setSalt(createEditUser.Salt.getText());
+      String ConfirmedPassword = createEditUser.ConfirmPassword.getText();
+      if(!systemUserModel.getPassword().equals(ConfirmedPassword))
+      {
+        JOptionPane.showMessageDialog(null, "The two passwords do not match","Information",JOptionPane.INFORMATION_MESSAGE);
+        return;
+      }
       modalDialog.dispose();
     }
   }    
   class CancelListener implements ActionListener{
     
     public void actionPerformed(ActionEvent e){
+      cancelled = true;
       modalDialog.dispose();
     }
   }  

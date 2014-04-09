@@ -30,7 +30,6 @@ public class CreateEditUserView extends javax.swing.JPanel {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
-    jLabel1 = new javax.swing.JLabel();
     jLabel2 = new javax.swing.JLabel();
     jLabel3 = new javax.swing.JLabel();
     jLabel4 = new javax.swing.JLabel();
@@ -41,10 +40,8 @@ public class CreateEditUserView extends javax.swing.JPanel {
     Salt = new javax.swing.JPasswordField();
     cmdSave = new javax.swing.JButton();
     cmdCancel = new javax.swing.JButton();
-
-    jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-    jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    jLabel1.setText("Create/Edit User");
+    jLabel1 = new javax.swing.JLabel();
+    ConfirmPassword = new javax.swing.JPasswordField();
 
     jLabel2.setText("Employee ID (SSN):");
 
@@ -55,14 +52,20 @@ public class CreateEditUserView extends javax.swing.JPanel {
     jLabel5.setText("Password Salt:");
 
     cmdSave.setText("Save");
+    cmdSave.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        cmdSaveActionPerformed(evt);
+      }
+    });
 
     cmdCancel.setText("Cancel");
+
+    jLabel1.setText("Confirm Password:");
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
     this.setLayout(layout);
     layout.setHorizontalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
       .addGroup(layout.createSequentialGroup()
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addGroup(layout.createSequentialGroup()
@@ -71,15 +74,17 @@ public class CreateEditUserView extends javax.swing.JPanel {
               .addComponent(jLabel2)
               .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
               .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-              .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
+              .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+              .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
               .addComponent(EmployeeID, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
               .addComponent(UserName)
               .addComponent(Password)
-              .addComponent(Salt)))
+              .addComponent(Salt)
+              .addComponent(ConfirmPassword)))
           .addGroup(layout.createSequentialGroup()
-            .addGap(71, 71, 71)
+            .addGap(80, 80, 80)
             .addComponent(cmdSave, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -89,8 +94,7 @@ public class CreateEditUserView extends javax.swing.JPanel {
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(layout.createSequentialGroup()
-        .addComponent(jLabel1)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addContainerGap()
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel2)
           .addComponent(EmployeeID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -104,22 +108,31 @@ public class CreateEditUserView extends javax.swing.JPanel {
           .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(jLabel1)
+          .addComponent(ConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel5)
           .addComponent(Salt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(cmdSave)
           .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        .addContainerGap())
     );
   }// </editor-fold>//GEN-END:initComponents
 
+  private void cmdSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdSaveActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_cmdSaveActionPerformed
+
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JTextField EmployeeID;
-  private javax.swing.JPasswordField Password;
-  private javax.swing.JPasswordField Salt;
-  private javax.swing.JTextField UserName;
+  public javax.swing.JPasswordField ConfirmPassword;
+  public javax.swing.JTextField EmployeeID;
+  public javax.swing.JPasswordField Password;
+  public javax.swing.JPasswordField Salt;
+  public javax.swing.JTextField UserName;
   private javax.swing.JButton cmdCancel;
   private javax.swing.JButton cmdSave;
   private javax.swing.JLabel jLabel1;

@@ -124,7 +124,8 @@ class CustomerReportListener implements ActionListener{
 class EditCustomerListener implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
-      CustomerModel m = DataAccessLayer.getACustomer("404-791-6071");
+      FindCustomerController findCustomer = new FindCustomerController();
+      CustomerModel m = findCustomer.getCustomer();
       CreateEditCustomerController cc = new CreateEditCustomerController(m);
       System.out.println("The EditCustomer event listner was called");
     }
@@ -168,6 +169,9 @@ class EditWorkOrderListener implements ActionListener{
 class FindCustomerListener implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
+      FindCustomerController findCustomer = new FindCustomerController();
+      CustomerModel m = findCustomer.getCustomer();
+      //CreateEditCustomerController cc = new CreateEditCustomerController(m);
       System.out.println("The FindCustomer event listner was called");
     }
   }

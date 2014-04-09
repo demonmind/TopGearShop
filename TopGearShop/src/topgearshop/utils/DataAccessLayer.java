@@ -148,32 +148,6 @@ public class DataAccessLayer {
     return cm;
   }
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   public static int GetNextCustomerID()
   {
     PreparedStatement statement = null;
@@ -194,5 +168,79 @@ public class DataAccessLayer {
     }
     catch(Exception e){System.out.println(e.toString());}
     return -1; // Convert this to a static variable
+  }
+
+  public static CustomerModel FindCustomer(CustomerModel cm) {
+    PreparedStatement statement = null;
+    ResultSet resultSet = null;
+    CustomerModel foundCustomer = new CustomerModel();
+    try
+    {
+        Class.forName("org.sqlite.JDBC");
+        Connection conn = ConnectionManager.getConnection();
+        // Try phone
+        statement = (PreparedStatement) conn.prepareStatement("select * from customers where phoneNumber = ?;");
+        statement.setString(1, cm.getPhoneNumber());
+        resultSet = statement.executeQuery();
+        if(resultSet.next())
+        {
+          //customerID,phoneNumber,firstName,lastName,emailAddress,streetAddress,city,state,zipCode
+          foundCustomer.setCustomerID(resultSet.getInt(1));
+          foundCustomer.setPhoneNumber(resultSet.getString(2));
+          foundCustomer.setFirstName(resultSet.getString(3));
+          foundCustomer.setLastName(resultSet.getString(4));
+          foundCustomer.setEmailAddress(resultSet.getString(5));
+          foundCustomer.setStreetAddress(resultSet.getString(6));
+          foundCustomer.setCity(resultSet.getString(7));
+          foundCustomer.setState(resultSet.getString(8));
+          foundCustomer.setZipCode(resultSet.getString(9));
+          conn.close();
+          return foundCustomer;
+        }
+        // try email
+        statement = (PreparedStatement) conn.prepareStatement("select * from customers where emailAddress = ?;");
+        statement.setString(1, cm.getEmailAddress());
+        resultSet = statement.executeQuery();
+        if(resultSet.next())
+        {
+          //customerID,phoneNumber,firstName,lastName,emailAddress,streetAddress,city,state,zipCode
+          foundCustomer.setCustomerID(resultSet.getInt(1));
+          foundCustomer.setPhoneNumber(resultSet.getString(2));
+          foundCustomer.setFirstName(resultSet.getString(3));
+          foundCustomer.setLastName(resultSet.getString(4));
+          foundCustomer.setEmailAddress(resultSet.getString(5));
+          foundCustomer.setStreetAddress(resultSet.getString(6));
+          foundCustomer.setCity(resultSet.getString(7));
+          foundCustomer.setState(resultSet.getString(8));
+          foundCustomer.setZipCode(resultSet.getString(9));
+          conn.close();
+          return foundCustomer;
+        }
+        
+        statement = (PreparedStatement) conn.prepareStatement("select * from customers where firstName = ? and lastName = ?;");
+        statement.setString(1, cm.getFirstName());
+        statement.setString(2, cm.getLastName());
+        
+        resultSet = statement.executeQuery();
+        if(resultSet.next())
+        {
+          //customerID,phoneNumber,firstName,lastName,emailAddress,streetAddress,city,state,zipCode
+          foundCustomer.setCustomerID(resultSet.getInt(1));
+          foundCustomer.setPhoneNumber(resultSet.getString(2));
+          foundCustomer.setFirstName(resultSet.getString(3));
+          foundCustomer.setLastName(resultSet.getString(4));
+          foundCustomer.setEmailAddress(resultSet.getString(5));
+          foundCustomer.setStreetAddress(resultSet.getString(6));
+          foundCustomer.setCity(resultSet.getString(7));
+          foundCustomer.setState(resultSet.getString(8));
+          foundCustomer.setZipCode(resultSet.getString(9));
+          conn.close();
+          return foundCustomer;
+        }
+        conn.close();
+    }
+    catch(Exception e){System.out.println(e.toString());}
+    return foundCustomer; // Convert this to a static variable
+    
   }
 }

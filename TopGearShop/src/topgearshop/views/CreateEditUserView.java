@@ -6,6 +6,8 @@
 
 package topgearshop.views;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author rmattaway
@@ -38,7 +40,6 @@ public class CreateEditUserView extends javax.swing.JPanel {
     Password = new javax.swing.JPasswordField();
     Salt = new javax.swing.JPasswordField();
     cmdSave = new javax.swing.JButton();
-    cmdClose = new javax.swing.JButton();
     cmdCancel = new javax.swing.JButton();
 
     jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -55,8 +56,6 @@ public class CreateEditUserView extends javax.swing.JPanel {
 
     cmdSave.setText("Save");
 
-    cmdClose.setText("Close");
-
     cmdCancel.setText("Cancel");
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -65,9 +64,9 @@ public class CreateEditUserView extends javax.swing.JPanel {
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
       .addGroup(layout.createSequentialGroup()
-        .addContainerGap()
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addGroup(layout.createSequentialGroup()
+            .addContainerGap()
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
               .addComponent(jLabel2)
               .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -75,16 +74,16 @@ public class CreateEditUserView extends javax.swing.JPanel {
               .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addComponent(EmployeeID)
+              .addComponent(EmployeeID, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
               .addComponent(UserName)
               .addComponent(Password)
               .addComponent(Salt)))
           .addGroup(layout.createSequentialGroup()
+            .addGap(71, 71, 71)
             .addComponent(cmdSave, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(18, 18, 18)
-            .addComponent(cmdClose, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-            .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(0, 0, Short.MAX_VALUE)))
         .addContainerGap())
     );
     layout.setVerticalGroup(
@@ -107,11 +106,10 @@ public class CreateEditUserView extends javax.swing.JPanel {
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel5)
           .addComponent(Salt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(cmdSave)
-          .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-          .addComponent(cmdClose))
+          .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
   }// </editor-fold>//GEN-END:initComponents
@@ -123,7 +121,6 @@ public class CreateEditUserView extends javax.swing.JPanel {
   private javax.swing.JPasswordField Salt;
   private javax.swing.JTextField UserName;
   private javax.swing.JButton cmdCancel;
-  private javax.swing.JButton cmdClose;
   private javax.swing.JButton cmdSave;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
@@ -131,4 +128,12 @@ public class CreateEditUserView extends javax.swing.JPanel {
   private javax.swing.JLabel jLabel4;
   private javax.swing.JLabel jLabel5;
   // End of variables declaration//GEN-END:variables
+
+  public void setSubmitActionHandler(ActionListener al) {
+    cmdSave.addActionListener(al);
+  }
+
+  public void setCancelActionListener(ActionListener al) {
+    cmdCancel.addActionListener(al);
+  }
 }

@@ -38,6 +38,7 @@ public class LoginView extends javax.swing.JPanel {
     Password = new javax.swing.JPasswordField();
     cmdLogin = new javax.swing.JButton();
     jLabel4 = new javax.swing.JLabel();
+    cmdExit = new javax.swing.JButton();
     jLabel1 = new javax.swing.JLabel();
 
     setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -65,6 +66,8 @@ public class LoginView extends javax.swing.JPanel {
     jLabel4.setForeground(new java.awt.Color(255, 0, 0));
     jLabel4.setText("TopGear Shop");
 
+    cmdExit.setText("Exit");
+
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
     jPanel1Layout.setHorizontalGroup(
@@ -75,16 +78,19 @@ public class LoginView extends javax.swing.JPanel {
         .addGap(27, 27, 27))
       .addGroup(jPanel1Layout.createSequentialGroup()
         .addContainerGap()
-        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-          .addComponent(cmdLogin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+          .addGroup(jPanel1Layout.createSequentialGroup()
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
               .addComponent(jLabel3)
               .addComponent(jLabel2))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
               .addComponent(UserName, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-              .addComponent(Password))))
+              .addComponent(Password)))
+          .addGroup(jPanel1Layout.createSequentialGroup()
+            .addComponent(cmdLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(cmdExit, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)))
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
     jPanel1Layout.setVerticalGroup(
@@ -101,7 +107,9 @@ public class LoginView extends javax.swing.JPanel {
           .addComponent(jLabel3)
           .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-        .addComponent(cmdLogin)
+        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(cmdLogin)
+          .addComponent(cmdExit))
         .addContainerGap())
     );
 
@@ -124,6 +132,7 @@ public class LoginView extends javax.swing.JPanel {
   // Variables declaration - do not modify//GEN-BEGIN:variables
   public javax.swing.JPasswordField Password;
   public javax.swing.JTextField UserName;
+  private javax.swing.JButton cmdExit;
   private javax.swing.JButton cmdLogin;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
@@ -134,5 +143,9 @@ public class LoginView extends javax.swing.JPanel {
 
   public void setSubmitActionHandler(ActionListener al) {
     cmdLogin.addActionListener(al);
+  }
+  public void setExitActionListener(ActionListener al)
+  {
+    cmdExit.addActionListener(al);
   }
 }

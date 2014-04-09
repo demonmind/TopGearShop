@@ -27,8 +27,9 @@ public class CreateEditCustomerController {
   private CreateEditCustomerView ceCustomerView;
   private Boolean CreateCustomer = true;
   private JDialog modalDialog;
+  private Boolean cancelled = false;
   
-  public CreateEditCustomerController(CustomerModel cm)
+  public CreateEditCustomerController(CustomerModel cm, Boolean readOnly)
   {
     if(cm!=null)
     {
@@ -37,9 +38,14 @@ public class CreateEditCustomerController {
     }
     
     ceCustomerView = new CreateEditCustomerView();
+
     modalDialog = new JDialog();
     modalDialog.add(ceCustomerView);
     modalDialog.setTitle("Top Gear System - Create or Edit Customer");
+    if(readOnly)
+    {
+      setFoundInterface();
+    }
     ceCustomerView.setSubmitActionHandler(new SubmitListener());
     ceCustomerView.setCancelActionListener(new CancelListener());
     modalDialog.setModal(true);
@@ -49,6 +55,22 @@ public class CreateEditCustomerController {
       loadCustomerInformation();      
     }
     modalDialog.setVisible(true);
+  }
+  public Boolean getCancelledStatus()
+  {
+    return cancelled;
+  }
+  private void setFoundInterface()
+  {
+    modalDialog.setTitle("Top Gear System - Find Customer Results");
+    ceCustomerView.City.setEnabled(false);
+    ceCustomerView.EmailAddress.setEnabled(false);
+    ceCustomerView.FirstName.setEnabled(false);
+    ceCustomerView.LastName.setEnabled(false);
+    ceCustomerView.PhoneNumber.setEnabled(false);
+    ceCustomerView.State.setEnabled(false);
+    ceCustomerView.StreetAddress.setEnabled(false);
+    ceCustomerView.ZipCode.setEnabled(false);
   }
   private void loadCustomerInformation()
   {
@@ -96,6 +118,7 @@ public class CreateEditCustomerController {
     
     @Override
     public void actionPerformed(ActionEvent e){
+      cancelled = true;
       modalDialog.dispose();
     }
   }  

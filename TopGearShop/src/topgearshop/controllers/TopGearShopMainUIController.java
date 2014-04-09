@@ -74,7 +74,7 @@ class CompleteWorkOrderListener implements ActionListener{
 class CreateCustomerListener implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
-      CreateEditCustomerController customerController = new CreateEditCustomerController(null);
+      CreateEditCustomerController customerController = new CreateEditCustomerController(null, false);
       
       System.out.println("The CreateCustomer event listner was called");
     }
@@ -126,7 +126,10 @@ class EditCustomerListener implements ActionListener{
     public void actionPerformed(ActionEvent e){
       FindCustomerController findCustomer = new FindCustomerController();
       CustomerModel m = findCustomer.getCustomer();
-      CreateEditCustomerController cc = new CreateEditCustomerController(m);
+      if(!findCustomer.getCancelledStatus())
+      {
+        CreateEditCustomerController cc = new CreateEditCustomerController(m, false);
+      }
       System.out.println("The EditCustomer event listner was called");
     }
   }

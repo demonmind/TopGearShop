@@ -38,12 +38,14 @@ public class LoginController {
       modalDialog.addWindowListener(
               new WindowAdapter(){
                 @Override public void windowClosing(WindowEvent we){
+                  System.exit(0);
                 }
                                  });
       modalDialog.add(loginView);
       modalDialog.setTitle("Top Gear System - Logon");
       credentials = new CredentialsModel();
       loginView.setSubmitActionHandler(new LoginListener());
+      loginView.setExitActionListener(new CancelLoginListener());
       modalDialog.setModal(true);
       modalDialog.pack();
       modalDialog.setVisible(true);
@@ -91,6 +93,12 @@ public class LoginController {
       credentials.setUserName(loginView.UserName.getText());
       credentials.setPassword(loginView.Password.getText());
         validate();
+    }
+  }    
+  class CancelLoginListener implements ActionListener{
+    
+    public void actionPerformed(ActionEvent e){
+      System.exit(0);
     }
   }
 }

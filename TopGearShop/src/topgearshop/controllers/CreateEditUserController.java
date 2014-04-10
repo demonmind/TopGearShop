@@ -42,7 +42,6 @@ public class CreateEditUserController {
       modalDialog.addWindowListener(
               new WindowAdapter(){
                 @Override public void windowClosing(WindowEvent we){
-                  System.exit(0);
                 }
                                  });
       modalDialog.add(createEditUser);

@@ -297,4 +297,77 @@ public class DataAccessLayer {
     catch(Exception e){System.out.println(e.toString());}
     return false;    
   }
+
+  public static void CreateEmployee(EmployeeModel employee) {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
+
+  public static void UpdateEmployee(EmployeeModel employee) {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
+
+  public static EmployeeModel FindEmployee(EmployeeModel employee) {
+    PreparedStatement statement = null;
+    ResultSet resultSet = null;
+    EmployeeModel foundEmployee = new EmployeeModel();
+    try
+    {
+        Class.forName("org.sqlite.JDBC");
+        Connection conn = ConnectionManager.getConnection();
+        // Try id (SSN)
+        statement = (PreparedStatement) conn.prepareStatement("select * from employee where employeeID = ?;");
+        statement.setString(1, employee.getEmployeeID());
+        resultSet = statement.executeQuery();
+        if(resultSet.next())
+        {
+          //customerID,phoneNumber,firstName,lastName,emailAddress,streetAddress,city,state,zipCode
+          foundEmployee.setEmployeeID(resultSet.getString(1));
+          foundEmployee.setFirstName(resultSet.getString(2));
+          foundEmployee.setMiddleName(resultSet.getString(3));
+          foundEmployee.setLastName(resultSet.getString(4));
+          foundEmployee.setDateOfBirth(resultSet.getDate(5));
+          foundEmployee.setDriversLicenseNumber(resultSet.getString(6));
+          foundEmployee.setEmployeeTypeID(resultSet.getInt(7));
+          conn.close();
+          return foundEmployee;
+        }
+        // try drivers license
+        statement = (PreparedStatement) conn.prepareStatement("select * from employee where driversLicenseNumber = ?;");
+        statement.setString(1, employee.getDriversLicenseNumber());
+        resultSet = statement.executeQuery();
+        if(resultSet.next())
+        {
+          //customerID,phoneNumber,firstName,lastName,emailAddress,streetAddress,city,state,zipCode
+          foundEmployee.setEmployeeID(resultSet.getString(1));
+          foundEmployee.setFirstName(resultSet.getString(2));
+          foundEmployee.setMiddleName(resultSet.getString(3));
+          foundEmployee.setLastName(resultSet.getString(4));
+          foundEmployee.setDateOfBirth(resultSet.getDate(5));
+          foundEmployee.setDriversLicenseNumber(resultSet.getString(6));
+          foundEmployee.setEmployeeTypeID(resultSet.getInt(7));
+          conn.close();
+          return foundEmployee;
+        }
+        
+        statement = (PreparedStatement) conn.prepareStatement("select * from employee where firstName = ? and lastName = ? and dateOfBirth = ?;");
+        statement.setString(1, employee.getDriversLicenseNumber());
+        resultSet = statement.executeQuery();
+        if(resultSet.next())
+        {
+          //customerID,phoneNumber,firstName,lastName,emailAddress,streetAddress,city,state,zipCode
+          foundEmployee.setEmployeeID(resultSet.getString(1));
+          foundEmployee.setFirstName(resultSet.getString(2));
+          foundEmployee.setMiddleName(resultSet.getString(3));
+          foundEmployee.setLastName(resultSet.getString(4));
+          foundEmployee.setDateOfBirth(resultSet.getDate(5));
+          foundEmployee.setDriversLicenseNumber(resultSet.getString(6));
+          foundEmployee.setEmployeeTypeID(resultSet.getInt(7));
+          conn.close();
+          return foundEmployee;
+        }
+        conn.close();
+    }
+    catch(Exception e){System.out.println(e.toString());}
+    return foundEmployee; // Convert this to a static variable
+  }
 }

@@ -6,6 +6,9 @@
 
 package topgearshop.views;
 
+import java.awt.event.ActionListener;
+import topgearshop.controllers.CreateEditEmployeeController;
+
 /**
  *
  * @author rmattaway
@@ -28,7 +31,6 @@ public class CreateEditEmployeeView extends javax.swing.JPanel {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
-    jLabel1 = new javax.swing.JLabel();
     jLabel2 = new javax.swing.JLabel();
     jLabel3 = new javax.swing.JLabel();
     jLabel4 = new javax.swing.JLabel();
@@ -46,10 +48,6 @@ public class CreateEditEmployeeView extends javax.swing.JPanel {
     cmdClose = new javax.swing.JButton();
     cmdCancel = new javax.swing.JButton();
     EmployeeTypeID = new javax.swing.JComboBox();
-
-    jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-    jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    jLabel1.setText("Create/Edit Employee");
 
     jLabel2.setText("Employee SSN:");
 
@@ -77,7 +75,6 @@ public class CreateEditEmployeeView extends javax.swing.JPanel {
     this.setLayout(layout);
     layout.setHorizontalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
       .addGroup(layout.createSequentialGroup()
         .addContainerGap()
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -113,8 +110,7 @@ public class CreateEditEmployeeView extends javax.swing.JPanel {
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(layout.createSequentialGroup()
-        .addComponent(jLabel1)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addContainerGap()
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel2)
           .addComponent(EmployeeID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -142,13 +138,13 @@ public class CreateEditEmployeeView extends javax.swing.JPanel {
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel8)
           .addComponent(EmployeeTypeID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addGap(21, 21, 21)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addComponent(cmdClose)
           .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
             .addComponent(cmdSave)
             .addComponent(cmdCancel)))
-        .addGap(0, 10, Short.MAX_VALUE))
+        .addContainerGap())
     );
   }// </editor-fold>//GEN-END:initComponents
 
@@ -164,7 +160,6 @@ public class CreateEditEmployeeView extends javax.swing.JPanel {
   private javax.swing.JButton cmdCancel;
   private javax.swing.JButton cmdClose;
   private javax.swing.JButton cmdSave;
-  private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
   private javax.swing.JLabel jLabel3;
   private javax.swing.JLabel jLabel4;
@@ -173,4 +168,12 @@ public class CreateEditEmployeeView extends javax.swing.JPanel {
   private javax.swing.JLabel jLabel7;
   private javax.swing.JLabel jLabel8;
   // End of variables declaration//GEN-END:variables
+
+  public void setSubmitActionHandler(ActionListener al) {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
+
+  public void setCancelActionListener(ActionListener al) {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
 }

@@ -48,6 +48,8 @@ public class CreateEditCustomerView extends javax.swing.JPanel {
     EmailAddress = new javax.swing.JTextField();
     cmdSubmit = new javax.swing.JButton();
     cmdCancel = new javax.swing.JButton();
+    jLabel9 = new javax.swing.JLabel();
+    CustomerCreationDate = new javax.swing.JLabel();
 
     jLabel1.setText("First Name:");
 
@@ -69,6 +71,10 @@ public class CreateEditCustomerView extends javax.swing.JPanel {
 
     cmdCancel.setText("Cancel");
 
+    jLabel9.setText("Created:");
+
+    CustomerCreationDate.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
     this.setLayout(layout);
     layout.setHorizontalGroup(
@@ -89,13 +95,18 @@ public class CreateEditCustomerView extends javax.swing.JPanel {
               .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(FirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(FirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+              .addGroup(layout.createSequentialGroup()
+                .addComponent(cmdSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGap(19, 19, 19)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
               .addComponent(jLabel4)
               .addComponent(jLabel2)
               .addComponent(jLabel5)
-              .addComponent(jLabel6)))
+              .addComponent(jLabel6)
+              .addComponent(jLabel9)))
           .addGroup(layout.createSequentialGroup()
             .addComponent(jLabel3)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -104,19 +115,14 @@ public class CreateEditCustomerView extends javax.swing.JPanel {
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addGroup(layout.createSequentialGroup()
             .addComponent(LastName, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(0, 0, Short.MAX_VALUE))
+            .addGap(0, 12, Short.MAX_VALUE))
           .addGroup(layout.createSequentialGroup()
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addComponent(City, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(State, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(ZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+              .addComponent(CustomerCreationDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+              .addComponent(City, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+              .addComponent(State, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+              .addComponent(ZipCode, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE))
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addComponent(cmdSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(175, 175, 175))
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,10 +156,16 @@ public class CreateEditCustomerView extends javax.swing.JPanel {
           .addComponent(jLabel6)
           .addComponent(EmailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jLabel8))
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-          .addComponent(cmdCancel)
-          .addComponent(cmdSubmit))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addComponent(CustomerCreationDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addGroup(layout.createSequentialGroup()
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(cmdCancel)
+                .addComponent(cmdSubmit))
+              .addComponent(jLabel9))
+            .addGap(0, 0, Short.MAX_VALUE)))
         .addContainerGap())
     );
   }// </editor-fold>//GEN-END:initComponents
@@ -168,6 +180,7 @@ public class CreateEditCustomerView extends javax.swing.JPanel {
   }  
   // Variables declaration - do not modify//GEN-BEGIN:variables
   public javax.swing.JTextField City;
+  public javax.swing.JLabel CustomerCreationDate;
   public javax.swing.JTextField EmailAddress;
   public javax.swing.JTextField FirstName;
   public javax.swing.JTextField LastName;
@@ -185,5 +198,6 @@ public class CreateEditCustomerView extends javax.swing.JPanel {
   private javax.swing.JLabel jLabel6;
   private javax.swing.JLabel jLabel7;
   private javax.swing.JLabel jLabel8;
+  private javax.swing.JLabel jLabel9;
   // End of variables declaration//GEN-END:variables
 }

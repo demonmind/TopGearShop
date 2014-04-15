@@ -10,6 +10,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JDialog;
 import topgearshop.models.CredentialsModel;
 import topgearshop.models.CustomerModel;
@@ -28,9 +30,11 @@ public class CreateEditCustomerController {
   private Boolean CreateCustomer = true;
   private JDialog modalDialog;
   private Boolean cancelled = false;
+  private Date customerCreationDate;
   
   public CreateEditCustomerController(CustomerModel cm, Boolean readOnly)
   {
+    customerCreationDate = new Date();
     if(cm!=null)
     {
       CreateCustomer = false;
@@ -82,6 +86,9 @@ public class CreateEditCustomerController {
     ceCustomerView.State.setText(customerModel.getState());
     ceCustomerView.StreetAddress.setText(customerModel.getStreetAddress());
     ceCustomerView.ZipCode.setText(customerModel.getZipCode());
+    SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+    ceCustomerView.CustomerCreationDate.setText(sdf.format(customerModel.getCustomerCreationDate()));
+    
   }
   private void setCustomerInformation()
   {
@@ -90,9 +97,10 @@ public class CreateEditCustomerController {
       customerModel.setEmailAddress(ceCustomerView.EmailAddress.getText());
       customerModel.setFirstName(ceCustomerView.FirstName.getText());
       customerModel.setLastName(ceCustomerView.LastName.getText());
-      customerModel.setState(ceCustomerView.State.getText());
+      customerModel.setState(ceCustomerView.State.getText()); 
       customerModel.setStreetAddress(ceCustomerView.StreetAddress.getText());
       customerModel.setZipCode(ceCustomerView.ZipCode.getText());
+      customerModel.setCustomerCreationDate(customerCreationDate);
   }
   class SubmitListener implements ActionListener{
     

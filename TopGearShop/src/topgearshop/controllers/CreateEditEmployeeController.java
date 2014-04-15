@@ -8,6 +8,7 @@ package topgearshop.controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 import javax.swing.JDialog;
 import topgearshop.models.EmployeeModel;
 import topgearshop.utils.DataAccessLayer;
@@ -51,15 +52,27 @@ public class CreateEditEmployeeController {
     }
     modalDialog.setVisible(true);
   }
-  private void setCustomerInformation() {
-       throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  private void setEmployeeInformation() {
+    employee.setEmployeeID(employeeView.EmployeeID.getText());
+    employee.setFirstName(employeeView.FirstName.getText());
+    employee.setMiddleName(employeeView.MiddleName.getText());
+    employee.setLastName(employeeView.LastName.getText());
+    employee.setDateOfBirth(new Date( employeeView.DateOfBirth.getText()));
+    employee.setDriversLicenseNumber(employeeView.DriversLicenseNumber.getText());
+    employee.setEmployeeTypeID(employeeView.EmployeeTypeID.getSelectedIndex());
      }
   private void setFoundInterface() {
     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
 
   private void loadEmployeeInformation() {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    employeeView.EmployeeID.setText(employee.getEmployeeID());
+    employeeView.FirstName.setText(employee.getFirstName());
+    employeeView.MiddleName.setText(employee.getMiddleName());
+    employeeView.LastName.setText(employee.getLastName());
+    employeeView.DateOfBirth.setText(employee.getDateOfBirth().toString());
+    employeeView.DriversLicenseNumber.setText(employee.getDriversLicenseNumber());
+    employeeView.EmployeeTypeID.setSelectedItem(employee.getEmployeeTypeID());
   }
   
   private EmployeeModel validateEmployeeInformation() {
@@ -74,7 +87,7 @@ public class CreateEditEmployeeController {
       {
         employee = new EmployeeModel();
       }
-      setCustomerInformation();
+      setEmployeeInformation();
       if(CreateEmployee)
       {
         DataAccessLayer.CreateEmployee(employee);
@@ -89,10 +102,7 @@ public class CreateEditEmployeeController {
         return;
       }
       modalDialog.dispose();
-    }
-
-
-   
+    }   
   }
   class CancelListener implements ActionListener{
     

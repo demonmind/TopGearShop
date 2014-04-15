@@ -9,6 +9,9 @@ package topgearshop.utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import topgearshop.models.*;
 
 
@@ -226,6 +229,7 @@ public class DataAccessLayer {
           foundCustomer.setCity(resultSet.getString(7));
           foundCustomer.setState(resultSet.getString(8));
           foundCustomer.setZipCode(resultSet.getString(9));
+          foundCustomer.setCustomerCreationDate(new Date(resultSet.getDate(10).toString()));
           conn.close();
           return foundCustomer;
         }
@@ -245,6 +249,7 @@ public class DataAccessLayer {
           foundCustomer.setCity(resultSet.getString(7));
           foundCustomer.setState(resultSet.getString(8));
           foundCustomer.setZipCode(resultSet.getString(9));
+          foundCustomer.setCustomerCreationDate(new Date(resultSet.getDate(10).toString()));
           conn.close();
           return foundCustomer;
         }
@@ -266,6 +271,10 @@ public class DataAccessLayer {
           foundCustomer.setCity(resultSet.getString(7));
           foundCustomer.setState(resultSet.getString(8));
           foundCustomer.setZipCode(resultSet.getString(9));
+          SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+          String c = resultSet.getString(10);
+          System.out.println("Input date: " + c);
+          foundCustomer.setCustomerCreationDate(sdf.parse(resultSet.getString(10)));
           conn.close();
           return foundCustomer;
         }

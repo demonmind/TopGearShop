@@ -44,8 +44,7 @@ public class CreateEditEmployeeView extends javax.swing.JPanel {
     LastName = new javax.swing.JTextField();
     DateOfBirth = new javax.swing.JTextField();
     DriversLicenseNumber = new javax.swing.JTextField();
-    cmdSave = new javax.swing.JButton();
-    cmdClose = new javax.swing.JButton();
+    cmdSubmit = new javax.swing.JButton();
     cmdCancel = new javax.swing.JButton();
     EmployeeTypeID = new javax.swing.JComboBox();
 
@@ -63,13 +62,16 @@ public class CreateEditEmployeeView extends javax.swing.JPanel {
 
     jLabel8.setText("Employee Type:");
 
-    cmdSave.setText("Save");
-
-    cmdClose.setText("Close");
+    cmdSubmit.setText("Save");
 
     cmdCancel.setText("Cancel");
 
-    EmployeeTypeID.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+    EmployeeTypeID.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Technician", "Manager" }));
+    EmployeeTypeID.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        EmployeeTypeIDActionPerformed(evt);
+      }
+    });
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
     this.setLayout(layout);
@@ -77,22 +79,17 @@ public class CreateEditEmployeeView extends javax.swing.JPanel {
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(layout.createSequentialGroup()
         .addContainerGap()
-        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-          .addComponent(jLabel8)
-          .addComponent(jLabel7)
-          .addComponent(jLabel6)
-          .addComponent(jLabel5)
-          .addComponent(jLabel4)
-          .addComponent(jLabel2)
-          .addComponent(jLabel3)
-          .addComponent(cmdSave, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addGroup(layout.createSequentialGroup()
-            .addComponent(cmdClose, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+              .addComponent(jLabel8)
+              .addComponent(jLabel7)
+              .addComponent(jLabel6)
+              .addComponent(jLabel5)
+              .addComponent(jLabel4)
+              .addComponent(jLabel2)
+              .addComponent(jLabel3))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(cmdCancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-          .addGroup(layout.createSequentialGroup()
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
               .addComponent(FirstName)
               .addComponent(MiddleName)
@@ -101,7 +98,11 @@ public class CreateEditEmployeeView extends javax.swing.JPanel {
               .addComponent(DriversLicenseNumber)
               .addComponent(EmployeeID, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
               .addComponent(EmployeeTypeID, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGap(0, 0, Short.MAX_VALUE)))
+            .addGap(0, 2, Short.MAX_VALUE))
+          .addGroup(layout.createSequentialGroup()
+            .addComponent(cmdSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(18, 18, 18)
+            .addComponent(cmdCancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         .addContainerGap())
     );
 
@@ -139,27 +140,28 @@ public class CreateEditEmployeeView extends javax.swing.JPanel {
           .addComponent(jLabel8)
           .addComponent(EmployeeTypeID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addComponent(cmdClose)
-          .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-            .addComponent(cmdSave)
-            .addComponent(cmdCancel)))
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(cmdSubmit)
+          .addComponent(cmdCancel))
         .addContainerGap())
     );
   }// </editor-fold>//GEN-END:initComponents
 
+  private void EmployeeTypeIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeTypeIDActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_EmployeeTypeIDActionPerformed
+
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JTextField DateOfBirth;
-  private javax.swing.JTextField DriversLicenseNumber;
-  private javax.swing.JTextField EmployeeID;
-  private javax.swing.JComboBox EmployeeTypeID;
-  private javax.swing.JTextField FirstName;
-  private javax.swing.JTextField LastName;
-  private javax.swing.JTextField MiddleName;
+  public javax.swing.JTextField DateOfBirth;
+  public javax.swing.JTextField DriversLicenseNumber;
+  public javax.swing.JTextField EmployeeID;
+  public javax.swing.JComboBox EmployeeTypeID;
+  public javax.swing.JTextField FirstName;
+  public javax.swing.JTextField LastName;
+  public javax.swing.JTextField MiddleName;
   private javax.swing.JButton cmdCancel;
-  private javax.swing.JButton cmdClose;
-  private javax.swing.JButton cmdSave;
+  private javax.swing.JButton cmdSubmit;
   private javax.swing.JLabel jLabel2;
   private javax.swing.JLabel jLabel3;
   private javax.swing.JLabel jLabel4;
@@ -170,10 +172,10 @@ public class CreateEditEmployeeView extends javax.swing.JPanel {
   // End of variables declaration//GEN-END:variables
 
   public void setSubmitActionHandler(ActionListener al) {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    cmdSubmit.addActionListener(al);
   }
 
   public void setCancelActionListener(ActionListener al) {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    cmdCancel.addActionListener(al);
   }
 }

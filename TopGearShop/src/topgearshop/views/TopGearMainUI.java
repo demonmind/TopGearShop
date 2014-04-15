@@ -33,35 +33,19 @@ public class TopGearMainUI extends javax.swing.JFrame {
     activityView1 = new topgearshop.views.ActivityView();
     jLabel1 = new javax.swing.JLabel();
     lblWorkOrders = new javax.swing.JLabel();
-    lblCustomers = new javax.swing.JLabel();
-    lblVehicles = new javax.swing.JLabel();
-    lblInventory = new javax.swing.JLabel();
-    lblReports = new javax.swing.JLabel();
     lblUsers = new javax.swing.JLabel();
-    lblServiceItems = new javax.swing.JLabel();
-    lblWarranty = new javax.swing.JLabel();
-    pnlCustomers = new javax.swing.JPanel();
-    cmdCreateCustomer = new javax.swing.JButton();
-    cmdEditCustomer = new javax.swing.JButton();
-    cmdFindCustomer = new javax.swing.JButton();
     pnlWorkOrders = new javax.swing.JPanel();
     cmdCreateWorkOrder = new javax.swing.JButton();
     cmdEditWorkOrder = new javax.swing.JButton();
     cmdFindWorkOrder = new javax.swing.JButton();
     cmdCompleteWorkOrder = new javax.swing.JButton();
-    pnlVehicles = new javax.swing.JPanel();
-    cmdCreateVehicle = new javax.swing.JButton();
-    cmdEditVehicle = new javax.swing.JButton();
-    cmdFindVehicle = new javax.swing.JButton();
-    pnlWarranties = new javax.swing.JPanel();
-    cmdCreateWarranty = new javax.swing.JButton();
-    cmdEditWarranty = new javax.swing.JButton();
-    cmdRemoveWarranty = new javax.swing.JButton();
-    cmdFindWarranty = new javax.swing.JButton();
-    pnlServices = new javax.swing.JPanel();
-    cmdCreateService = new javax.swing.JButton();
-    cmdEditService = new javax.swing.JButton();
-    cmdRemoveService = new javax.swing.JButton();
+    jButton1 = new javax.swing.JButton();
+    pnlWorkOrders6 = new javax.swing.JPanel();
+    cmdCreateUser = new javax.swing.JButton();
+    cmdEditUser = new javax.swing.JButton();
+    cmdFindUser = new javax.swing.JButton();
+    cmdChangePassword = new javax.swing.JButton();
+    pnlManagement02 = new javax.swing.JPanel();
     pnlWorkOrders5 = new javax.swing.JPanel();
     cmdProfitReport = new javax.swing.JButton();
     cmdTechnicianReport = new javax.swing.JButton();
@@ -69,16 +53,58 @@ public class TopGearMainUI extends javax.swing.JFrame {
     cmdCustomerReport = new javax.swing.JButton();
     cmdVehicleHistory = new javax.swing.JButton();
     cmdServicesPerformed = new javax.swing.JButton();
-    pnlWorkOrders6 = new javax.swing.JPanel();
-    cmdCreateUser = new javax.swing.JButton();
-    cmdEditUser = new javax.swing.JButton();
-    cmdFindUser = new javax.swing.JButton();
-    cmdChangePassword = new javax.swing.JButton();
+    jLabel4 = new javax.swing.JLabel();
     pnlWorkOrders7 = new javax.swing.JPanel();
     cmdCreateInventory = new javax.swing.JButton();
     cmdEditInventory = new javax.swing.JButton();
     cmdRemoveInventory = new javax.swing.JButton();
     cmdFindInventory = new javax.swing.JButton();
+    pnlWarranties = new javax.swing.JPanel();
+    cmdCreateWarranty = new javax.swing.JButton();
+    cmdEditWarranty = new javax.swing.JButton();
+    cmdRemoveWarranty = new javax.swing.JButton();
+    cmdFindWarranty = new javax.swing.JButton();
+    lblInventory = new javax.swing.JLabel();
+    lblReports = new javax.swing.JLabel();
+    lblWarranty = new javax.swing.JLabel();
+    lblServiceItems = new javax.swing.JLabel();
+    pnlServices = new javax.swing.JPanel();
+    cmdCreateService = new javax.swing.JButton();
+    cmdEditService = new javax.swing.JButton();
+    cmdRemoveService = new javax.swing.JButton();
+    jPanel1 = new javax.swing.JPanel();
+    jButton7 = new javax.swing.JButton();
+    jButton8 = new javax.swing.JButton();
+    jButton9 = new javax.swing.JButton();
+    jButton10 = new javax.swing.JButton();
+    pnlShopFees = new javax.swing.JPanel();
+    jButton5 = new javax.swing.JButton();
+    jButton6 = new javax.swing.JButton();
+    jLabel3 = new javax.swing.JLabel();
+    pnlDiscount = new javax.swing.JPanel();
+    jButton13 = new javax.swing.JButton();
+    jButton14 = new javax.swing.JButton();
+    jLabel6 = new javax.swing.JLabel();
+    pnlTax = new javax.swing.JPanel();
+    jButton11 = new javax.swing.JButton();
+    jButton12 = new javax.swing.JButton();
+    jLabel5 = new javax.swing.JLabel();
+    pnlManager01 = new javax.swing.JPanel();
+    pnlCustomers = new javax.swing.JPanel();
+    cmdCreateCustomer = new javax.swing.JButton();
+    cmdEditCustomer = new javax.swing.JButton();
+    cmdFindCustomer = new javax.swing.JButton();
+    pnlVehicles = new javax.swing.JPanel();
+    cmdCreateVehicle = new javax.swing.JButton();
+    cmdEditVehicle = new javax.swing.JButton();
+    cmdFindVehicle = new javax.swing.JButton();
+    lblCustomers = new javax.swing.JLabel();
+    lblVehicles = new javax.swing.JLabel();
+    jLabel2 = new javax.swing.JLabel();
+    pnlManagement = new javax.swing.JPanel();
+    jButton2 = new javax.swing.JButton();
+    jButton3 = new javax.swing.JButton();
+    jButton4 = new javax.swing.JButton();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,51 +114,7 @@ public class TopGearMainUI extends javax.swing.JFrame {
 
     lblWorkOrders.setText("Work Orders");
 
-    lblCustomers.setText("Customers");
-
-    lblVehicles.setText("Vehicles");
-
-    lblInventory.setText("Inventory");
-
-    lblReports.setText("Reports");
-
     lblUsers.setText("Users");
-
-    lblServiceItems.setText("Services");
-
-    lblWarranty.setText("Warranty");
-
-    pnlCustomers.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-    cmdCreateCustomer.setText("Create Customer");
-
-    cmdEditCustomer.setText("Edit Customer");
-
-    cmdFindCustomer.setText("Find Customer");
-
-    javax.swing.GroupLayout pnlCustomersLayout = new javax.swing.GroupLayout(pnlCustomers);
-    pnlCustomers.setLayout(pnlCustomersLayout);
-    pnlCustomersLayout.setHorizontalGroup(
-      pnlCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(pnlCustomersLayout.createSequentialGroup()
-        .addContainerGap()
-        .addGroup(pnlCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addComponent(cmdFindCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(cmdEditCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(cmdCreateCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
-        .addContainerGap())
-    );
-    pnlCustomersLayout.setVerticalGroup(
-      pnlCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(pnlCustomersLayout.createSequentialGroup()
-        .addContainerGap()
-        .addComponent(cmdCreateCustomer)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(cmdEditCustomer)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addComponent(cmdFindCustomer)
-        .addContainerGap())
-    );
 
     pnlWorkOrders.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -144,6 +126,8 @@ public class TopGearMainUI extends javax.swing.JFrame {
 
     cmdCompleteWorkOrder.setText("Complete Work Order");
 
+    jButton1.setText("Perform Work Order");
+
     javax.swing.GroupLayout pnlWorkOrdersLayout = new javax.swing.GroupLayout(pnlWorkOrders);
     pnlWorkOrders.setLayout(pnlWorkOrdersLayout);
     pnlWorkOrdersLayout.setHorizontalGroup(
@@ -154,7 +138,8 @@ public class TopGearMainUI extends javax.swing.JFrame {
           .addComponent(cmdCompleteWorkOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
           .addComponent(cmdCreateWorkOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
           .addComponent(cmdEditWorkOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(cmdFindWorkOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+          .addComponent(cmdFindWorkOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
     pnlWorkOrdersLayout.setVerticalGroup(
@@ -167,112 +152,49 @@ public class TopGearMainUI extends javax.swing.JFrame {
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addComponent(cmdFindWorkOrder)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(jButton1)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         .addComponent(cmdCompleteWorkOrder)
-        .addContainerGap(14, Short.MAX_VALUE))
+        .addContainerGap())
     );
 
-    pnlVehicles.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+    pnlWorkOrders6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-    cmdCreateVehicle.setText("Create Vehicle");
+    cmdCreateUser.setText("Create User");
 
-    cmdEditVehicle.setText("Edit Vehicle");
+    cmdEditUser.setText("Edit User");
 
-    cmdFindVehicle.setText("Find Vehicle");
+    cmdFindUser.setText("Find User");
 
-    javax.swing.GroupLayout pnlVehiclesLayout = new javax.swing.GroupLayout(pnlVehicles);
-    pnlVehicles.setLayout(pnlVehiclesLayout);
-    pnlVehiclesLayout.setHorizontalGroup(
-      pnlVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(pnlVehiclesLayout.createSequentialGroup()
+    cmdChangePassword.setText("Change Password");
+
+    javax.swing.GroupLayout pnlWorkOrders6Layout = new javax.swing.GroupLayout(pnlWorkOrders6);
+    pnlWorkOrders6.setLayout(pnlWorkOrders6Layout);
+    pnlWorkOrders6Layout.setHorizontalGroup(
+      pnlWorkOrders6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(pnlWorkOrders6Layout.createSequentialGroup()
         .addContainerGap()
-        .addGroup(pnlVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addComponent(cmdCreateVehicle, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-          .addGroup(pnlVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-            .addComponent(cmdEditVehicle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(cmdFindVehicle, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)))
+        .addGroup(pnlWorkOrders6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addComponent(cmdCreateUser)
+          .addComponent(cmdEditUser)
+          .addComponent(cmdFindUser)
+          .addComponent(cmdChangePassword))
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
-    pnlVehiclesLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cmdCreateVehicle, cmdFindVehicle});
+    pnlWorkOrders6Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cmdChangePassword, cmdCreateUser, cmdEditUser, cmdFindUser});
 
-    pnlVehiclesLayout.setVerticalGroup(
-      pnlVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(pnlVehiclesLayout.createSequentialGroup()
+    pnlWorkOrders6Layout.setVerticalGroup(
+      pnlWorkOrders6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(pnlWorkOrders6Layout.createSequentialGroup()
         .addContainerGap()
-        .addComponent(cmdCreateVehicle)
+        .addComponent(cmdCreateUser)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(cmdEditVehicle)
+        .addComponent(cmdEditUser)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(cmdFindUser)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addComponent(cmdFindVehicle)
-        .addContainerGap())
-    );
-
-    pnlWarranties.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-    cmdCreateWarranty.setText("Create Warranty");
-
-    cmdEditWarranty.setText("Edit Warranty");
-
-    cmdRemoveWarranty.setText("Remove Warranty");
-
-    cmdFindWarranty.setText("Find Warranty");
-
-    javax.swing.GroupLayout pnlWarrantiesLayout = new javax.swing.GroupLayout(pnlWarranties);
-    pnlWarranties.setLayout(pnlWarrantiesLayout);
-    pnlWarrantiesLayout.setHorizontalGroup(
-      pnlWarrantiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(pnlWarrantiesLayout.createSequentialGroup()
-        .addContainerGap()
-        .addGroup(pnlWarrantiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-          .addComponent(cmdRemoveWarranty, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(cmdEditWarranty, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(cmdCreateWarranty, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(cmdFindWarranty, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-    );
-    pnlWarrantiesLayout.setVerticalGroup(
-      pnlWarrantiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(pnlWarrantiesLayout.createSequentialGroup()
-        .addContainerGap()
-        .addComponent(cmdCreateWarranty)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(cmdEditWarranty)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addComponent(cmdFindWarranty)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(cmdRemoveWarranty)
-        .addContainerGap())
-    );
-
-    pnlServices.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-    cmdCreateService.setText("Create Service");
-
-    cmdEditService.setText("Edit Service");
-
-    cmdRemoveService.setText("Remove Service");
-
-    javax.swing.GroupLayout pnlServicesLayout = new javax.swing.GroupLayout(pnlServices);
-    pnlServices.setLayout(pnlServicesLayout);
-    pnlServicesLayout.setHorizontalGroup(
-      pnlServicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(pnlServicesLayout.createSequentialGroup()
-        .addContainerGap()
-        .addGroup(pnlServicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addComponent(cmdCreateService, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(cmdEditService, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(cmdRemoveService, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
-        .addContainerGap())
-    );
-    pnlServicesLayout.setVerticalGroup(
-      pnlServicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(pnlServicesLayout.createSequentialGroup()
-        .addContainerGap()
-        .addComponent(cmdCreateService)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(cmdEditService)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addComponent(cmdRemoveService)
+        .addComponent(cmdChangePassword)
         .addContainerGap())
     );
 
@@ -326,45 +248,7 @@ public class TopGearMainUI extends javax.swing.JFrame {
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
-    pnlWorkOrders6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-    cmdCreateUser.setText("Create User");
-
-    cmdEditUser.setText("Edit User");
-
-    cmdFindUser.setText("Find User");
-
-    cmdChangePassword.setText("Change Password");
-
-    javax.swing.GroupLayout pnlWorkOrders6Layout = new javax.swing.GroupLayout(pnlWorkOrders6);
-    pnlWorkOrders6.setLayout(pnlWorkOrders6Layout);
-    pnlWorkOrders6Layout.setHorizontalGroup(
-      pnlWorkOrders6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(pnlWorkOrders6Layout.createSequentialGroup()
-        .addContainerGap()
-        .addGroup(pnlWorkOrders6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addComponent(cmdCreateUser)
-          .addComponent(cmdEditUser)
-          .addComponent(cmdFindUser)
-          .addComponent(cmdChangePassword))
-        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-    );
-
-    pnlWorkOrders6Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cmdChangePassword, cmdCreateUser, cmdEditUser, cmdFindUser});
-
-    pnlWorkOrders6Layout.setVerticalGroup(
-      pnlWorkOrders6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(pnlWorkOrders6Layout.createSequentialGroup()
-        .addContainerGap()
-        .addComponent(cmdCreateUser)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(cmdEditUser)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(cmdFindUser)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addComponent(cmdChangePassword)
-        .addContainerGap())
-    );
+    jLabel4.setText("Materials/Parts");
 
     pnlWorkOrders7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -405,52 +289,472 @@ public class TopGearMainUI extends javax.swing.JFrame {
         .addContainerGap())
     );
 
+    pnlWarranties.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+    cmdCreateWarranty.setText("Create Warranty");
+
+    cmdEditWarranty.setText("Edit Warranty");
+
+    cmdRemoveWarranty.setText("Remove Warranty");
+
+    cmdFindWarranty.setText("Find Warranty");
+
+    javax.swing.GroupLayout pnlWarrantiesLayout = new javax.swing.GroupLayout(pnlWarranties);
+    pnlWarranties.setLayout(pnlWarrantiesLayout);
+    pnlWarrantiesLayout.setHorizontalGroup(
+      pnlWarrantiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(pnlWarrantiesLayout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(pnlWarrantiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+          .addComponent(cmdRemoveWarranty, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(cmdEditWarranty, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(cmdCreateWarranty, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(cmdFindWarranty, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+    );
+    pnlWarrantiesLayout.setVerticalGroup(
+      pnlWarrantiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(pnlWarrantiesLayout.createSequentialGroup()
+        .addContainerGap()
+        .addComponent(cmdCreateWarranty)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(cmdEditWarranty)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addComponent(cmdFindWarranty)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(cmdRemoveWarranty)
+        .addContainerGap())
+    );
+
+    lblInventory.setText("Inventory");
+
+    lblReports.setText("Reports");
+
+    lblWarranty.setText("Warranty");
+
+    lblServiceItems.setText("Services");
+
+    pnlServices.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+    cmdCreateService.setText("Create Service");
+
+    cmdEditService.setText("Edit Service");
+
+    cmdRemoveService.setText("Remove Service");
+
+    javax.swing.GroupLayout pnlServicesLayout = new javax.swing.GroupLayout(pnlServices);
+    pnlServices.setLayout(pnlServicesLayout);
+    pnlServicesLayout.setHorizontalGroup(
+      pnlServicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(pnlServicesLayout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(pnlServicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addComponent(cmdCreateService, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(cmdEditService, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(cmdRemoveService, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
+        .addContainerGap())
+    );
+    pnlServicesLayout.setVerticalGroup(
+      pnlServicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(pnlServicesLayout.createSequentialGroup()
+        .addContainerGap()
+        .addComponent(cmdCreateService)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(cmdEditService)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addComponent(cmdRemoveService)
+        .addContainerGap())
+    );
+
+    jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+    jButton7.setText("Create Materials List");
+
+    jButton8.setText("Edit Material List");
+
+    jButton9.setText("Create Part");
+
+    jButton10.setText("Edit Part");
+
+    javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+    jPanel1.setLayout(jPanel1Layout);
+    jPanel1Layout.setHorizontalGroup(
+      jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(jPanel1Layout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+          .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+    );
+
+    jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton10, jButton8, jButton9});
+
+    jPanel1Layout.setVerticalGroup(
+      jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(jPanel1Layout.createSequentialGroup()
+        .addContainerGap()
+        .addComponent(jButton7)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(jButton8)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(jButton9)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(jButton10)
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+    );
+
+    pnlShopFees.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+    jButton5.setText("Create Shop Fees");
+
+    jButton6.setText("Edit Shop Fees");
+
+    javax.swing.GroupLayout pnlShopFeesLayout = new javax.swing.GroupLayout(pnlShopFees);
+    pnlShopFees.setLayout(pnlShopFeesLayout);
+    pnlShopFeesLayout.setHorizontalGroup(
+      pnlShopFeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlShopFeesLayout.createSequentialGroup()
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addComponent(jButton5)
+        .addContainerGap())
+      .addGroup(pnlShopFeesLayout.createSequentialGroup()
+        .addContainerGap()
+        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+    );
+    pnlShopFeesLayout.setVerticalGroup(
+      pnlShopFeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(pnlShopFeesLayout.createSequentialGroup()
+        .addContainerGap()
+        .addComponent(jButton5)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addComponent(jButton6)
+        .addContainerGap())
+    );
+
+    jLabel3.setText("Shop Fees");
+
+    pnlDiscount.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+    jButton13.setText("Create Discount");
+
+    jButton14.setText("Edit Discount");
+
+    javax.swing.GroupLayout pnlDiscountLayout = new javax.swing.GroupLayout(pnlDiscount);
+    pnlDiscount.setLayout(pnlDiscountLayout);
+    pnlDiscountLayout.setHorizontalGroup(
+      pnlDiscountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(pnlDiscountLayout.createSequentialGroup()
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addComponent(jButton13)
+        .addContainerGap())
+      .addGroup(pnlDiscountLayout.createSequentialGroup()
+        .addContainerGap()
+        .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+    );
+    pnlDiscountLayout.setVerticalGroup(
+      pnlDiscountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(pnlDiscountLayout.createSequentialGroup()
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addComponent(jButton13)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(jButton14)
+        .addGap(11, 11, 11))
+    );
+
+    jLabel6.setText("Discounts");
+
+    pnlTax.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+    jButton11.setText("Create Tax Rate");
+
+    jButton12.setText("Edit Tax Rate");
+
+    javax.swing.GroupLayout pnlTaxLayout = new javax.swing.GroupLayout(pnlTax);
+    pnlTax.setLayout(pnlTaxLayout);
+    pnlTaxLayout.setHorizontalGroup(
+      pnlTaxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(pnlTaxLayout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(pnlTaxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addComponent(jButton11)
+          .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addContainerGap(21, Short.MAX_VALUE))
+    );
+    pnlTaxLayout.setVerticalGroup(
+      pnlTaxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(pnlTaxLayout.createSequentialGroup()
+        .addContainerGap()
+        .addComponent(jButton11)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addComponent(jButton12)
+        .addContainerGap())
+    );
+
+    jLabel5.setText("Tax");
+
+    javax.swing.GroupLayout pnlManagement02Layout = new javax.swing.GroupLayout(pnlManagement02);
+    pnlManagement02.setLayout(pnlManagement02Layout);
+    pnlManagement02Layout.setHorizontalGroup(
+      pnlManagement02Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(pnlManagement02Layout.createSequentialGroup()
+        .addGap(10, 10, 10)
+        .addComponent(pnlWorkOrders5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addGroup(pnlManagement02Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(pnlManagement02Layout.createSequentialGroup()
+            .addGap(7, 7, 7)
+            .addGroup(pnlManagement02Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addComponent(pnlWarranties, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(lblWarranty))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(pnlManagement02Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addGroup(pnlManagement02Layout.createSequentialGroup()
+                .addComponent(pnlWorkOrders7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlServices, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+              .addGroup(pnlManagement02Layout.createSequentialGroup()
+                .addComponent(lblInventory)
+                .addGap(120, 120, 120)
+                .addComponent(jLabel4)
+                .addGap(91, 91, 91)
+                .addComponent(lblServiceItems))))
+          .addGroup(pnlManagement02Layout.createSequentialGroup()
+            .addGroup(pnlManagement02Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addGroup(pnlManagement02Layout.createSequentialGroup()
+                .addGap(7, 7, 7)
+                .addComponent(pnlShopFees, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+              .addGroup(pnlManagement02Layout.createSequentialGroup()
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(pnlManagement02Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addComponent(jLabel5)
+              .addComponent(pnlTax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(pnlManagement02Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addComponent(jLabel6)
+              .addComponent(pnlDiscount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+      .addGroup(pnlManagement02Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(pnlManagement02Layout.createSequentialGroup()
+          .addContainerGap()
+          .addComponent(lblReports)
+          .addContainerGap(860, Short.MAX_VALUE)))
+    );
+    pnlManagement02Layout.setVerticalGroup(
+      pnlManagement02Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(pnlManagement02Layout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(pnlManagement02Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(lblInventory)
+          .addComponent(jLabel4)
+          .addComponent(lblServiceItems)
+          .addComponent(lblWarranty))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addGroup(pnlManagement02Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addComponent(pnlWorkOrders5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(pnlServices, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addGroup(pnlManagement02Layout.createSequentialGroup()
+            .addGroup(pnlManagement02Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addComponent(pnlWorkOrders7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(pnlWarranties, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(pnlManagement02Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addGroup(pnlManagement02Layout.createSequentialGroup()
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlShopFees, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+              .addGroup(pnlManagement02Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(pnlManagement02Layout.createSequentialGroup()
+                  .addComponent(jLabel5)
+                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                  .addComponent(pnlTax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlManagement02Layout.createSequentialGroup()
+                  .addComponent(jLabel6)
+                  .addGap(4, 4, 4)
+                  .addComponent(pnlDiscount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+      .addGroup(pnlManagement02Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(pnlManagement02Layout.createSequentialGroup()
+          .addContainerGap()
+          .addComponent(lblReports)
+          .addContainerGap(284, Short.MAX_VALUE)))
+    );
+
+    pnlCustomers.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+    cmdCreateCustomer.setText("Create Customer");
+
+    cmdEditCustomer.setText("Edit Customer");
+
+    cmdFindCustomer.setText("Find Customer");
+
+    javax.swing.GroupLayout pnlCustomersLayout = new javax.swing.GroupLayout(pnlCustomers);
+    pnlCustomers.setLayout(pnlCustomersLayout);
+    pnlCustomersLayout.setHorizontalGroup(
+      pnlCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(pnlCustomersLayout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(pnlCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addComponent(cmdFindCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(cmdEditCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(cmdCreateCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
+        .addContainerGap())
+    );
+    pnlCustomersLayout.setVerticalGroup(
+      pnlCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(pnlCustomersLayout.createSequentialGroup()
+        .addContainerGap()
+        .addComponent(cmdCreateCustomer)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(cmdEditCustomer)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addComponent(cmdFindCustomer)
+        .addContainerGap())
+    );
+
+    pnlVehicles.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+    cmdCreateVehicle.setText("Create Vehicle");
+
+    cmdEditVehicle.setText("Edit Vehicle");
+
+    cmdFindVehicle.setText("Find Vehicle");
+
+    javax.swing.GroupLayout pnlVehiclesLayout = new javax.swing.GroupLayout(pnlVehicles);
+    pnlVehicles.setLayout(pnlVehiclesLayout);
+    pnlVehiclesLayout.setHorizontalGroup(
+      pnlVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(pnlVehiclesLayout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(pnlVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addComponent(cmdFindVehicle, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(cmdCreateVehicle, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(cmdEditVehicle, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addContainerGap())
+    );
+
+    pnlVehiclesLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cmdCreateVehicle, cmdEditVehicle, cmdFindVehicle});
+
+    pnlVehiclesLayout.setVerticalGroup(
+      pnlVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(pnlVehiclesLayout.createSequentialGroup()
+        .addContainerGap()
+        .addComponent(cmdCreateVehicle)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(cmdEditVehicle)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addComponent(cmdFindVehicle)
+        .addContainerGap())
+    );
+
+    lblCustomers.setText("Customers");
+
+    lblVehicles.setText("Vehicles");
+
+    jLabel2.setText("Employee");
+
+    pnlManagement.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+    jButton2.setText("Create Employee");
+
+    jButton3.setText("Edit Employee");
+
+    jButton4.setText("Find Employee");
+
+    javax.swing.GroupLayout pnlManagementLayout = new javax.swing.GroupLayout(pnlManagement);
+    pnlManagement.setLayout(pnlManagementLayout);
+    pnlManagementLayout.setHorizontalGroup(
+      pnlManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(pnlManagementLayout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(pnlManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+          .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        .addContainerGap())
+    );
+    pnlManagementLayout.setVerticalGroup(
+      pnlManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(pnlManagementLayout.createSequentialGroup()
+        .addContainerGap()
+        .addComponent(jButton2)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(jButton3)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(jButton4)
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+    );
+
+    javax.swing.GroupLayout pnlManager01Layout = new javax.swing.GroupLayout(pnlManager01);
+    pnlManager01.setLayout(pnlManager01Layout);
+    pnlManager01Layout.setHorizontalGroup(
+      pnlManager01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(pnlManager01Layout.createSequentialGroup()
+        .addGroup(pnlManager01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(pnlManager01Layout.createSequentialGroup()
+            .addComponent(lblCustomers)
+            .addGap(100, 100, 100))
+          .addComponent(pnlCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addGroup(pnlManager01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(pnlManager01Layout.createSequentialGroup()
+            .addComponent(lblVehicles)
+            .addGap(128, 128, 128))
+          .addComponent(pnlVehicles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addGroup(pnlManager01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addComponent(jLabel2)
+          .addComponent(pnlManagement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addGap(0, 13, Short.MAX_VALUE))
+    );
+    pnlManager01Layout.setVerticalGroup(
+      pnlManager01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(pnlManager01Layout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(pnlManager01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+          .addGroup(pnlManager01Layout.createSequentialGroup()
+            .addComponent(jLabel2)
+            .addGap(2, 2, 2)
+            .addComponent(pnlManagement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addGroup(pnlManager01Layout.createSequentialGroup()
+            .addComponent(lblVehicles)
+            .addGap(2, 2, 2)
+            .addComponent(pnlVehicles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addGroup(pnlManager01Layout.createSequentialGroup()
+            .addComponent(lblCustomers)
+            .addGap(2, 2, 2)
+            .addComponent(pnlCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+    );
+
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
     layout.setHorizontalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 892, javax.swing.GroupLayout.PREFERRED_SIZE)
+      .addComponent(activityView1, javax.swing.GroupLayout.PREFERRED_SIZE, 892, javax.swing.GroupLayout.PREFERRED_SIZE)
+      .addComponent(pnlManagement02, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
       .addGroup(layout.createSequentialGroup()
-        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-          .addComponent(activityView1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addGap(12, 12, 12)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addGroup(layout.createSequentialGroup()
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                  .addGroup(layout.createSequentialGroup()
-                    .addGap(12, 12, 12)
-                    .addComponent(pnlWorkOrders, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                  .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                      .addComponent(lblReports)
-                      .addComponent(pnlWorkOrders5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                  .addComponent(pnlCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                  .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblWarranty)
-                    .addComponent(pnlWarranties, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-              .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(lblWorkOrders)
-                .addGap(148, 148, 148)
-                .addComponent(lblCustomers)))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                .addComponent(lblInventory)
-                .addComponent(pnlWorkOrders7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pnlVehicles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-              .addComponent(lblVehicles))
-            .addGap(32, 32, 32)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addComponent(pnlServices, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(lblServiceItems)
-              .addComponent(lblUsers)
-              .addComponent(pnlWorkOrders6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGap(18, 18, 18)))
-        .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(lblWorkOrders)
+            .addGap(117, 117, 117)
+            .addComponent(lblUsers))
+          .addGroup(layout.createSequentialGroup()
+            .addComponent(pnlWorkOrders, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(pnlWorkOrders6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(pnlManager01, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -458,45 +762,21 @@ public class TopGearMainUI extends javax.swing.JFrame {
         .addComponent(jLabel1)
         .addGap(7, 7, 7)
         .addComponent(activityView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(18, 18, 18)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addGroup(layout.createSequentialGroup()
+            .addGap(18, 18, 18)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
               .addComponent(lblWorkOrders)
-              .addComponent(lblCustomers))
-            .addGap(13, 13, 13)
+              .addComponent(lblUsers))
+            .addGap(2, 2, 2)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addComponent(pnlWorkOrders, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(pnlCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addGroup(layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                  .addGroup(layout.createSequentialGroup()
-                    .addComponent(lblUsers)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(pnlWorkOrders6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                  .addGroup(layout.createSequentialGroup()
-                    .addComponent(lblWarranty)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(pnlWarranties, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                  .addGroup(layout.createSequentialGroup()
-                    .addComponent(lblInventory)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(pnlWorkOrders7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-              .addGroup(layout.createSequentialGroup()
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblReports)
-                .addGap(12, 12, 12)
-                .addComponent(pnlWorkOrders5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+              .addComponent(pnlWorkOrders6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(pnlWorkOrders, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
           .addGroup(layout.createSequentialGroup()
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-              .addComponent(lblVehicles)
-              .addComponent(lblServiceItems))
-            .addGap(13, 13, 13)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-              .addComponent(pnlVehicles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(pnlServices, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(pnlManager01, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(pnlManagement02, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
@@ -665,7 +945,27 @@ public void setVehicleHistoryActionListener(ActionListener al){
   private javax.swing.JButton cmdServicesPerformed;
   private javax.swing.JButton cmdTechnicianReport;
   private javax.swing.JButton cmdVehicleHistory;
+  private javax.swing.JButton jButton1;
+  private javax.swing.JButton jButton10;
+  private javax.swing.JButton jButton11;
+  private javax.swing.JButton jButton12;
+  private javax.swing.JButton jButton13;
+  private javax.swing.JButton jButton14;
+  private javax.swing.JButton jButton2;
+  private javax.swing.JButton jButton3;
+  private javax.swing.JButton jButton4;
+  private javax.swing.JButton jButton5;
+  private javax.swing.JButton jButton6;
+  private javax.swing.JButton jButton7;
+  private javax.swing.JButton jButton8;
+  private javax.swing.JButton jButton9;
   private javax.swing.JLabel jLabel1;
+  private javax.swing.JLabel jLabel2;
+  private javax.swing.JLabel jLabel3;
+  private javax.swing.JLabel jLabel4;
+  private javax.swing.JLabel jLabel5;
+  private javax.swing.JLabel jLabel6;
+  private javax.swing.JPanel jPanel1;
   private javax.swing.JLabel lblCustomers;
   private javax.swing.JLabel lblInventory;
   private javax.swing.JLabel lblReports;
@@ -675,7 +975,13 @@ public void setVehicleHistoryActionListener(ActionListener al){
   private javax.swing.JLabel lblWarranty;
   private javax.swing.JLabel lblWorkOrders;
   private javax.swing.JPanel pnlCustomers;
+  private javax.swing.JPanel pnlDiscount;
+  private javax.swing.JPanel pnlManagement;
+  private javax.swing.JPanel pnlManagement02;
+  private javax.swing.JPanel pnlManager01;
   private javax.swing.JPanel pnlServices;
+  private javax.swing.JPanel pnlShopFees;
+  private javax.swing.JPanel pnlTax;
   private javax.swing.JPanel pnlVehicles;
   private javax.swing.JPanel pnlWarranties;
   private javax.swing.JPanel pnlWorkOrders;

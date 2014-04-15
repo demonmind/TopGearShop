@@ -13,6 +13,8 @@
 
 package topgearshop.models;
 
+import java.util.Date;
+
 
 /** */
 public class CustomerModel {
@@ -42,6 +44,9 @@ public class CustomerModel {
 	
 	/** */
 	private String zipCode;
+  
+  /** */
+  private Date customerCreationDate;
 	
 	/** */
 	public Integer getCustomerID() {
@@ -132,4 +137,15 @@ public class CustomerModel {
 	public void setZipCode(String zipCode) {
     this.zipCode = zipCode;
 	}
+  
+  /** */
+  public Date getCustomerCreationDate()
+  {
+    return this.customerCreationDate;
+  }
+  
+  public void setCustomerCreationDate(Date creationDate)
+  {
+    this.customerCreationDate = creationDate;
+  }
 }

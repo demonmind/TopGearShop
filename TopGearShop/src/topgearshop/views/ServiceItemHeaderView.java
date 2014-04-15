@@ -10,12 +10,12 @@ package topgearshop.views;
  *
  * @author rmattaway
  */
-public class ServiceItemView extends javax.swing.JPanel {
+public class ServiceItemHeaderView extends javax.swing.JPanel {
 
   /**
    * Creates new form ServiceItemView
    */
-  public ServiceItemView() {
+  public ServiceItemHeaderView() {
     initComponents();
   }
 

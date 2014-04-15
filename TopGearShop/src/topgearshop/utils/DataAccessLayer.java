@@ -379,4 +379,13 @@ public class DataAccessLayer {
     catch(Exception e){System.out.println(e.toString());}
     return foundEmployee; // Convert this to a static variable
   }
+
+
+  public static void CreateInventoryItem(InventoryItemModel inventoryItem) {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
+
+  public static void UpdateInventoryItem(InventoryItemModel inventoryItem) {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
 }

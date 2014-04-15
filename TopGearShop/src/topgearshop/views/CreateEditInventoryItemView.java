@@ -6,6 +6,8 @@
 
 package topgearshop.views;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author rmattaway
@@ -28,7 +30,6 @@ public class CreateEditInventoryItemView extends javax.swing.JPanel {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
-    jLabel1 = new javax.swing.JLabel();
     jLabel2 = new javax.swing.JLabel();
     jLabel3 = new javax.swing.JLabel();
     jLabel4 = new javax.swing.JLabel();
@@ -45,13 +46,8 @@ public class CreateEditInventoryItemView extends javax.swing.JPanel {
     QuantityOnHand = new javax.swing.JTextField();
     ReorderLevel = new javax.swing.JTextField();
     GrossProfit = new javax.swing.JTextField();
-    btnSave = new javax.swing.JButton();
-    cmdClose = new javax.swing.JButton();
+    cmdSubmit = new javax.swing.JButton();
     cmdCancel = new javax.swing.JButton();
-
-    jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-    jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    jLabel1.setText("Create/Edit Inventory Item");
 
     jLabel2.setText("Inventory Item ID:");
 
@@ -75,14 +71,7 @@ public class CreateEditInventoryItemView extends javax.swing.JPanel {
       }
     });
 
-    btnSave.setText("Save");
-    btnSave.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        btnSaveActionPerformed(evt);
-      }
-    });
-
-    cmdClose.setText("Close");
+    cmdSubmit.setText("Save");
 
     cmdCancel.setText("Cancel");
 
@@ -90,40 +79,39 @@ public class CreateEditInventoryItemView extends javax.swing.JPanel {
     this.setLayout(layout);
     layout.setHorizontalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
       .addGroup(layout.createSequentialGroup()
-        .addContainerGap()
+        .addGap(7, 7, 7)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-          .addComponent(jLabel9)
-          .addComponent(jLabel8)
-          .addComponent(jLabel6)
-          .addComponent(jLabel2)
-          .addComponent(jLabel3)
-          .addComponent(jLabel4)
-          .addComponent(jLabel5)
-          .addComponent(jLabel7)
-          .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
           .addGroup(layout.createSequentialGroup()
-            .addComponent(cmdClose, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+              .addComponent(jLabel9)
+              .addComponent(jLabel8)
+              .addComponent(jLabel6)
+              .addComponent(jLabel2)
+              .addComponent(jLabel3)
+              .addComponent(jLabel4)
+              .addComponent(jLabel5)
+              .addComponent(jLabel7))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(cmdCancel, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE))
-          .addComponent(InventoryItemID)
-          .addComponent(ItemName)
-          .addComponent(ItemCost)
-          .addComponent(SellingPrice)
-          .addComponent(LocationInShop)
-          .addComponent(QuantityOnHand)
-          .addComponent(ReorderLevel)
-          .addComponent(GrossProfit))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+              .addComponent(InventoryItemID, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+              .addComponent(ItemName)
+              .addComponent(ItemCost)
+              .addComponent(SellingPrice)
+              .addComponent(LocationInShop)
+              .addComponent(QuantityOnHand)
+              .addComponent(ReorderLevel)
+              .addComponent(GrossProfit)))
+          .addGroup(layout.createSequentialGroup()
+            .addComponent(cmdSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(layout.createSequentialGroup()
-        .addComponent(jLabel1)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addContainerGap()
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel2)
           .addComponent(InventoryItemID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -158,21 +146,23 @@ public class CreateEditInventoryItemView extends javax.swing.JPanel {
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(cmdCancel)
-          .addComponent(cmdClose)
-          .addComponent(btnSave))
+          .addComponent(cmdSubmit))
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
   }// </editor-fold>//GEN-END:initComponents
-
-  private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-    // TODO add your handling code here:
-  }//GEN-LAST:event_btnSaveActionPerformed
 
   private void ItemNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemNameActionPerformed
    // TODO add your handling code here:
   }//GEN-LAST:event_ItemNameActionPerformed
 
-
+  public void setSubmitActionHandler(ActionListener al)
+  {
+    cmdSubmit.addActionListener(al);
+  }
+  public void setCancelActionListener(ActionListener al)
+  {
+    cmdCancel.addActionListener(al);
+  }
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JTextField GrossProfit;
   private javax.swing.JTextField InventoryItemID;
@@ -182,10 +172,8 @@ public class CreateEditInventoryItemView extends javax.swing.JPanel {
   private javax.swing.JTextField QuantityOnHand;
   private javax.swing.JTextField ReorderLevel;
   private javax.swing.JTextField SellingPrice;
-  private javax.swing.JButton btnSave;
   private javax.swing.JButton cmdCancel;
-  private javax.swing.JButton cmdClose;
-  private javax.swing.JLabel jLabel1;
+  private javax.swing.JButton cmdSubmit;
   private javax.swing.JLabel jLabel2;
   private javax.swing.JLabel jLabel3;
   private javax.swing.JLabel jLabel4;

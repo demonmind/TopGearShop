@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 
-package topgearshop.interfaces;
+package topgearshop.controllers;
 
 /**
  *
  * @author rmattaway
  */
-public interface IControllerAction {
+public class FindEmployeeController {
   
 }

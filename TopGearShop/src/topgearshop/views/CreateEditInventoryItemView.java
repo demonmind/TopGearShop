@@ -38,16 +38,16 @@ public class CreateEditInventoryItemView extends javax.swing.JPanel {
     jLabel7 = new javax.swing.JLabel();
     jLabel8 = new javax.swing.JLabel();
     jLabel9 = new javax.swing.JLabel();
-    InventoryItemID = new javax.swing.JTextField();
     ItemName = new javax.swing.JTextField();
     ItemCost = new javax.swing.JTextField();
     SellingPrice = new javax.swing.JTextField();
     LocationInShop = new javax.swing.JTextField();
     QuantityOnHand = new javax.swing.JTextField();
     ReorderLevel = new javax.swing.JTextField();
-    GrossProfit = new javax.swing.JTextField();
     cmdSubmit = new javax.swing.JButton();
     cmdCancel = new javax.swing.JButton();
+    InventoryItemID = new javax.swing.JLabel();
+    GrossProfit = new javax.swing.JLabel();
 
     jLabel2.setText("Inventory Item ID:");
 
@@ -71,9 +71,13 @@ public class CreateEditInventoryItemView extends javax.swing.JPanel {
       }
     });
 
-    cmdSubmit.setText("Save");
+    cmdSubmit.setText("Submit");
 
     cmdCancel.setText("Cancel");
+
+    InventoryItemID.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+    GrossProfit.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
     this.setLayout(layout);
@@ -94,27 +98,28 @@ public class CreateEditInventoryItemView extends javax.swing.JPanel {
               .addComponent(jLabel7))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-              .addComponent(InventoryItemID, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-              .addComponent(ItemName)
+              .addComponent(ItemName, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
               .addComponent(ItemCost)
               .addComponent(SellingPrice)
               .addComponent(LocationInShop)
               .addComponent(QuantityOnHand)
               .addComponent(ReorderLevel)
-              .addComponent(GrossProfit)))
+              .addComponent(InventoryItemID, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+              .addComponent(GrossProfit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 0, Short.MAX_VALUE))
           .addGroup(layout.createSequentialGroup()
             .addComponent(cmdSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addContainerGap())))
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(layout.createSequentialGroup()
         .addContainerGap()
-        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-          .addComponent(jLabel2)
-          .addComponent(InventoryItemID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+          .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+          .addComponent(InventoryItemID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel3)
@@ -142,13 +147,16 @@ public class CreateEditInventoryItemView extends javax.swing.JPanel {
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel9)
-          .addComponent(GrossProfit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addComponent(GrossProfit))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(cmdCancel)
           .addComponent(cmdSubmit))
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
+
+    layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {GrossProfit, ReorderLevel});
+
   }// </editor-fold>//GEN-END:initComponents
 
   private void ItemNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemNameActionPerformed
@@ -164,14 +172,14 @@ public class CreateEditInventoryItemView extends javax.swing.JPanel {
     cmdCancel.addActionListener(al);
   }
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JTextField GrossProfit;
-  private javax.swing.JTextField InventoryItemID;
-  private javax.swing.JTextField ItemCost;
-  private javax.swing.JTextField ItemName;
-  private javax.swing.JTextField LocationInShop;
-  private javax.swing.JTextField QuantityOnHand;
-  private javax.swing.JTextField ReorderLevel;
-  private javax.swing.JTextField SellingPrice;
+  public javax.swing.JLabel GrossProfit;
+  public javax.swing.JLabel InventoryItemID;
+  public javax.swing.JTextField ItemCost;
+  public javax.swing.JTextField ItemName;
+  public javax.swing.JTextField LocationInShop;
+  public javax.swing.JTextField QuantityOnHand;
+  public javax.swing.JTextField ReorderLevel;
+  public javax.swing.JTextField SellingPrice;
   private javax.swing.JButton cmdCancel;
   private javax.swing.JButton cmdSubmit;
   private javax.swing.JLabel jLabel2;

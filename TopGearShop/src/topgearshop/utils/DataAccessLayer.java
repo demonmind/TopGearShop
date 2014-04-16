@@ -381,11 +381,97 @@ public class DataAccessLayer {
   }
 
 
-  public static void CreateInventoryItem(InventoryItemModel inventoryItem) {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  public static Boolean CreateInventoryItem(InventoryItemModel inventoryItem) {
+    PreparedStatement statement = null;
+    ResultSet resultSet = null;
+    Connection conn;
+    try
+    {
+        Class.forName("org.sqlite.JDBC");
+        conn = ConnectionManager.getConnection();
+
+        statement = (PreparedStatement) conn.prepareStatement("select * from inventory_items where inventoryItemID=?;");
+        statement.setInt(1,inventoryItem.getInventoryItemID());
+        resultSet = statement.executeQuery();
+        
+        if(!resultSet.next())
+        {
+          conn.close();
+          conn = ConnectionManager.getConnection();
+          statement = (PreparedStatement) conn.prepareStatement("INSERT INTO inventory_items(inventoryItemID,itemName,itemCost,sellingPrice,locationInShop,quantityOnHand,reorderLevel,grossProfit) VALUES (?,?,?,?,?,?,?,?)");
+          statement.setInt(1,inventoryItem.getInventoryItemID());
+          statement.setString(2,inventoryItem.getItemName());
+          statement.setDouble(3,inventoryItem.getItemCost());
+          statement.setDouble(4,inventoryItem.getSellingPrice());
+          statement.setString(5,inventoryItem.getLocationInShop());
+          statement.setInt(6,inventoryItem.getQuantityOnHand());
+          statement.setInt(7,inventoryItem.getReorderLevel());
+          statement.setDouble(8,inventoryItem.getGrossProfit());
+          statement.execute();
+        }
+        conn.close();
+      return true;
+    }
+    catch(Exception e){System.out.println(e.toString());}
+    return false;
   }
 
   public static void UpdateInventoryItem(InventoryItemModel inventoryItem) {
     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
+
+  public static InventoryItemModel validateInventoryItem(InventoryItemModel inventoryItem) {
+    PreparedStatement statement = null;
+    ResultSet resultSet = null;
+    InventoryItemModel foundInventoryItem = new InventoryItemModel();
+    try
+    {
+        Class.forName("org.sqlite.JDBC");
+        Connection conn = ConnectionManager.getConnection();
+        // Try id (SSN)
+        statement = (PreparedStatement) conn.prepareStatement("select * from inventory_items where inventoryItemID = ?;");
+        statement.setString(1, inventoryItem.getInventoryItemID().toString());
+        resultSet = statement.executeQuery();
+        if(resultSet.next())
+        {
+          //customerID,phoneNumber,firstName,lastName,emailAddress,streetAddress,city,state,zipCode
+          foundInventoryItem.setInventoryItemID(Integer.SIZE);
+          foundInventoryItem.setItemName(null);
+          foundInventoryItem.setGrossProfit(Double.NaN);
+          foundInventoryItem.setSellingPrice(Double.NaN);
+          foundInventoryItem.setLocationInShop(null);
+          foundInventoryItem.setQuantityOnHand(Integer.MIN_VALUE);
+          foundInventoryItem.setReorderLevel(Integer.MIN_VALUE);
+          foundInventoryItem.setGrossProfit(Double.NaN);
+          conn.close();
+          return foundInventoryItem;
+        }
+    }
+    catch(Exception e)
+    {
+      
+    }
+    return foundInventoryItem;
+  }
+  public static int GetNextInventoryID()
+  {
+    PreparedStatement statement = null;
+    ResultSet resultSet = null;
+    try
+    {
+        Class.forName("org.sqlite.JDBC");
+        Connection conn = ConnectionManager.getConnection();
+
+        statement = (PreparedStatement) conn.prepareStatement("select max(inventoryItemID) from inventory_items;");
+        resultSet = statement.executeQuery();
+        if(resultSet.next())
+        {
+          int newID = resultSet.getInt(1) + 1;
+          conn.close();
+          return newID;
+        }
+    }
+    catch(Exception e){System.out.println(e.toString());}
+    return -1; // Convert this to a static variable
   }
 }

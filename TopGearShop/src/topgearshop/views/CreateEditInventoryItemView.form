@@ -32,23 +32,24 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="InventoryItemID" pref="250" max="32767" attributes="0"/>
-                          <Component id="ItemName" max="32767" attributes="0"/>
-                          <Component id="ItemCost" max="32767" attributes="0"/>
-                          <Component id="SellingPrice" max="32767" attributes="0"/>
-                          <Component id="LocationInShop" max="32767" attributes="0"/>
-                          <Component id="QuantityOnHand" max="32767" attributes="0"/>
-                          <Component id="ReorderLevel" max="32767" attributes="0"/>
+                          <Component id="ItemName" alignment="0" pref="250" max="32767" attributes="0"/>
+                          <Component id="ItemCost" alignment="0" max="32767" attributes="0"/>
+                          <Component id="SellingPrice" alignment="0" max="32767" attributes="0"/>
+                          <Component id="LocationInShop" alignment="0" max="32767" attributes="0"/>
+                          <Component id="QuantityOnHand" alignment="0" max="32767" attributes="0"/>
+                          <Component id="ReorderLevel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="InventoryItemID" alignment="0" pref="250" max="32767" attributes="0"/>
                           <Component id="GrossProfit" max="32767" attributes="0"/>
                       </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="cmdSubmit" min="-2" pref="175" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="cmdCancel" min="-2" pref="193" max="-2" attributes="0"/>
+                      <Component id="cmdCancel" min="-2" pref="181" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -56,9 +57,9 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="InventoryItemID" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jLabel2" pref="22" max="32767" attributes="0"/>
+                  <Component id="InventoryItemID" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -88,12 +89,12 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="ReorderLevel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ReorderLevel" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="GrossProfit" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="GrossProfit" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -146,34 +147,72 @@
         <Property name="text" type="java.lang.String" value="Gross Profit:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="InventoryItemID">
-    </Component>
     <Component class="javax.swing.JTextField" name="ItemName">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ItemNameActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="ItemCost">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="SellingPrice">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="LocationInShop">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="QuantityOnHand">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="ReorderLevel">
-    </Component>
-    <Component class="javax.swing.JTextField" name="GrossProfit">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="cmdSubmit">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Save"/>
+        <Property name="text" type="java.lang.String" value="Submit"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="cmdCancel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancel"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="InventoryItemID">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+            <EtchetBorder/>
+          </Border>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="GrossProfit">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+            <EtchetBorder/>
+          </Border>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

@@ -16,7 +16,6 @@ import javax.swing.JDialog;
 import topgearshop.models.CredentialsModel;
 import topgearshop.models.CustomerModel;
 import topgearshop.utils.DataAccessLayer;
-import topgearshop.utils.SequenceIDManager;
 import topgearshop.views.CreateEditCustomerView;
 import topgearshop.views.LoginView;
 

@@ -26,6 +26,7 @@ public class CreateEditInventoryItemController {
   private Boolean cancelled = false;
   private Boolean Creating = true;
   private JDialog modalDialog;
+  private Integer NewInventoryID;
   
   public CreateEditInventoryItemController(InventoryItemModel im, Boolean readOnly)
   {    
@@ -52,16 +53,31 @@ public class CreateEditInventoryItemController {
     {
       loadModelInformation();      
     }
+    else
+    {
+      NewInventoryID = DataAccessLayer.GetNextInventoryID();
+      createEditInventoryView.InventoryItemID.setText(NewInventoryID.toString());
+    }
     modalDialog.setVisible(true);
     
   }
   
-  
   private void setModelInformation() {
-
-     }
+    inventoryItem.setInventoryItemID(NewInventoryID);
+    inventoryItem.setItemName(createEditInventoryView.ItemName.getText());
+    inventoryItem.setItemCost(Double.parseDouble(createEditInventoryView.ItemCost.getText()));
+    inventoryItem.setSellingPrice(Double.parseDouble(createEditInventoryView.SellingPrice.getText()));
+    inventoryItem.setLocationInShop(createEditInventoryView.LocationInShop.getText());
+    inventoryItem.setQuantityOnHand(Integer.parseInt(createEditInventoryView.QuantityOnHand.getText()));
+    inventoryItem.setReorderLevel(Integer.parseInt(createEditInventoryView.ReorderLevel.getText()));
+    inventoryItem.setGrossProfit(getGrossProfit());
+  }
+  private Double getGrossProfit()
+  {
+    return inventoryItem.getSellingPrice()-inventoryItem.getItemCost();
+  }
   private void setFoundInterface() {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
   }
 
   private void loadModelInformation() {
@@ -69,7 +85,7 @@ public class CreateEditInventoryItemController {
   }
   private InventoryItemModel validateModelInformation()
   {
-    return null;
+    return DataAccessLayer.validateInventoryItem(inventoryItem);
   }
   class SubmitListener implements ActionListener{
     

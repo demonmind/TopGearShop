@@ -82,6 +82,7 @@ class CreateCustomerListener implements ActionListener{
 class CreateInventoryListener implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
+      CreateEditInventoryItemController createInventoryItem = new CreateEditInventoryItemController(null, false);
       System.out.println("The CreateInventory event listner was called");
     }
   }

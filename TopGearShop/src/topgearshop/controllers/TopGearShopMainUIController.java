@@ -88,6 +88,7 @@ class CreateInventoryListener implements ActionListener{
 class CreateServiceListener implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
+        CreateEditServiceItemController controller = new CreateEditServiceItemController(null, false);
       System.out.println("The CreateService event listner was called");
     }
   }

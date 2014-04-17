@@ -145,6 +145,7 @@ class EditInventoryListener implements ActionListener{
 class EditServiceListener implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
+        FindServiceItemController controller = new FindServiceItemController();
       System.out.println("The EditService event listner was called");
     }
   }

@@ -6,6 +6,8 @@
 
 package topgearshop.views;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author rmattaway
@@ -18,7 +20,19 @@ public class CreateEditWorkItemView extends javax.swing.JPanel {
   public CreateEditWorkItemView() {
     initComponents();
   }
-
+  public void setSubmitActionHandler(ActionListener al)
+  {
+    cmdSubmit.addActionListener(al);
+  }
+  public void setCancelActionListener(ActionListener al)
+  {
+    cmdCancel.addActionListener(al);
+  }  
+  public void setAddWorkItemActionListener(ActionListener al)
+  {
+    cmdAddWorkOrderItem.addActionListener(al);
+  }  
+  //
   /**
    * This method is called from within the constructor to initialize the form.
    * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,90 +42,134 @@ public class CreateEditWorkItemView extends javax.swing.JPanel {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
-    VehcilePanel = new javax.swing.JPanel();
-    buttonGroup1 = new javax.swing.ButtonGroup();
-    buttonGroup2 = new javax.swing.ButtonGroup();
-    formTitle = new javax.swing.JLabel();
     CustomerPanel = new javax.swing.JPanel();
+    cmdAddCustomer = new javax.swing.JButton();
+    cmdCreateCustomer = new javax.swing.JButton();
+    simpleCustomerView2 = new topgearshop.views.SimpleCustomerView();
     VehiclePanel = new javax.swing.JPanel();
+    simpleVehicleView1 = new topgearshop.views.SimpleVehicleView();
+    cmdAddVehicle = new javax.swing.JButton();
+    cmdCreateVehicle = new javax.swing.JButton();
     jPanel1 = new javax.swing.JPanel();
+    jScrollPane1 = new javax.swing.JScrollPane();
+    jTable1 = new javax.swing.JTable();
     jLabel2 = new javax.swing.JLabel();
-    cmdSave = new javax.swing.JButton();
-    cmdClose = new javax.swing.JButton();
+    cmdSubmit = new javax.swing.JButton();
     cmdCancel = new javax.swing.JButton();
     jLabel1 = new javax.swing.JLabel();
     jLabel3 = new javax.swing.JLabel();
     WorkOrderNumber = new javax.swing.JLabel();
-
-    javax.swing.GroupLayout VehcilePanelLayout = new javax.swing.GroupLayout(VehcilePanel);
-    VehcilePanel.setLayout(VehcilePanelLayout);
-    VehcilePanelLayout.setHorizontalGroup(
-      VehcilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 400, Short.MAX_VALUE)
-    );
-    VehcilePanelLayout.setVerticalGroup(
-      VehcilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 100, Short.MAX_VALUE)
-    );
-
-    formTitle.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-    formTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    formTitle.setText("Work Order");
+    cmdAddWorkOrderItem = new javax.swing.JButton();
 
     CustomerPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+    cmdAddCustomer.setText("Add Customer");
+
+    cmdCreateCustomer.setText("Create Customer");
 
     javax.swing.GroupLayout CustomerPanelLayout = new javax.swing.GroupLayout(CustomerPanel);
     CustomerPanel.setLayout(CustomerPanelLayout);
     CustomerPanelLayout.setHorizontalGroup(
       CustomerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 376, Short.MAX_VALUE)
+      .addGroup(CustomerPanelLayout.createSequentialGroup()
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addComponent(cmdAddCustomer)
+        .addGap(18, 18, 18)
+        .addComponent(cmdCreateCustomer)
+        .addGap(82, 82, 82))
+      .addGroup(CustomerPanelLayout.createSequentialGroup()
+        .addComponent(simpleCustomerView2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addGap(0, 24, Short.MAX_VALUE))
     );
     CustomerPanelLayout.setVerticalGroup(
       CustomerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 100, Short.MAX_VALUE)
+      .addGroup(CustomerPanelLayout.createSequentialGroup()
+        .addComponent(simpleCustomerView2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addGroup(CustomerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(cmdAddCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(cmdCreateCustomer))
+        .addContainerGap())
     );
 
     VehiclePanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+    cmdAddVehicle.setText("Add Vehcile");
+
+    cmdCreateVehicle.setText("Create Vehicle");
 
     javax.swing.GroupLayout VehiclePanelLayout = new javax.swing.GroupLayout(VehiclePanel);
     VehiclePanel.setLayout(VehiclePanelLayout);
     VehiclePanelLayout.setHorizontalGroup(
       VehiclePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 0, Short.MAX_VALUE)
+      .addGroup(VehiclePanelLayout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(VehiclePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(VehiclePanelLayout.createSequentialGroup()
+            .addGap(10, 10, 10)
+            .addComponent(cmdAddVehicle)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(cmdCreateVehicle))
+          .addComponent(simpleVehicleView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
     VehiclePanelLayout.setVerticalGroup(
       VehiclePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 100, Short.MAX_VALUE)
+      .addGroup(VehiclePanelLayout.createSequentialGroup()
+        .addComponent(simpleVehicleView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addGroup(VehiclePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(cmdAddVehicle)
+          .addComponent(cmdCreateVehicle))
+        .addContainerGap())
     );
 
     jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+    jTable1.setModel(new javax.swing.table.DefaultTableModel(
+      new Object [][] {
+        {null, null, null, null},
+        {null, null, null, null},
+        {null, null, null, null},
+        {null, null, null, null}
+      },
+      new String [] {
+        "Title 1", "Title 2", "Title 3", "Title 4"
+      }
+    ));
+    jScrollPane1.setViewportView(jTable1);
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
     jPanel1Layout.setHorizontalGroup(
       jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 774, Short.MAX_VALUE)
+      .addGroup(jPanel1Layout.createSequentialGroup()
+        .addContainerGap()
+        .addComponent(jScrollPane1)
+        .addContainerGap())
     );
     jPanel1Layout.setVerticalGroup(
       jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 365, Short.MAX_VALUE)
+      .addGroup(jPanel1Layout.createSequentialGroup()
+        .addContainerGap()
+        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
     jLabel2.setText("Work Order Items");
 
-    cmdSave.setText("Save");
-
-    cmdClose.setText("Close");
+    cmdSubmit.setText("Submit");
 
     cmdCancel.setText("Cancel");
 
     jLabel3.setText("Work Order Number:");
 
+    cmdAddWorkOrderItem.setText("Add Work Order Item");
+
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
     this.setLayout(layout);
     layout.setHorizontalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addComponent(formTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
       .addGroup(layout.createSequentialGroup()
         .addContainerGap()
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,43 +181,46 @@ public class CreateEditWorkItemView extends javax.swing.JPanel {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
               .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(WorkOrderNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addGap(62, 62, 62))
+                .addGap(211, 211, 211))
               .addComponent(VehiclePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
           .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
           .addGroup(layout.createSequentialGroup()
-            .addComponent(cmdSave)
-            .addGap(18, 18, 18)
-            .addComponent(cmdClose)
-            .addGap(18, 18, 18)
+            .addComponent(cmdSubmit)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(cmdCancel)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(cmdAddWorkOrderItem)
             .addGap(0, 0, Short.MAX_VALUE)))
-        .addContainerGap())
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(WorkOrderNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(jLabel1)
+        .addGap(74, 74, 74))
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(layout.createSequentialGroup()
-        .addComponent(formTitle)
-        .addGap(18, 18, 18)
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(jLabel1)
+          .addComponent(WorkOrderNumber))
+        .addGap(428, 428, 428))
+      .addGroup(layout.createSequentialGroup()
+        .addContainerGap()
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addComponent(CustomerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(VehiclePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel2)
-          .addComponent(jLabel1)
-          .addComponent(jLabel3)
-          .addComponent(WorkOrderNumber))
+          .addComponent(jLabel3))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-          .addComponent(cmdSave)
-          .addComponent(cmdClose)
-          .addComponent(cmdCancel))
+          .addComponent(cmdSubmit)
+          .addComponent(cmdCancel)
+          .addComponent(cmdAddWorkOrderItem))
         .addContainerGap())
     );
   }// </editor-fold>//GEN-END:initComponents
@@ -167,18 +228,22 @@ public class CreateEditWorkItemView extends javax.swing.JPanel {
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JPanel CustomerPanel;
-  private javax.swing.JPanel VehcilePanel;
   private javax.swing.JPanel VehiclePanel;
   private javax.swing.JLabel WorkOrderNumber;
-  private javax.swing.ButtonGroup buttonGroup1;
-  private javax.swing.ButtonGroup buttonGroup2;
+  private javax.swing.JButton cmdAddCustomer;
+  private javax.swing.JButton cmdAddVehicle;
+  private javax.swing.JButton cmdAddWorkOrderItem;
   private javax.swing.JButton cmdCancel;
-  private javax.swing.JButton cmdClose;
-  private javax.swing.JButton cmdSave;
-  private javax.swing.JLabel formTitle;
+  private javax.swing.JButton cmdCreateCustomer;
+  private javax.swing.JButton cmdCreateVehicle;
+  private javax.swing.JButton cmdSubmit;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
   private javax.swing.JLabel jLabel3;
   private javax.swing.JPanel jPanel1;
+  private javax.swing.JScrollPane jScrollPane1;
+  private javax.swing.JTable jTable1;
+  private topgearshop.views.SimpleCustomerView simpleCustomerView2;
+  private topgearshop.views.SimpleVehicleView simpleVehicleView1;
   // End of variables declaration//GEN-END:variables
 }

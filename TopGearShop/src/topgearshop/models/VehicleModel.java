@@ -85,7 +85,7 @@ public class VehicleModel {
 	}
 	
 	/** */
-	public Integer getMilelage() {
+	public Integer getMileage() {
     return this.mileage;
 	}
 	

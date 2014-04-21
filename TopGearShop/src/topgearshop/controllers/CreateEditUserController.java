@@ -29,7 +29,7 @@ public class CreateEditUserController {
   private Boolean CreateUser = true;
   private JDialog modalDialog;
   
-  public CreateEditUserController(CredentialsModel credentials)
+  public CreateEditUserController(CredentialsModel credentials, Boolean readOnly)
   {
     if(credentials!=null)
     {
@@ -46,6 +46,10 @@ public class CreateEditUserController {
                                  });
       modalDialog.add(createEditUser);
       modalDialog.setTitle("Top Gear System - Create User");
+     if(readOnly)
+     {
+       setFoundInterface();
+     }
       systemUserModel = new CredentialsModel();
       createEditUser.setSubmitActionHandler(new SaveListener());
       createEditUser.setCancelActionListener(new CancelListener());
@@ -85,6 +89,14 @@ public class CreateEditUserController {
       return false;
     return true;
               
+  }
+
+  private void setFoundInterface() {
+    createEditUser.EmployeeID.setEditable(false);
+    createEditUser.UserName.setEditable(false);
+    createEditUser.Password.setEditable(false);
+    createEditUser.ConfirmPassword.setEditable(false);
+    createEditUser.Salt.setEditable(false);
   }
   class SaveListener implements ActionListener{
     

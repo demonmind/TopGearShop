@@ -10,8 +10,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
+import java.util.Vector;
 import topgearshop.models.*;
 
 
@@ -307,8 +310,41 @@ public class DataAccessLayer {
     return false;    
   }
 
-  public static void CreateEmployee(EmployeeModel employee) {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  public static Boolean CreateEmployee(EmployeeModel employee) {
+    PreparedStatement statement = null;
+    ResultSet resultSet = null;
+    Connection conn;
+    try
+    {
+        Class.forName("org.sqlite.JDBC");
+        conn = ConnectionManager.getConnection();
+
+        statement = (PreparedStatement) conn.prepareStatement("select * from employee where employeeID=?;");
+        statement.setInt(1,employee.getEmployeeID());
+        resultSet = statement.executeQuery();
+        
+        if(!resultSet.next())
+        {
+          conn.close();
+          conn = ConnectionManager.getConnection();
+          statement = (PreparedStatement) conn.prepareStatement("INSERT INTO employee(employeeID,firstName,middleName,lastName,dateOfBirth,driversLicenseNumber,employeeTypeID) VALUES (?,?,?,?,?,?,?)");
+          statement.setInt(1,employee.getEmployeeID());
+          statement.setString(2,employee.getFirstName());
+          statement.setString(3,employee.getMiddleName());
+          statement.setString(4,employee.getLastName());
+          
+          SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+          statement.setString(5,sdf.format(employee.getDateOfBirth()));
+          statement.setString(6,employee.getDriversLicenseNumber());
+          statement.setInt(7,employee.getEmployeeTypeID());
+          statement.execute();
+        }
+        conn.close();
+      return true;
+    }
+    catch(Exception e){System.out.println(e.toString());}
+    return false;
+    
   }
 
   public static void UpdateEmployee(EmployeeModel employee) {
@@ -325,12 +361,12 @@ public class DataAccessLayer {
         Connection conn = ConnectionManager.getConnection();
         // Try id (SSN)
         statement = (PreparedStatement) conn.prepareStatement("select * from employee where employeeID = ?;");
-        statement.setString(1, employee.getEmployeeID());
+        statement.setInt(1, employee.getEmployeeID());
         resultSet = statement.executeQuery();
         if(resultSet.next())
         {
           //customerID,phoneNumber,firstName,lastName,emailAddress,streetAddress,city,state,zipCode
-          foundEmployee.setEmployeeID(resultSet.getString(1));
+          foundEmployee.setEmployeeID(resultSet.getInt(1));
           foundEmployee.setFirstName(resultSet.getString(2));
           foundEmployee.setMiddleName(resultSet.getString(3));
           foundEmployee.setLastName(resultSet.getString(4));
@@ -347,7 +383,7 @@ public class DataAccessLayer {
         if(resultSet.next())
         {
           //customerID,phoneNumber,firstName,lastName,emailAddress,streetAddress,city,state,zipCode
-          foundEmployee.setEmployeeID(resultSet.getString(1));
+          foundEmployee.setEmployeeID(resultSet.getInt(1));
           foundEmployee.setFirstName(resultSet.getString(2));
           foundEmployee.setMiddleName(resultSet.getString(3));
           foundEmployee.setLastName(resultSet.getString(4));
@@ -364,7 +400,7 @@ public class DataAccessLayer {
         if(resultSet.next())
         {
           //customerID,phoneNumber,firstName,lastName,emailAddress,streetAddress,city,state,zipCode
-          foundEmployee.setEmployeeID(resultSet.getString(1));
+          foundEmployee.setEmployeeID(resultSet.getInt(1));
           foundEmployee.setFirstName(resultSet.getString(2));
           foundEmployee.setMiddleName(resultSet.getString(3));
           foundEmployee.setLastName(resultSet.getString(4));
@@ -473,5 +509,113 @@ public class DataAccessLayer {
     }
     catch(Exception e){System.out.println(e.toString());}
     return -1; // Convert this to a static variable
+  }
+  public static Object[] getEmployeeTypes()
+  {
+    PreparedStatement statement = null;
+    ResultSet resultSet = null;
+    List<String> employeeTypes = new ArrayList<String>();
+    try
+    {
+        Class.forName("org.sqlite.JDBC");
+        Connection conn = ConnectionManager.getConnection();
+
+        statement = (PreparedStatement) conn.prepareStatement("select employeeType from employee_types order by employeeTypeID;");
+        resultSet = statement.executeQuery();
+        while(resultSet.next())
+        {
+          employeeTypes.add(resultSet.getString(1));
+        }
+        conn.close();
+        return employeeTypes.toArray(new Object[employeeTypes.size()]);
+    }
+    catch(Exception e){System.out.println(e.toString());}
+    return employeeTypes.toArray(new Object[employeeTypes.size()]); // Convert this to a static variable
+    
+  }
+
+  public static Boolean CreateVehicle(VehicleModel vehicleModel) {
+    PreparedStatement statement = null;
+    ResultSet resultSet = null;
+    Connection conn;
+    try
+    {
+        Class.forName("org.sqlite.JDBC");
+        conn = ConnectionManager.getConnection();
+
+        statement = (PreparedStatement) conn.prepareStatement("select * from vehicles where vehicleIDNumber=?;");
+        statement.setString(1,vehicleModel.getVehicleIDNumber());
+        resultSet = statement.executeQuery();
+        
+        if(!resultSet.next())
+        {
+          conn.close();
+          conn = ConnectionManager.getConnection();
+          statement = (PreparedStatement) conn.prepareStatement("INSERT INTO vehicles(vehicleIDNumber,year,make,model,color,mileage) VALUES (?,?,?,?,?,?)");
+          statement.setString(1,vehicleModel.getVehicleIDNumber());
+          statement.setString(2,vehicleModel.getYear());
+          statement.setString(3,vehicleModel.getMake());
+          statement.setString(4,vehicleModel.getModel());
+          statement.setString(5,vehicleModel.getColor());
+          statement.setInt(6,vehicleModel.getMileage());
+          statement.execute();
+        }
+        conn.close();
+      return true;
+    }
+    catch(Exception e){System.out.println(e.toString());}
+    return false;
+  }
+
+  public static void UpdateVehicle(VehicleModel vehicleModel) {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
+
+  public static VehicleModel FindVehicle(VehicleModel vm) {
+    PreparedStatement statement = null;
+    ResultSet resultSet = null;
+    VehicleModel foundVehicle = new VehicleModel();
+    try
+    {
+        Class.forName("org.sqlite.JDBC");
+        Connection conn = ConnectionManager.getConnection();
+        // Try id (SSN)
+        statement = (PreparedStatement) conn.prepareStatement("select * from vehicles where vehicleIDNumber = ?;");
+        statement.setString(1, vm.getVehicleIDNumber());
+        resultSet = statement.executeQuery();
+        if(resultSet.next())
+        {
+          //customerID,phoneNumber,firstName,lastName,emailAddress,streetAddress,city,state,zipCode
+          foundVehicle.setVehicleIDNumber(resultSet.getString(1));
+          foundVehicle.setYear(resultSet.getString(2));
+          foundVehicle.setMake(resultSet.getString(3));
+          foundVehicle.setModel(resultSet.getString(4));
+          foundVehicle.setColor(resultSet.getString(5));
+          foundVehicle.setMileage(resultSet.getInt(6));
+          conn.close();
+          return foundVehicle;
+        }
+        // try drivers license
+        statement = (PreparedStatement) conn.prepareStatement("select * from vehicles where year = ? and make = ? and model = ?;");
+        statement.setString(1, vm.getYear());
+        statement.setString(2, vm.getMake());
+        statement.setString(3, vm.getModel());
+        resultSet = statement.executeQuery();
+        if(resultSet.next())
+        {
+          //customerID,phoneNumber,firstName,lastName,emailAddress,streetAddress,city,state,zipCode
+          foundVehicle.setVehicleIDNumber(resultSet.getString(1));
+          foundVehicle.setYear(resultSet.getString(2));
+          foundVehicle.setMake(resultSet.getString(3));
+          foundVehicle.setModel(resultSet.getString(4));
+          foundVehicle.setColor(resultSet.getString(5));
+          foundVehicle.setMileage(resultSet.getInt(6));
+          conn.close();
+          return foundVehicle;
+        }
+        conn.close();
+    }
+    catch(Exception e){System.out.println(e.toString());}
+    return foundVehicle; // Convert this to a static variable
   }
 }

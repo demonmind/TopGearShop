@@ -28,6 +28,7 @@ public class TopGearShopMainUIController {
     tgsUI.setChangePasswordActionListener(new ChangePasswordListener());
     tgsUI.setCompleteWorkOrderActionListener(new CompleteWorkOrderListener());
     tgsUI.setCreateCustomerActionListener(new CreateCustomerListener());
+    tgsUI.setCreateEmployeeActionListener(new CreateEmployeeListener());
     tgsUI.setCreateInventoryActionListener(new CreateInventoryListener());
     tgsUI.setCreateServiceActionListener(new CreateServiceListener());
     tgsUI.setCreateUserActionListener(new CreateUserListener());
@@ -79,6 +80,14 @@ class CreateCustomerListener implements ActionListener{
       System.out.println("The CreateCustomer event listner was called");
     }
   }
+class CreateEmployeeListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      CreateEditEmployeeController employeeController = new CreateEditEmployeeController(null, false);
+      
+      System.out.println("The CreateCustomer event listner was called");
+    }
+  }
 class CreateInventoryListener implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
@@ -95,7 +104,7 @@ class CreateServiceListener implements ActionListener{
 class CreateUserListener implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
-      CreateEditUserController createUser = new CreateEditUserController(null);
+      CreateEditUserController createUser = new CreateEditUserController(null, false);
       
       System.out.println("The CreateUser event listner was called");
     }
@@ -103,6 +112,7 @@ class CreateUserListener implements ActionListener{
 class CreateVehicleListener implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
+      CreateEditVehicleController createVehicle = new CreateEditVehicleController(null, false);
       System.out.println("The CreateVehicle event listner was called");
     }
   }
@@ -151,14 +161,20 @@ class EditServiceListener implements ActionListener{
 class EditUserListener implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
-      
-      CreateEditUserController createUser = new CreateEditUserController(null);
+      FindUserController findUser = new FindUserController();
+      if(!findUser.getCancelledStatus())
+      {
+        CredentialsModel cm = findUser.getUser();
+        CreateEditUserController editUser = new CreateEditUserController(cm, false);
+      }
       System.out.println("The EditUser event listner was called");
     }
   }
 class EditVehicleListener implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
+      FindVehicleController findVehicle = new FindVehicleController();
+      CreateEditVehicleController createVehicle = new CreateEditVehicleController(null, false);
       System.out.println("The EditVehicle event listner was called");
     }
   }
@@ -192,12 +208,14 @@ class FindInventoryListener implements ActionListener{
 class FindUserListener implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
+      FindUserController findUser = new FindUserController();
       System.out.println("The FindUser event listner was called");
     }
   }
 class FindVehicleListener implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
+      FindVehicleController fvc = new FindVehicleController();
       System.out.println("The FindVehicle event listner was called");
     }
   }

@@ -38,7 +38,7 @@ public class CreateEditUserView extends javax.swing.JPanel {
     UserName = new javax.swing.JTextField();
     Password = new javax.swing.JPasswordField();
     Salt = new javax.swing.JPasswordField();
-    cmdSave = new javax.swing.JButton();
+    cmdSubmit = new javax.swing.JButton();
     cmdCancel = new javax.swing.JButton();
     jLabel1 = new javax.swing.JLabel();
     ConfirmPassword = new javax.swing.JPasswordField();
@@ -51,10 +51,10 @@ public class CreateEditUserView extends javax.swing.JPanel {
 
     jLabel5.setText("Password Salt:");
 
-    cmdSave.setText("Save");
-    cmdSave.addActionListener(new java.awt.event.ActionListener() {
+    cmdSubmit.setText("Submit");
+    cmdSubmit.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
-        cmdSaveActionPerformed(evt);
+        cmdSubmitActionPerformed(evt);
       }
     });
 
@@ -85,7 +85,7 @@ public class CreateEditUserView extends javax.swing.JPanel {
               .addComponent(ConfirmPassword)))
           .addGroup(layout.createSequentialGroup()
             .addGap(80, 80, 80)
-            .addComponent(cmdSave, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(cmdSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(0, 0, Short.MAX_VALUE)))
@@ -116,15 +116,15 @@ public class CreateEditUserView extends javax.swing.JPanel {
           .addComponent(Salt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-          .addComponent(cmdSave)
+          .addComponent(cmdSubmit)
           .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addContainerGap())
     );
   }// </editor-fold>//GEN-END:initComponents
 
-  private void cmdSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdSaveActionPerformed
+  private void cmdSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdSubmitActionPerformed
     // TODO add your handling code here:
-  }//GEN-LAST:event_cmdSaveActionPerformed
+  }//GEN-LAST:event_cmdSubmitActionPerformed
 
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -134,7 +134,7 @@ public class CreateEditUserView extends javax.swing.JPanel {
   public javax.swing.JPasswordField Salt;
   public javax.swing.JTextField UserName;
   private javax.swing.JButton cmdCancel;
-  private javax.swing.JButton cmdSave;
+  private javax.swing.JButton cmdSubmit;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
   private javax.swing.JLabel jLabel3;
@@ -143,7 +143,7 @@ public class CreateEditUserView extends javax.swing.JPanel {
   // End of variables declaration//GEN-END:variables
 
   public void setSubmitActionHandler(ActionListener al) {
-    cmdSave.addActionListener(al);
+    cmdSubmit.addActionListener(al);
   }
 
   public void setCancelActionListener(ActionListener al) {

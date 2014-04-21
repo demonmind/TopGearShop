@@ -6,6 +6,8 @@
 
 package topgearshop.views;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author rmattaway
@@ -18,7 +20,13 @@ public class FindVehicleView extends javax.swing.JPanel {
   public FindVehicleView() {
     initComponents();
   }
+  public void setSubmitActionHandler(ActionListener al) {
+    cmdSubmit.addActionListener(al);
+  }
 
+  public void setCancelActionListener(ActionListener al) {
+    cmdCancel.addActionListener(al);
+  }
   /**
    * This method is called from within the constructor to initialize the form.
    * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,26 +36,16 @@ public class FindVehicleView extends javax.swing.JPanel {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
-    jLabel1 = new javax.swing.JLabel();
-    jLabel2 = new javax.swing.JLabel();
     jLabel3 = new javax.swing.JLabel();
     jLabel4 = new javax.swing.JLabel();
     jLabel5 = new javax.swing.JLabel();
     jLabel6 = new javax.swing.JLabel();
     cmdSubmit = new javax.swing.JButton();
-    cmdFind = new javax.swing.JButton();
     cmdCancel = new javax.swing.JButton();
-    CustomerID = new javax.swing.JComboBox();
     Year = new javax.swing.JTextField();
     Make = new javax.swing.JTextField();
     Model = new javax.swing.JTextField();
     VehicleIDNumber = new javax.swing.JTextField();
-
-    jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-    jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    jLabel1.setText("Find Vehicle");
-
-    jLabel2.setText("Customer:");
 
     jLabel3.setText("Year:");
 
@@ -61,33 +59,15 @@ public class FindVehicleView extends javax.swing.JPanel {
     cmdSubmit.setMaximumSize(new java.awt.Dimension(114, 25));
     cmdSubmit.setMinimumSize(new java.awt.Dimension(114, 25));
 
-    cmdFind.setText("Find");
-
     cmdCancel.setText("Cancel");
-
-    CustomerID.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
     this.setLayout(layout);
     layout.setHorizontalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
       .addGroup(layout.createSequentialGroup()
         .addContainerGap()
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addGroup(layout.createSequentialGroup()
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addComponent(cmdSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(cmdFind)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cmdCancel)
-                .addGap(0, 0, Short.MAX_VALUE))
-              .addComponent(CustomerID, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
           .addGroup(layout.createSequentialGroup()
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
               .addComponent(jLabel5)
@@ -99,21 +79,17 @@ public class FindVehicleView extends javax.swing.JPanel {
               .addComponent(Year)
               .addComponent(Make)
               .addComponent(Model)
-              .addComponent(VehicleIDNumber))))
+              .addComponent(VehicleIDNumber)))
+          .addGroup(layout.createSequentialGroup()
+            .addComponent(cmdSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
         .addContainerGap())
     );
-
-    layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cmdCancel, cmdFind, cmdSubmit});
-
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(layout.createSequentialGroup()
-        .addComponent(jLabel1)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-          .addComponent(jLabel2)
-          .addComponent(CustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addContainerGap()
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel3)
           .addComponent(Year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -129,27 +105,22 @@ public class FindVehicleView extends javax.swing.JPanel {
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel6)
           .addComponent(VehicleIDNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addGap(18, 18, 18)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(cmdSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-          .addComponent(cmdFind)
           .addComponent(cmdCancel))
-        .addContainerGap())
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
   }// </editor-fold>//GEN-END:initComponents
 
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JComboBox CustomerID;
-  private javax.swing.JTextField Make;
-  private javax.swing.JTextField Model;
-  private javax.swing.JTextField VehicleIDNumber;
-  private javax.swing.JTextField Year;
+  public javax.swing.JTextField Make;
+  public javax.swing.JTextField Model;
+  public javax.swing.JTextField VehicleIDNumber;
+  public javax.swing.JTextField Year;
   private javax.swing.JButton cmdCancel;
-  private javax.swing.JButton cmdFind;
   private javax.swing.JButton cmdSubmit;
-  private javax.swing.JLabel jLabel1;
-  private javax.swing.JLabel jLabel2;
   private javax.swing.JLabel jLabel3;
   private javax.swing.JLabel jLabel4;
   private javax.swing.JLabel jLabel5;

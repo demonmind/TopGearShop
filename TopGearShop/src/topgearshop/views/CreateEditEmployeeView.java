@@ -62,11 +62,11 @@ public class CreateEditEmployeeView extends javax.swing.JPanel {
 
     jLabel8.setText("Employee Type:");
 
-    cmdSubmit.setText("Save");
+    cmdSubmit.setText("Submit");
 
     cmdCancel.setText("Cancel");
 
-    EmployeeTypeID.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Technician", "Manager" }));
+    EmployeeTypeID.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "One", "Two" }));
     EmployeeTypeID.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         EmployeeTypeIDActionPerformed(evt);

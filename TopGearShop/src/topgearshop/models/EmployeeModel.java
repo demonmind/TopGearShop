@@ -19,7 +19,7 @@ import java.util.Date;
 /** */
 public class EmployeeModel {
 	/** */
-	private String employeeID;
+	private Integer employeeID;
 	
 	/** */
 	private String firstName;
@@ -40,12 +40,12 @@ public class EmployeeModel {
 	private Integer employeeTypeID;
 	
 	/** */
-	public String getEmployeeID() {
+	public Integer getEmployeeID() {
     return this.employeeID;
 	}
 	
 	/** */
-	public void setEmployeeID(String employeeID) {
+	public void setEmployeeID(Integer employeeID) {
     this.employeeID = employeeID;
 	}
 	

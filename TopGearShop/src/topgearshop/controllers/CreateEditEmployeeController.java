@@ -9,6 +9,8 @@ package topgearshop.controllers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JDialog;
 import topgearshop.models.EmployeeModel;
 import topgearshop.utils.DataAccessLayer;
@@ -50,15 +52,24 @@ public class CreateEditEmployeeController {
     {
       loadEmployeeInformation();      
     }
+    else
+    {
+      employeeView.EmployeeTypeID.setModel(getComboModel());
+    }
     modalDialog.setVisible(true);
   }
+  private ComboBoxModel getComboModel ()
+  {
+    return new DefaultComboBoxModel<> (DataAccessLayer.getEmployeeTypes());
+  }
   private void setEmployeeInformation() {
-    employee.setEmployeeID(employeeView.EmployeeID.getText());
+    employee.setEmployeeID(Integer.parseInt(employeeView.EmployeeID.getText()));
     employee.setFirstName(employeeView.FirstName.getText());
     employee.setMiddleName(employeeView.MiddleName.getText());
     employee.setLastName(employeeView.LastName.getText());
     employee.setDateOfBirth(new Date( employeeView.DateOfBirth.getText()));
     employee.setDriversLicenseNumber(employeeView.DriversLicenseNumber.getText());
+    /* Lookup the employee type id because the combo box doesn't support value */
     employee.setEmployeeTypeID(employeeView.EmployeeTypeID.getSelectedIndex());
      }
   private void setFoundInterface() {
@@ -66,7 +77,7 @@ public class CreateEditEmployeeController {
   }
 
   private void loadEmployeeInformation() {
-    employeeView.EmployeeID.setText(employee.getEmployeeID());
+    employeeView.EmployeeID.setText(employee.getEmployeeID().toString());
     employeeView.FirstName.setText(employee.getFirstName());
     employeeView.MiddleName.setText(employee.getMiddleName());
     employeeView.LastName.setText(employee.getLastName());

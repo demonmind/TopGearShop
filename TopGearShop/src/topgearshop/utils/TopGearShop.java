@@ -22,8 +22,10 @@ public class TopGearShop {
     public static void main(String[] args) {
         // TODO code application logic here
       CredentialsModel cm = new CredentialsModel();
-      LoginController lc = new LoginController();
-      cm = lc.getCredentials();
+//      LoginController lc = new LoginController();
+//      cm = lc.getCredentials();
+      cm.setUserName("robertattaway");
+      cm.setEmployeeID("111-22-3333");
       TopGearShopMainUIController tgsUI = new TopGearShopMainUIController(cm);
     }
 }

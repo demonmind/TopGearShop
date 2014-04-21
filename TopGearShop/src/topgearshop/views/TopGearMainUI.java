@@ -73,21 +73,21 @@ public class TopGearMainUI extends javax.swing.JFrame {
     cmdEditService = new javax.swing.JButton();
     cmdRemoveService = new javax.swing.JButton();
     jPanel1 = new javax.swing.JPanel();
-    jButton7 = new javax.swing.JButton();
-    jButton8 = new javax.swing.JButton();
-    jButton9 = new javax.swing.JButton();
-    jButton10 = new javax.swing.JButton();
+    cmdCreateMaterialsList = new javax.swing.JButton();
+    cmdEditMaterialsList = new javax.swing.JButton();
+    cmdCreatePart = new javax.swing.JButton();
+    cmdEditPart = new javax.swing.JButton();
     pnlShopFees = new javax.swing.JPanel();
-    jButton5 = new javax.swing.JButton();
-    jButton6 = new javax.swing.JButton();
+    cmdCreateShopFee = new javax.swing.JButton();
+    cmdEditShopFee = new javax.swing.JButton();
     jLabel3 = new javax.swing.JLabel();
     pnlDiscount = new javax.swing.JPanel();
-    jButton13 = new javax.swing.JButton();
-    jButton14 = new javax.swing.JButton();
+    cmdCreateDiscount = new javax.swing.JButton();
+    cmdEditDiscount = new javax.swing.JButton();
     jLabel6 = new javax.swing.JLabel();
     pnlTax = new javax.swing.JPanel();
-    jButton11 = new javax.swing.JButton();
-    jButton12 = new javax.swing.JButton();
+    cmdCreateTaxRate = new javax.swing.JButton();
+    cmdEditTaxRate = new javax.swing.JButton();
     jLabel5 = new javax.swing.JLabel();
     pnlManager01 = new javax.swing.JPanel();
     pnlCustomers = new javax.swing.JPanel();
@@ -102,9 +102,9 @@ public class TopGearMainUI extends javax.swing.JFrame {
     lblVehicles = new javax.swing.JLabel();
     jLabel2 = new javax.swing.JLabel();
     pnlManagement = new javax.swing.JPanel();
-    jButton2 = new javax.swing.JButton();
-    jButton3 = new javax.swing.JButton();
-    jButton4 = new javax.swing.JButton();
+    cmdCreateEmployee = new javax.swing.JButton();
+    cmdEditEmployee = new javax.swing.JButton();
+    cmdFindEmployee = new javax.swing.JButton();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -368,13 +368,13 @@ public class TopGearMainUI extends javax.swing.JFrame {
 
     jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-    jButton7.setText("Create Materials List");
+    cmdCreateMaterialsList.setText("Create Materials List");
 
-    jButton8.setText("Edit Material List");
+    cmdEditMaterialsList.setText("Edit Material List");
 
-    jButton9.setText("Create Part");
+    cmdCreatePart.setText("Create Part");
 
-    jButton10.setText("Edit Part");
+    cmdEditPart.setText("Edit Part");
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
@@ -383,31 +383,31 @@ public class TopGearMainUI extends javax.swing.JFrame {
       .addGroup(jPanel1Layout.createSequentialGroup()
         .addContainerGap()
         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-          .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+          .addComponent(cmdEditPart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(cmdCreateMaterialsList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(cmdEditMaterialsList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(cmdCreatePart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
     jPanel1Layout.setVerticalGroup(
       jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(jPanel1Layout.createSequentialGroup()
         .addContainerGap()
-        .addComponent(jButton7)
+        .addComponent(cmdCreateMaterialsList)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(jButton8)
+        .addComponent(cmdEditMaterialsList)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(jButton9)
+        .addComponent(cmdCreatePart)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(jButton10)
+        .addComponent(cmdEditPart)
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
     pnlShopFees.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-    jButton5.setText("Create Shop Fees");
+    cmdCreateShopFee.setText("Create Shop Fees");
 
-    jButton6.setText("Edit Shop Fees");
+    cmdEditShopFee.setText("Edit Shop Fees");
 
     javax.swing.GroupLayout pnlShopFeesLayout = new javax.swing.GroupLayout(pnlShopFees);
     pnlShopFees.setLayout(pnlShopFeesLayout);
@@ -415,20 +415,20 @@ public class TopGearMainUI extends javax.swing.JFrame {
       pnlShopFeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlShopFeesLayout.createSequentialGroup()
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addComponent(jButton5)
+        .addComponent(cmdCreateShopFee)
         .addContainerGap())
       .addGroup(pnlShopFeesLayout.createSequentialGroup()
         .addContainerGap()
-        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addComponent(cmdEditShopFee, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
     pnlShopFeesLayout.setVerticalGroup(
       pnlShopFeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(pnlShopFeesLayout.createSequentialGroup()
         .addContainerGap()
-        .addComponent(jButton5)
+        .addComponent(cmdCreateShopFee)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addComponent(jButton6)
+        .addComponent(cmdEditShopFee)
         .addContainerGap())
     );
 
@@ -436,9 +436,9 @@ public class TopGearMainUI extends javax.swing.JFrame {
 
     pnlDiscount.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-    jButton13.setText("Create Discount");
+    cmdCreateDiscount.setText("Create Discount");
 
-    jButton14.setText("Edit Discount");
+    cmdEditDiscount.setText("Edit Discount");
 
     javax.swing.GroupLayout pnlDiscountLayout = new javax.swing.GroupLayout(pnlDiscount);
     pnlDiscount.setLayout(pnlDiscountLayout);
@@ -446,20 +446,20 @@ public class TopGearMainUI extends javax.swing.JFrame {
       pnlDiscountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(pnlDiscountLayout.createSequentialGroup()
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addComponent(jButton13)
+        .addComponent(cmdCreateDiscount)
         .addContainerGap())
       .addGroup(pnlDiscountLayout.createSequentialGroup()
         .addContainerGap()
-        .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addComponent(cmdEditDiscount, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
     pnlDiscountLayout.setVerticalGroup(
       pnlDiscountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(pnlDiscountLayout.createSequentialGroup()
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addComponent(jButton13)
+        .addComponent(cmdCreateDiscount)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(jButton14)
+        .addComponent(cmdEditDiscount)
         .addGap(11, 11, 11))
     );
 
@@ -467,9 +467,9 @@ public class TopGearMainUI extends javax.swing.JFrame {
 
     pnlTax.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-    jButton11.setText("Create Tax Rate");
+    cmdCreateTaxRate.setText("Create Tax Rate");
 
-    jButton12.setText("Edit Tax Rate");
+    cmdEditTaxRate.setText("Edit Tax Rate");
 
     javax.swing.GroupLayout pnlTaxLayout = new javax.swing.GroupLayout(pnlTax);
     pnlTax.setLayout(pnlTaxLayout);
@@ -478,17 +478,17 @@ public class TopGearMainUI extends javax.swing.JFrame {
       .addGroup(pnlTaxLayout.createSequentialGroup()
         .addContainerGap()
         .addGroup(pnlTaxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addComponent(jButton11)
-          .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addComponent(cmdCreateTaxRate)
+          .addComponent(cmdEditTaxRate, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addContainerGap(21, Short.MAX_VALUE))
     );
     pnlTaxLayout.setVerticalGroup(
       pnlTaxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(pnlTaxLayout.createSequentialGroup()
         .addContainerGap()
-        .addComponent(jButton11)
+        .addComponent(cmdCreateTaxRate)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addComponent(jButton12)
+        .addComponent(cmdEditTaxRate)
         .addContainerGap())
     );
 
@@ -660,11 +660,11 @@ public class TopGearMainUI extends javax.swing.JFrame {
 
     pnlManagement.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-    jButton2.setText("Create Employee");
+    cmdCreateEmployee.setText("Create Employee");
 
-    jButton3.setText("Edit Employee");
+    cmdEditEmployee.setText("Edit Employee");
 
-    jButton4.setText("Find Employee");
+    cmdFindEmployee.setText("Find Employee");
 
     javax.swing.GroupLayout pnlManagementLayout = new javax.swing.GroupLayout(pnlManagement);
     pnlManagement.setLayout(pnlManagementLayout);
@@ -673,20 +673,20 @@ public class TopGearMainUI extends javax.swing.JFrame {
       .addGroup(pnlManagementLayout.createSequentialGroup()
         .addContainerGap()
         .addGroup(pnlManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-          .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+          .addComponent(cmdCreateEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+          .addComponent(cmdEditEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(cmdFindEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         .addContainerGap())
     );
     pnlManagementLayout.setVerticalGroup(
       pnlManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(pnlManagementLayout.createSequentialGroup()
         .addContainerGap()
-        .addComponent(jButton2)
+        .addComponent(cmdCreateEmployee)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(jButton3)
+        .addComponent(cmdEditEmployee)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(jButton4)
+        .addComponent(cmdFindEmployee)
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
@@ -696,15 +696,11 @@ public class TopGearMainUI extends javax.swing.JFrame {
       pnlManager01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(pnlManager01Layout.createSequentialGroup()
         .addGroup(pnlManager01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addGroup(pnlManager01Layout.createSequentialGroup()
-            .addComponent(lblCustomers)
-            .addGap(100, 100, 100))
+          .addComponent(lblCustomers)
           .addComponent(pnlCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addGroup(pnlManager01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addGroup(pnlManager01Layout.createSequentialGroup()
-            .addComponent(lblVehicles)
-            .addGap(128, 128, 128))
+          .addComponent(lblVehicles)
           .addComponent(pnlVehicles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addGroup(pnlManager01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -824,6 +820,9 @@ public void setCompleteWorkOrderActionListener(ActionListener al){
 public void setCreateCustomerActionListener(ActionListener al){
     cmdCreateCustomer.addActionListener(al);
 }
+public void setCreateEmployeeActionListener(ActionListener al){
+    cmdCreateEmployee.addActionListener(al);
+}
 public void setCreateInventoryActionListener(ActionListener al){
     cmdCreateInventory.addActionListener(al);
 }
@@ -914,21 +913,34 @@ public void setVehicleHistoryActionListener(ActionListener al){
   private javax.swing.JButton cmdChangePassword;
   private javax.swing.JButton cmdCompleteWorkOrder;
   private javax.swing.JButton cmdCreateCustomer;
+  private javax.swing.JButton cmdCreateDiscount;
+  private javax.swing.JButton cmdCreateEmployee;
   private javax.swing.JButton cmdCreateInventory;
+  private javax.swing.JButton cmdCreateMaterialsList;
+  private javax.swing.JButton cmdCreatePart;
   private javax.swing.JButton cmdCreateService;
+  private javax.swing.JButton cmdCreateShopFee;
+  private javax.swing.JButton cmdCreateTaxRate;
   private javax.swing.JButton cmdCreateUser;
   private javax.swing.JButton cmdCreateVehicle;
   private javax.swing.JButton cmdCreateWarranty;
   private javax.swing.JButton cmdCreateWorkOrder;
   private javax.swing.JButton cmdCustomerReport;
   private javax.swing.JButton cmdEditCustomer;
+  private javax.swing.JButton cmdEditDiscount;
+  private javax.swing.JButton cmdEditEmployee;
   private javax.swing.JButton cmdEditInventory;
+  private javax.swing.JButton cmdEditMaterialsList;
+  private javax.swing.JButton cmdEditPart;
   private javax.swing.JButton cmdEditService;
+  private javax.swing.JButton cmdEditShopFee;
+  private javax.swing.JButton cmdEditTaxRate;
   private javax.swing.JButton cmdEditUser;
   private javax.swing.JButton cmdEditVehicle;
   private javax.swing.JButton cmdEditWarranty;
   private javax.swing.JButton cmdEditWorkOrder;
   private javax.swing.JButton cmdFindCustomer;
+  private javax.swing.JButton cmdFindEmployee;
   private javax.swing.JButton cmdFindInventory;
   private javax.swing.JButton cmdFindUser;
   private javax.swing.JButton cmdFindVehicle;
@@ -943,19 +955,6 @@ public void setVehicleHistoryActionListener(ActionListener al){
   private javax.swing.JButton cmdTechnicianReport;
   private javax.swing.JButton cmdVehicleHistory;
   private javax.swing.JButton jButton1;
-  private javax.swing.JButton jButton10;
-  private javax.swing.JButton jButton11;
-  private javax.swing.JButton jButton12;
-  private javax.swing.JButton jButton13;
-  private javax.swing.JButton jButton14;
-  private javax.swing.JButton jButton2;
-  private javax.swing.JButton jButton3;
-  private javax.swing.JButton jButton4;
-  private javax.swing.JButton jButton5;
-  private javax.swing.JButton jButton6;
-  private javax.swing.JButton jButton7;
-  private javax.swing.JButton jButton8;
-  private javax.swing.JButton jButton9;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
   private javax.swing.JLabel jLabel3;

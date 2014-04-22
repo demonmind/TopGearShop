@@ -618,4 +618,12 @@ public class DataAccessLayer {
     catch(Exception e){System.out.println(e.toString());}
     return foundVehicle; // Convert this to a static variable
   }
+
+  public static void CreateWarranty(WarrantyModel warrantyModel) {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
+
+  public static void UpdateWarranty(WarrantyModel warrantyModel) {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
 }

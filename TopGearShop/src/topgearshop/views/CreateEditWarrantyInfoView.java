@@ -6,6 +6,9 @@
 
 package topgearshop.views;
 
+import java.awt.event.ActionListener;
+import topgearshop.controllers.CreateEditWarrantyInfoController;
+
 /**
  *
  * @author rmattaway
@@ -28,26 +31,18 @@ public class CreateEditWarrantyInfoView extends javax.swing.JPanel {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
-    jLabel1 = new javax.swing.JLabel();
     jLabel2 = new javax.swing.JLabel();
     jLabel3 = new javax.swing.JLabel();
     WarrantyID = new javax.swing.JTextField();
     Warranty = new javax.swing.JTextField();
-    cmdSave = new javax.swing.JButton();
-    cmdClose = new javax.swing.JButton();
+    cmdSubmit = new javax.swing.JButton();
     cmdCancel = new javax.swing.JButton();
-
-    jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-    jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    jLabel1.setText("Create/Edit Warranty");
 
     jLabel2.setText("Warranty ID:");
 
     jLabel3.setText("Warranty:");
 
-    cmdSave.setText("Save");
-
-    cmdClose.setText("Close");
+    cmdSubmit.setText("Submit");
 
     cmdCancel.setText("Cancel");
 
@@ -55,37 +50,32 @@ public class CreateEditWarrantyInfoView extends javax.swing.JPanel {
     this.setLayout(layout);
     layout.setHorizontalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
       .addGroup(layout.createSequentialGroup()
         .addContainerGap()
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addComponent(jLabel2)
           .addGroup(layout.createSequentialGroup()
-            .addComponent(cmdSave, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(18, 18, 18)
-            .addComponent(cmdClose)
-            .addGap(18, 18, 18)
-            .addComponent(cmdCancel)
-            .addGap(0, 1, Short.MAX_VALUE))
-          .addGroup(layout.createSequentialGroup()
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addComponent(jLabel2)
-              .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jLabel3)))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addComponent(WarrantyID)
-              .addComponent(Warranty))))
+            .addGap(10, 10, 10)
+            .addComponent(jLabel3)))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addComponent(WarrantyID)
+          .addComponent(Warranty))
         .addContainerGap())
+      .addGroup(layout.createSequentialGroup()
+        .addGap(80, 80, 80)
+        .addComponent(cmdSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(cmdCancel)
+        .addContainerGap(87, Short.MAX_VALUE))
     );
 
-    layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cmdCancel, cmdClose, cmdSave});
+    layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cmdCancel, cmdSubmit});
 
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(layout.createSequentialGroup()
-        .addComponent(jLabel1)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addContainerGap()
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel2)
           .addComponent(WarrantyID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -95,10 +85,9 @@ public class CreateEditWarrantyInfoView extends javax.swing.JPanel {
           .addComponent(Warranty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-          .addComponent(cmdSave)
-          .addComponent(cmdClose)
+          .addComponent(cmdSubmit)
           .addComponent(cmdCancel))
-        .addGap(0, 9, Short.MAX_VALUE))
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
   }// </editor-fold>//GEN-END:initComponents
 
@@ -107,10 +96,15 @@ public class CreateEditWarrantyInfoView extends javax.swing.JPanel {
   private javax.swing.JTextField Warranty;
   private javax.swing.JTextField WarrantyID;
   private javax.swing.JButton cmdCancel;
-  private javax.swing.JButton cmdClose;
-  private javax.swing.JButton cmdSave;
-  private javax.swing.JLabel jLabel1;
+  private javax.swing.JButton cmdSubmit;
   private javax.swing.JLabel jLabel2;
   private javax.swing.JLabel jLabel3;
   // End of variables declaration//GEN-END:variables
+
+  public void setSubmitActionHandler(ActionListener al) {
+    cmdSubmit.addActionListener(al);
+  }
+  public void setCancelActionHandler(ActionListener al) {
+    cmdCancel.addActionListener(al);
+  }
 }

@@ -6,6 +6,8 @@
 
 package topgearshop.views;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author rmattaway
@@ -19,6 +21,13 @@ public class FindEmployeeView extends javax.swing.JPanel {
     initComponents();
   }
 
+  public void setSubmitActionHandler(ActionListener al) {
+    cmdSubmit.addActionListener(al);
+  }
+
+  public void setCancelActionListener(ActionListener al) {
+    cmdCancel.addActionListener(al);
+  }
   /**
    * This method is called from within the constructor to initialize the form.
    * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,19 +37,38 @@ public class FindEmployeeView extends javax.swing.JPanel {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
+    cmdSubmit = new javax.swing.JButton();
+    cmdCancel = new javax.swing.JButton();
+
+    cmdSubmit.setText("Submit");
+
+    cmdCancel.setText("Cancel");
+
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
     this.setLayout(layout);
     layout.setHorizontalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 400, Short.MAX_VALUE)
+      .addGroup(layout.createSequentialGroup()
+        .addGap(37, 37, 37)
+        .addComponent(cmdSubmit)
+        .addGap(18, 18, 18)
+        .addComponent(cmdCancel)
+        .addContainerGap(201, Short.MAX_VALUE))
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 300, Short.MAX_VALUE)
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+        .addContainerGap(242, Short.MAX_VALUE)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(cmdSubmit)
+          .addComponent(cmdCancel))
+        .addGap(33, 33, 33))
     );
   }// </editor-fold>//GEN-END:initComponents
 
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JButton cmdCancel;
+  private javax.swing.JButton cmdSubmit;
   // End of variables declaration//GEN-END:variables
 }

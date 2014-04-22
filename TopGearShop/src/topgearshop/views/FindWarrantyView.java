@@ -28,19 +28,60 @@ public class FindWarrantyView extends javax.swing.JPanel {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
+    jMenuItem1 = new javax.swing.JMenuItem();
+    jLabel1 = new javax.swing.JLabel();
+    cboWarranties = new javax.swing.JComboBox();
+    cmdSubmit = new javax.swing.JButton();
+    cmdCancel = new javax.swing.JButton();
+
+    jMenuItem1.setText("jMenuItem1");
+
+    jLabel1.setText("Available Warranties:");
+
+    cboWarranties.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "12 months or 12,000 miles", "24 months or 36,000 miles", "30 Days", "90 Days" }));
+
+    cmdSubmit.setText("Submit");
+
+    cmdCancel.setText("Cancel");
+
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
     this.setLayout(layout);
     layout.setHorizontalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 400, Short.MAX_VALUE)
+      .addGroup(layout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(layout.createSequentialGroup()
+            .addComponent(jLabel1)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(cboWarranties, 0, 248, Short.MAX_VALUE))
+          .addGroup(layout.createSequentialGroup()
+            .addComponent(cmdSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(cmdCancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        .addContainerGap())
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 300, Short.MAX_VALUE)
+      .addGroup(layout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(jLabel1)
+          .addComponent(cboWarranties, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(cmdSubmit)
+          .addComponent(cmdCancel))
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
   }// </editor-fold>//GEN-END:initComponents
 
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JComboBox cboWarranties;
+  private javax.swing.JButton cmdCancel;
+  private javax.swing.JButton cmdSubmit;
+  private javax.swing.JLabel jLabel1;
+  private javax.swing.JMenuItem jMenuItem1;
   // End of variables declaration//GEN-END:variables
 }

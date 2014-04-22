@@ -907,6 +907,12 @@ public void setTechnicianReportActionListener(ActionListener al){
 public void setVehicleHistoryActionListener(ActionListener al){
     cmdVehicleHistory.addActionListener(al);
 }
+public void setEditEmployeeActionListener(ActionListener al){
+  cmdEditEmployee.addActionListener(al);
+}
+public void setFindEmployeeActionListener(ActionListener al){
+  cmdFindEmployee.addActionListener(al);
+}
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private topgearshop.views.ActivityView activityView1;

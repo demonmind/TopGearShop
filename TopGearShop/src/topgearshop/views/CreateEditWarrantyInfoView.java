@@ -93,8 +93,8 @@ public class CreateEditWarrantyInfoView extends javax.swing.JPanel {
 
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JTextField Warranty;
-  private javax.swing.JTextField WarrantyID;
+  public javax.swing.JTextField Warranty;
+  public javax.swing.JTextField WarrantyID;
   private javax.swing.JButton cmdCancel;
   private javax.swing.JButton cmdSubmit;
   private javax.swing.JLabel jLabel2;

@@ -1,7 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author: TopGear Group
+ * TopGearShop is the main entry point into the TopGear system. The main method
+ * creates a login controller which validates the user login and either creates
+ * the main interface or exits because user credentials are not supplied
+ * 
  */
 
 package topgearshop.utils;
@@ -10,10 +12,6 @@ import topgearshop.controllers.*;
 import topgearshop.models.CredentialsModel;
 import topgearshop.views.*;
 
-/**
- *
- * @author kleon
- */
 public class TopGearShop {
 
     /**
@@ -22,10 +20,8 @@ public class TopGearShop {
     public static void main(String[] args) {
         // TODO code application logic here
       CredentialsModel cm = new CredentialsModel();
-//      LoginController lc = new LoginController();
-//      cm = lc.getCredentials();
-      cm.setUserName("robertattaway");
-      cm.setEmployeeID("111-22-3333");
+      LoginController lc = new LoginController();
+      cm = lc.getCredentials();
       TopGearShopMainUIController tgsUI = new TopGearShopMainUIController(cm);
     }
 }

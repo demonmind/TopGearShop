@@ -1,15 +1,18 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author: TopGear Group
+ *
+ * FindServiceItemController provides the way to find already created service items in
+ * the system. The find service item interface is presented and depending on the criteria
+ * provided the service item is returned. 
+ *
  */
+
 
 package topgearshop.controllers;
 
-/**
- *
- * @author rmattaway
- */
 public class FindServiceItemController {
-  
+  public FindServiceItemController()
+  {
+    
+  }
 }

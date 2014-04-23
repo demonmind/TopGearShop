@@ -1,15 +1,17 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author: TopGear Group
+ *
+ * FindPartController provides the way to find already created parts in
+ * the system. The find part interface is presented and depending on the criteria
+ * provided the part information is returned. 
+ *
  */
 
 package topgearshop.controllers;
 
-/**
- *
- * @author rmattaway
- */
 public class FindPartController {
-  
+  public FindPartController()
+  {
+    
+  }
 }

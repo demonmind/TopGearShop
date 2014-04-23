@@ -1,15 +1,16 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author: TopGear Group
+ *
+ * StatusPanelViewController keeps track of the application status and modifies
+ * various sections of the activity panel to display information about the 
+ * system to the user.
+ *
  */
-
 package topgearshop.controllers;
 
-/**
- *
- * @author rmattaway
- */
 public class StatusPanelViewController {
-  
+  public StatusPanelViewController()
+  {
+
+  }
 }

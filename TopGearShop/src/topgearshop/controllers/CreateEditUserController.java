@@ -1,9 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author: TopGear Group
+ *
+ * CreateEditUserController provides the way to create and edit system users
+ * depending on the parameter values of the constructor. Because there is 
+ * a requirement to find a system item before editing the controller also is used
+ * by the FindUserController to visualize the system user information
+ *
  */
-
 package topgearshop.controllers;
 
 import java.awt.event.ActionEvent;
@@ -18,10 +21,6 @@ import topgearshop.utils.Notifications;
 import topgearshop.views.CreateEditUserView;
 import topgearshop.views.LoginView;
 
-/**
- *
- * @author rmattaway
- */
 public class CreateEditUserController {
   private CreateEditUserView createEditUser;
   private CredentialsModel systemUserModel;

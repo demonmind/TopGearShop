@@ -1,15 +1,20 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author: TopGear Group
+ *
+ * ReportViewController provides a way for the system to take run predefined
+ * reports required for the operations of the business. ReportViewController
+ * will use various models as required by the specific reports to be run.
+ * ReportViewController may also use various views to display reports with
+ * different information
+ *
  */
+
 
 package topgearshop.controllers;
 
-/**
- *
- * @author rmattaway
- */
 public class ReportViewController {
-  
+  public ReportViewController()
+  {
+    
+  }
 }

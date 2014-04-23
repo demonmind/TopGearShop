@@ -1,8 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author: TopGear Group
+ *
+ * FindEmployeeController provides the way to find already created employees in
+ * the system. The find employee interface is presented and depending on the criteria
+ * provided the employee is returned. 
+ *
  */
+
 
 package topgearshop.controllers;
 
@@ -15,10 +19,6 @@ import topgearshop.models.EmployeeModel;
 import topgearshop.views.FindCustomerView;
 import topgearshop.views.FindEmployeeView;
 
-/**
- *
- * @author rmattaway
- */
 public class FindEmployeeController {
   private EmployeeModel employeeModel;
   private FindEmployeeView findEmployee;

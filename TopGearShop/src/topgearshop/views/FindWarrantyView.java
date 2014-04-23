@@ -6,6 +6,9 @@
 
 package topgearshop.views;
 
+import java.awt.event.ActionListener;
+import topgearshop.controllers.FindWarrantyInfoController;
+
 /**
  *
  * @author rmattaway
@@ -78,10 +81,18 @@ public class FindWarrantyView extends javax.swing.JPanel {
 
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JComboBox cboWarranties;
+  public javax.swing.JComboBox cboWarranties;
   private javax.swing.JButton cmdCancel;
   private javax.swing.JButton cmdSubmit;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JMenuItem jMenuItem1;
   // End of variables declaration//GEN-END:variables
+
+  public void setSubmitActionHandler(ActionListener al) {
+    cmdSubmit.addActionListener(al);
+  }
+
+  public void setCancelActionListener(ActionListener al) {
+    cmdCancel.addActionListener(al);
+  }
 }

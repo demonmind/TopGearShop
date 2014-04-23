@@ -1,9 +1,14 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author: TopGear Group
+ *
+ * DataAccessLayer represents all of the data access logic required by the system
+ * For example, when identifiers are needed there are queries to find the next
+ * identifier for the requested database object. All insert, update, delete and
+ * select statements are performed by the DataAccessLayer. Models and Boolean
+ * values are the only values that this layer is expected to return unless there
+ * is some value used by the system to indicate a logic error has occured.
+ *
  */
-
 package topgearshop.utils;
 
 import java.sql.Connection;
@@ -17,11 +22,6 @@ import java.util.Locale;
 import java.util.Vector;
 import topgearshop.models.*;
 
-
-/**
- *
- * @author rmattaway
- */
 public class DataAccessLayer {
   public static boolean ChangePassword(CredentialsModel credentials, String newPassword)
   {
@@ -619,11 +619,102 @@ public class DataAccessLayer {
     return foundVehicle; // Convert this to a static variable
   }
 
-  public static void CreateWarranty(WarrantyModel warrantyModel) {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  public static List<WarrantyModel> GetWarranties()
+  {
+    PreparedStatement statement = null;
+    ResultSet resultSet = null;
+    List<WarrantyModel> warranties = new ArrayList<WarrantyModel>();
+    try
+    {
+        Class.forName("org.sqlite.JDBC");
+        Connection conn = ConnectionManager.getConnection();
+        // Try id (SSN)
+        statement = (PreparedStatement) conn.prepareStatement("select * from warranty;");
+        resultSet = statement.executeQuery();
+        while(resultSet.next())
+        {
+          WarrantyModel wm = new WarrantyModel();
+          wm.setWarrantyID(resultSet.getInt(1));
+          wm.setWarranty(resultSet.getString(2));
+          warranties.add(wm);
+        }
+        conn.close();
+        return warranties;
+    }
+    catch(Exception e)
+    {
+      
+    }
+    return null;
   }
+  public static Boolean CreateWarranty(WarrantyModel warrantyModel) {
+    Integer nextID = GetNextWarrantyID();
+    PreparedStatement statement = null;
+    Connection conn;
+    try
+    {
+        Class.forName("org.sqlite.JDBC");
+        conn = ConnectionManager.getConnection();
+        
+        conn = ConnectionManager.getConnection();
+        statement = (PreparedStatement) conn.prepareStatement("INSERT INTO warranty(warrantyID,warranty) VALUES (?,?)");
+        statement.setInt(1, nextID);
+        statement.setString(2,warrantyModel.getWarranty());
+        statement.execute();
+        conn.close();
+      return true;
+    }
+    catch(Exception e){System.out.println(e.toString());}
+    return false;
+  }
+  private static Integer GetNextWarrantyID()
+  {
+    PreparedStatement statement = null;
+    ResultSet resultSet = null;
+    Integer nextWarrantyID = 1;
+    try
+    {
+        Class.forName("org.sqlite.JDBC");
+        Connection conn = ConnectionManager.getConnection();
+        // Try id (SSN)
+        statement = (PreparedStatement) conn.prepareStatement("select max(warrantyID) maxID from warranty;");
+        resultSet = statement.executeQuery();
+        if(resultSet.next())
+        {
+          nextWarrantyID = resultSet.getInt(1) + 1;
+        }
+        conn.close();
+        //return nextWarrantyID;
+    }
+    catch(Exception e)
+    {
+      System.out.println(e);
+      nextWarrantyID = -1;
+    }
+    return nextWarrantyID;
+  }
+  public static Boolean UpdateWarranty(WarrantyModel warrantyModel) {
+    PreparedStatement statement = null;
+    ResultSet resultSet = null;
+    try
+    {
+        Class.forName("org.sqlite.JDBC");
+        Connection conn = ConnectionManager.getConnection();
 
-  public static void UpdateWarranty(WarrantyModel warrantyModel) {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        statement = (PreparedStatement) conn.prepareStatement("select * from warranty where warrantyID=?");
+        statement.setInt(1,warrantyModel.getWarrantyID());
+        resultSet = statement.executeQuery();
+        if(resultSet.next())
+        {
+          statement = (PreparedStatement) conn.prepareStatement("UPDATE warranty SET warranty = ? where warrantyID = ?;");
+          statement.setString(1,warrantyModel.getWarranty());
+          statement.setInt(2,warrantyModel.getWarrantyID());
+          statement.executeUpdate();
+        }
+        conn.close();
+      return true;
+    }
+    catch(Exception e){System.out.println(e.toString());}
+    return false;
   }
 }

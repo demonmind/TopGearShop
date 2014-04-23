@@ -1,15 +1,16 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author: TopGear Group
+ *
+ * FindInventoryController provides the way to find already created inventory items in
+ * the system. The find inventory item interface is presented and depending on the criteria
+ * provided the inventory item is returned. 
+ *
  */
-
 package topgearshop.controllers;
 
-/**
- *
- * @author rmattaway
- */
 public class FindInventoryController {
-  
+  public FindInventoryController()
+  {
+    
+  }
 }

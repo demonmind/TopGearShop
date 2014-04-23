@@ -1,9 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author: TopGear Group
+ *
+ * CreateEditInventoryItemController provides the way to create and edit inventory
+ * items depending on the parameter values of the constructor. Because there is 
+ * a requirement to find a inventory item before editing the controller also is used
+ * by the FindInventoryController to visualize the inventory information
+ *
  */
-
 package topgearshop.controllers;
 
 import java.awt.event.ActionEvent;
@@ -16,10 +19,6 @@ import topgearshop.utils.DataAccessLayer;
 import topgearshop.views.CreateEditEmployeeView;
 import topgearshop.views.CreateEditInventoryItemView;
 
-/**
- *
- * @author rmattaway
- */
 public class CreateEditInventoryItemController {
   private CreateEditInventoryItemView createEditInventoryView;
   private InventoryItemModel inventoryItem;

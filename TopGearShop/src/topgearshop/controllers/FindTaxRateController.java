@@ -1,15 +1,17 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author: TopGear Group
+ *
+ * FindTaxRateController provides the way to find already created tax rates in
+ * the system. The find tax rate interface is presented and depending on the criteria
+ * provided the tax rate information is returned. 
+ *
  */
 
 package topgearshop.controllers;
 
-/**
- *
- * @author rmattaway
- */
 public class FindTaxRateController {
-  
+  public FindTaxRateController()
+  {
+    
+  }
 }

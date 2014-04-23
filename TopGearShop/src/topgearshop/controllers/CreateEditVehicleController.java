@@ -1,9 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author: TopGear Group
+ *
+ * CreateEditVehicleController provides the way to create and edit vehicles
+ * depending on the parameter values of the constructor. Because there is 
+ * a requirement to find a vehicle before editing the controller also is used
+ * by the FindVehicleController to visualize the vehicle information
+ *
  */
-
 package topgearshop.controllers;
 
 import java.awt.event.ActionEvent;
@@ -15,10 +18,6 @@ import topgearshop.models.VehicleModel;
 import topgearshop.utils.DataAccessLayer;
 import topgearshop.views.CreateEditVehicleView;
 
-/**
- *
- * @author rmattaway
- */
 public class CreateEditVehicleController {
   private VehicleModel vehicleModel;
   private CreateEditVehicleView ceVehicleView;

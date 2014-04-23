@@ -1,3 +1,11 @@
+/*
+ * Author: TopGear Group
+ *
+ * ConnectionManager is single configuration point to where the system database
+ * resides and the method by which all static methods in the DataAccessLayer
+ * obtain their connections to the database.
+ *
+ */
 package topgearshop.utils;
 import java.sql.Connection;
 import java.sql.DriverManager;

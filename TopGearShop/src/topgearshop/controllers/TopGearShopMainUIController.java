@@ -1,9 +1,13 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author: TopGear Group
+ *
+ * TopGearShopMainUIController is the main controller in the system which receives
+ * control from the main method once main validates the user and signs the user
+ * into the system. The TopGearShopMainUIController then coordinates all other
+ * requests with all of the other controllers. If two controllers need to
+ * communicate they must pass models to the main controller.
+ *
  */
-
 package topgearshop.controllers;
 
 import java.awt.event.ActionEvent;
@@ -12,10 +16,6 @@ import topgearshop.views.*;
 import topgearshop.models.*;
 import topgearshop.utils.DataAccessLayer;
 
-/**
- *
- * @author rmattaway
- */
 public class TopGearShopMainUIController {
   private TopGearMainUI tgsUI;
   private CredentialsModel credentials;
@@ -121,7 +121,7 @@ class CreateVehicleListener implements ActionListener{
 class CreateWarrantyListener implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
-      CreateEditWarrantyInfoController createWarrantyInfo = new CreateEditWarrantyInfoController();
+      CreateEditWarrantyInfoController createWarrantyInfo = new CreateEditWarrantyInfoController(null, false);
       System.out.println("The CreateWarranty event listner was called");
     }
   }
@@ -249,6 +249,7 @@ class FindVehicleListener implements ActionListener{
 class FindWarrantyListener implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
+      FindWarrantyInfoController findWarranty = new FindWarrantyInfoController();
       System.out.println("The FindWarranty event listner was called");
     }
   }

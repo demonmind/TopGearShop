@@ -1,7 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author: TopGear Group
+ *
+ * ChangePasswordController allows the currently logged in user to change
+ * their password. 
+ * Used by the main controller when the user clicks change password under
+ * the user section
+ *
  */
 
 package topgearshop.controllers;
@@ -16,10 +20,6 @@ import topgearshop.models.CredentialsModel;
 import topgearshop.utils.DataAccessLayer;
 import topgearshop.views.ChangePassword;
 
-/**
- *
- * @author rmattaway
- */
 public class ChangePasswordController {
   private CredentialsModel credentials;
   private ChangePassword cpwd;

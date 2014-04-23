@@ -1,15 +1,18 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author: TopGear Group
+ * Module to monitor system activity. This module will include monitoring of
+ * all activities such as login, creation of objects, work order progress, etc
+ *
+ * Used by the main controller when any activity requires logging.
+ *
+ *
  */
 
 package topgearshop.controllers;
 
-/**
- *
- * @author rmattaway
- */
 public class ActivityController {
-  
+  public ActivityController()
+  {
+    
+  }
 }

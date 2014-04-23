@@ -1,17 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author: TopGear Group
+ * Notifications is a quick simple way to display a message box in the system.
+ * 
  */
-
 package topgearshop.utils;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author rmattaway
- */
 public class Notifications {
   public static void DisplayNotification(String message)
   {

@@ -1,15 +1,17 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author: TopGear Group
+ *
+ * CreateEditPartController provides the way to create and edit parts
+ * depending on the parameter values of the constructor. Because there is 
+ * a requirement to find a part before editing the controller also is used
+ * by the FindPartController to visualize the part information
+ *
  */
-
 package topgearshop.controllers;
 
-/**
- *
- * @author rmattaway
- */
 public class CreateEditPartController {
-  
+  public CreateEditPartController()
+  {
+    
+  }
 }

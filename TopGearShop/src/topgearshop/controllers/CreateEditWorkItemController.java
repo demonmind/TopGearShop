@@ -1,9 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author: TopGear Group
+ *
+ * CreateEditWorkItemController provides the way to create and edit work items
+ * depending on the parameter values of the constructor. Work items must exist
+ * in a work order. Therefore, to edit a work item one must already have been
+ * created in a work order
+ *
  */
-
 package topgearshop.controllers;
 
 import java.awt.event.ActionEvent;
@@ -14,10 +17,6 @@ import topgearshop.models.CustomerModel;
 import topgearshop.utils.DataAccessLayer;
 import topgearshop.views.CreateEditWorkItemView;
 
-/**
- *
- * @author rmattaway
- */
 public class CreateEditWorkItemController {
   private Date workOrderCreationDate;
   private CreateEditWorkItemView ceWorkItemView;

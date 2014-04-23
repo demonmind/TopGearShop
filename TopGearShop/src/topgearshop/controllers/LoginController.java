@@ -1,7 +1,13 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author: TopGear Group
+ *
+ * LoginController provides a way for system users to log into the system.
+ * The login controller validates the user name and password. If the credentials
+ * are valid the login proceeds, the user role is obtained and an activity logging
+ * object is created. If the login fails the user is presented with a message
+ * to tell them the possible error. The logon controller then allows the user to
+ * try logging into the system again.
+ *
  */
 
 package topgearshop.controllers;
@@ -21,10 +27,6 @@ import javax.swing.JDialog;
 import topgearshop.utils.ConnectionManager;
 import topgearshop.views.LoginView;
 
-/**
- *
- * @author rmattaway
- */
 public class LoginController {
   private final LoginView loginView;
   private final CredentialsModel credentials;

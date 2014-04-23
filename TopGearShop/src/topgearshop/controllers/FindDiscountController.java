@@ -1,15 +1,17 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author: TopGear Group
+ *
+ * FindDiscountController provides the way to find already created discounts in
+ * the system. The find discount interface is presented and depending on the criteria
+ * provided the discount is returned. 
+ *
  */
 
 package topgearshop.controllers;
 
-/**
- *
- * @author rmattaway
- */
 public class FindDiscountController {
+  public FindDiscountController()
+  {
   
+  }
 }

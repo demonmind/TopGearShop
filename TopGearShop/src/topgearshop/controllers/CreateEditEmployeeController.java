@@ -1,9 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author: TopGear Group
+ *
+ * CreateEditEmployeeController provides the way to create and edit employees
+ * depending on the parameter values of the constructor. Because there is 
+ * a requirement to find a employee before editing the controller also is used
+ * by the FindEmployeeController to visualize the employee information
+ *
  */
-
 package topgearshop.controllers;
 
 import java.awt.event.ActionEvent;
@@ -16,10 +19,6 @@ import topgearshop.models.EmployeeModel;
 import topgearshop.utils.DataAccessLayer;
 import topgearshop.views.CreateEditEmployeeView;
 
-/**
- *
- * @author rmattaway
- */
 public class CreateEditEmployeeController {
   private EmployeeModel employee;
   private CreateEditEmployeeView employeeView;

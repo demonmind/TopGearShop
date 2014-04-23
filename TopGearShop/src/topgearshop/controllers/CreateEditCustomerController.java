@@ -1,9 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author: TopGear Group
+ *
+ * CreateEditCustomerController provides the way to create and edit users
+ * depending on the parameter values of the constructor. Because there is 
+ * a requirement to find a customer before editing the controller also is used
+ * by the FindCustomerController to visualize the customer information
+ *
  */
-
 package topgearshop.controllers;
 
 import java.awt.event.ActionEvent;
@@ -19,10 +22,6 @@ import topgearshop.utils.DataAccessLayer;
 import topgearshop.views.CreateEditCustomerView;
 import topgearshop.views.LoginView;
 
-/**
- *
- * @author rmattaway
- */
 public class CreateEditCustomerController {
   private CustomerModel customerModel;
   private CreateEditCustomerView ceCustomerView;

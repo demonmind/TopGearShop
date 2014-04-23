@@ -1,7 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author: TopGear Group
+ *
+ * FindUserController provides the way to find already created users in
+ * the system. The find user interface is presented and depending on the criteria
+ * provided the user information is returned but without the password.
+ *
  */
 
 package topgearshop.controllers;
@@ -15,10 +18,6 @@ import topgearshop.utils.DataAccessLayer;
 import topgearshop.views.FindCustomerView;
 import topgearshop.views.FindUserView;
 
-/**
- *
- * @author rmattaway
- */
 public class FindUserController {
    /*
   All of the Controllers shall contain at least one view and one model

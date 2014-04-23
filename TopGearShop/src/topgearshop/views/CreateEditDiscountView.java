@@ -6,6 +6,9 @@
 
 package topgearshop.views;
 
+import java.awt.event.ActionListener;
+import topgearshop.controllers.CreateEditDiscountController;
+
 /**
  *
  * @author rmattaway
@@ -43,4 +46,12 @@ public class CreateEditDiscountView extends javax.swing.JPanel {
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   // End of variables declaration//GEN-END:variables
+
+  public void setSubmitActionHandler(ActionListener al) {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
+
+  public void setCancelActionListener(ActionListener al) {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
 }

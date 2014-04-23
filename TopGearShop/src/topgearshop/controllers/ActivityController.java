@@ -10,9 +10,18 @@
 
 package topgearshop.controllers;
 
+import topgearshop.models.ActivityTypeModel;
+import topgearshop.utils.DataAccessLayer;
+
 public class ActivityController {
+  private ActivityTypeModel activity;
   public ActivityController()
   {
     
+  }
+
+  private Boolean LogActivity()
+  {
+    return DataAccessLayer.LogActivity(activity);
   }
 }

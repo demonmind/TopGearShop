@@ -6,6 +6,9 @@
 
 package topgearshop.views;
 
+import java.awt.event.ActionListener;
+import topgearshop.controllers.CreateEditMaterialsListController;
+
 /**
  *
  * @author rmattaway
@@ -28,19 +31,46 @@ public class CreateEditMaterialsList extends javax.swing.JPanel {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
+    cmdSubmit = new javax.swing.JButton();
+    cmdCancel = new javax.swing.JButton();
+
+    cmdSubmit.setText("Submit");
+
+    cmdCancel.setText("Cancel");
+
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
     this.setLayout(layout);
     layout.setHorizontalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 400, Short.MAX_VALUE)
+      .addGroup(layout.createSequentialGroup()
+        .addContainerGap()
+        .addComponent(cmdSubmit)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(cmdCancel)
+        .addContainerGap(237, Short.MAX_VALUE))
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 300, Short.MAX_VALUE)
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+        .addContainerGap(262, Short.MAX_VALUE)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(cmdSubmit)
+          .addComponent(cmdCancel))
+        .addContainerGap())
     );
   }// </editor-fold>//GEN-END:initComponents
 
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JButton cmdCancel;
+  private javax.swing.JButton cmdSubmit;
   // End of variables declaration//GEN-END:variables
+
+  public void setSubmitActionHandler(ActionListener al) {
+    cmdSubmit.addActionListener(al);
+  }
+
+  public void setCancelActionListener(ActionListener al) {
+    cmdCancel.addActionListener(al);
+  }
 }

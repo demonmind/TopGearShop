@@ -717,4 +717,8 @@ public class DataAccessLayer {
     catch(Exception e){System.out.println(e.toString());}
     return false;
   }
+
+  public static Boolean LogActivity(ActivityTypeModel activity) {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
 }

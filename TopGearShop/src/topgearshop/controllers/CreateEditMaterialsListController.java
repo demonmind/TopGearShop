@@ -22,12 +22,12 @@ public class CreateEditMaterialsListController {
   private Boolean cancelled;
   private JDialog modalDialog;
   private Boolean CreateMaterialsList = true;
-  private Date discountCreationDate;
+  private Date listCreationDate;
   private CreateEditMaterialsList ceMaterialsList;
   
   public CreateEditMaterialsListController(List<MaterialsListModel> ml, Boolean readOnly)
   {    
-    discountCreationDate = new Date();
+    listCreationDate = new Date();
     if(ml!=null)
     {
       CreateMaterialsList = false;

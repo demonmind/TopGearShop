@@ -6,6 +6,8 @@
 
 package topgearshop.views;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author rmattaway
@@ -19,6 +21,14 @@ public class CreateEditShopFeesView extends javax.swing.JPanel {
     initComponents();
   }
 
+  public void setSubmitActionHandler(ActionListener al)
+  {
+    cmdSubmit.addActionListener(al);
+  }
+  public void setCancelActionListener(ActionListener al)
+  {
+    cmdCancel.addActionListener(al);
+  }    
   /**
    * This method is called from within the constructor to initialize the form.
    * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,7 +38,6 @@ public class CreateEditShopFeesView extends javax.swing.JPanel {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
-    jLabel1 = new javax.swing.JLabel();
     jLabel2 = new javax.swing.JLabel();
     jLabel3 = new javax.swing.JLabel();
     jLabel4 = new javax.swing.JLabel();
@@ -39,13 +48,8 @@ public class CreateEditShopFeesView extends javax.swing.JPanel {
     FeeAmount = new javax.swing.JTextField();
     StateRequired = new javax.swing.JCheckBox();
     LocalMunicipalityRequired = new javax.swing.JCheckBox();
-    cmdSave = new javax.swing.JButton();
-    cmdClose = new javax.swing.JButton();
+    cmdSubmit = new javax.swing.JButton();
     cmdCancel = new javax.swing.JButton();
-
-    jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-    jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    jLabel1.setText("Create/Edit Shop/Governmental Fees");
 
     jLabel2.setText("Required Fee ID:");
 
@@ -59,9 +63,7 @@ public class CreateEditShopFeesView extends javax.swing.JPanel {
 
     ServiceItemID.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-    cmdSave.setText("Save");
-
-    cmdClose.setText("Close");
+    cmdSubmit.setText("Save");
 
     cmdCancel.setText("Cancel");
 
@@ -69,7 +71,6 @@ public class CreateEditShopFeesView extends javax.swing.JPanel {
     this.setLayout(layout);
     layout.setHorizontalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
       .addGroup(layout.createSequentialGroup()
         .addContainerGap()
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,18 +92,15 @@ public class CreateEditShopFeesView extends javax.swing.JPanel {
               .addComponent(ServiceItemID, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
               .addComponent(FeeAmount)))
           .addGroup(layout.createSequentialGroup()
-            .addComponent(cmdSave, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-            .addComponent(cmdClose, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addComponent(cmdSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(cmdCancel, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)))
         .addContainerGap())
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(layout.createSequentialGroup()
-        .addComponent(jLabel1)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addContainerGap()
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addComponent(jLabel2)
           .addComponent(RequiredFeeID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -124,10 +122,9 @@ public class CreateEditShopFeesView extends javax.swing.JPanel {
           .addComponent(LocalMunicipalityRequired))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-          .addComponent(cmdSave)
-          .addComponent(cmdCancel)
-          .addComponent(cmdClose))
-        .addGap(0, 13, Short.MAX_VALUE))
+          .addComponent(cmdSubmit)
+          .addComponent(cmdCancel))
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
   }// </editor-fold>//GEN-END:initComponents
 
@@ -139,9 +136,7 @@ public class CreateEditShopFeesView extends javax.swing.JPanel {
   private javax.swing.JComboBox ServiceItemID;
   private javax.swing.JCheckBox StateRequired;
   private javax.swing.JButton cmdCancel;
-  private javax.swing.JButton cmdClose;
-  private javax.swing.JButton cmdSave;
-  private javax.swing.JLabel jLabel1;
+  private javax.swing.JButton cmdSubmit;
   private javax.swing.JLabel jLabel2;
   private javax.swing.JLabel jLabel3;
   private javax.swing.JLabel jLabel4;

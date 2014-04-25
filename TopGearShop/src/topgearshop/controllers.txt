@@ -1,0 +1,2331 @@
+/*
+ * Author: TopGear Group
+ * Module to monitor system activity. This module will include monitoring of
+ * all activities such as login, creation of objects, work order progress, etc
+ *
+ * Used by the main controller when any activity requires logging.
+ *
+ *
+ */
+
+package topgearshop.controllers;
+
+import topgearshop.models.ActivityTypeModel;
+import topgearshop.utils.DataAccessLayer;
+
+public class ActivityController {
+  private ActivityTypeModel activity;
+  public ActivityController()
+  {
+    
+  }
+
+  private Boolean LogActivity()
+  {
+    return DataAccessLayer.LogActivity(activity);
+  }
+}
+/*
+ * Author: TopGear Group
+ *
+ * ChangePasswordController allows the currently logged in user to change
+ * their password. 
+ * Used by the main controller when the user clicks change password under
+ * the user section
+ *
+ */
+
+package topgearshop.controllers;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+import topgearshop.models.CredentialsModel;
+import topgearshop.utils.DataAccessLayer;
+import topgearshop.views.ChangePassword;
+
+public class ChangePasswordController {
+  private CredentialsModel credentials;
+  private ChangePassword cpwd;
+  private JDialog modalDialog;
+  public ChangePasswordController(CredentialsModel cm)
+  {
+    credentials = cm;
+    cpwd = new ChangePassword();
+      modalDialog = new JDialog();
+      modalDialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+      modalDialog.addWindowListener(
+              new WindowAdapter(){
+                @Override public void windowClosing(WindowEvent we){
+                }
+                                 });
+      modalDialog.add(cpwd);
+      
+      modalDialog.setTitle("Top Gear System - Change Password");
+      cpwd.setSubmitActionHandler(new ChangePasswordListener());
+      cpwd.setCancelActionHandler(new CancelChangePasswordListener());
+      modalDialog.setModal(true);
+      modalDialog.pack();
+      modalDialog.setVisible(true);
+      
+      
+  }
+  
+  
+  public class ChangePasswordListener implements ActionListener{
+    
+    @Override
+    public void actionPerformed(ActionEvent e){
+      System.out.println("The Submit New Password event listner was called");
+      String newPassword = cpwd.NewPassword.getText();
+      String ConfirmPassword = cpwd.ConfirmNewPassword.getText();
+      String oldPassword = cpwd.OldPassword.getText();
+      if(newPassword.equals(ConfirmPassword)&&credentials.getPassword().equals(oldPassword))
+      {
+        boolean success = DataAccessLayer.ChangePassword(credentials, newPassword);
+        System.out.println(success);
+      }
+      else{
+        JOptionPane.showMessageDialog(null, "The update to your password was not successful. Try again.", "Information",JOptionPane.INFORMATION_MESSAGE);
+      }
+      modalDialog.dispose();
+    }
+  }
+  public class CancelChangePasswordListener implements ActionListener{
+    
+    @Override
+    public void actionPerformed(ActionEvent e){
+      System.out.println("The ChangePassword cancel listner was called");
+      modalDialog.dispose();
+    }
+  }
+         
+}
+/*
+ * Author: TopGear Group
+ *
+ * CreateEditCustomerController provides the way to create and edit users
+ * depending on the parameter values of the constructor. Because there is 
+ * a requirement to find a customer before editing the controller also is used
+ * by the FindCustomerController to visualize the customer information
+ *
+ */
+package topgearshop.controllers;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JDialog;
+import topgearshop.models.CredentialsModel;
+import topgearshop.models.CustomerModel;
+import topgearshop.utils.DataAccessLayer;
+import topgearshop.views.CreateEditCustomerView;
+import topgearshop.views.LoginView;
+
+public class CreateEditCustomerController {
+  private CustomerModel customerModel;
+  private CreateEditCustomerView ceCustomerView;
+  private Boolean CreateCustomer = true;
+  private JDialog modalDialog;
+  private Boolean cancelled = false;
+  private Date customerCreationDate;
+  
+  public CreateEditCustomerController(CustomerModel cm, Boolean readOnly)
+  {
+    customerCreationDate = new Date();
+    if(cm!=null)
+    {
+      CreateCustomer = false;
+      customerModel = cm;
+    }
+    
+    ceCustomerView = new CreateEditCustomerView();
+
+    modalDialog = new JDialog();
+    modalDialog.add(ceCustomerView);
+    modalDialog.setTitle("Top Gear System - Create or Edit Customer");
+    if(readOnly)
+    {
+      setFoundInterface();
+    }
+    ceCustomerView.setSubmitActionHandler(new SubmitListener());
+    ceCustomerView.setCancelActionListener(new CancelListener());
+    modalDialog.setModal(true);
+    modalDialog.pack();
+    if(!CreateCustomer)
+    {
+      loadCustomerInformation();      
+    }
+    modalDialog.setVisible(true);
+  }
+  public Boolean getCancelledStatus()
+  {
+    return cancelled;
+  }
+  private void setFoundInterface()
+  {
+    modalDialog.setTitle("Top Gear System - Find Customer Results");
+    ceCustomerView.City.setEnabled(false);
+    ceCustomerView.EmailAddress.setEnabled(false);
+    ceCustomerView.FirstName.setEnabled(false);
+    ceCustomerView.LastName.setEnabled(false);
+    ceCustomerView.PhoneNumber.setEnabled(false);
+    ceCustomerView.State.setEnabled(false);
+    ceCustomerView.StreetAddress.setEnabled(false);
+    ceCustomerView.ZipCode.setEnabled(false);
+  }
+  private void loadCustomerInformation()
+  {
+    ceCustomerView.PhoneNumber.setText(customerModel.getPhoneNumber());
+    ceCustomerView.City.setText(customerModel.getCity());
+    ceCustomerView.EmailAddress.setText(customerModel.getEmailAddress());
+    ceCustomerView.FirstName.setText(customerModel.getFirstName());
+    ceCustomerView.LastName.setText(customerModel.getLastName());
+    ceCustomerView.State.setText(customerModel.getState());
+    ceCustomerView.StreetAddress.setText(customerModel.getStreetAddress());
+    ceCustomerView.ZipCode.setText(customerModel.getZipCode());
+    SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+    ceCustomerView.CustomerCreationDate.setText(sdf.format(customerModel.getCustomerCreationDate()));
+    
+  }
+  private void setCustomerInformation()
+  {
+      customerModel.setPhoneNumber(ceCustomerView.PhoneNumber.getText());
+      customerModel.setCity(ceCustomerView.City.getText());
+      customerModel.setEmailAddress(ceCustomerView.EmailAddress.getText());
+      customerModel.setFirstName(ceCustomerView.FirstName.getText());
+      customerModel.setLastName(ceCustomerView.LastName.getText());
+      customerModel.setState(ceCustomerView.State.getText()); 
+      customerModel.setStreetAddress(ceCustomerView.StreetAddress.getText());
+      customerModel.setZipCode(ceCustomerView.ZipCode.getText());
+      customerModel.setCustomerCreationDate(customerCreationDate);
+  }
+  class SubmitListener implements ActionListener{
+    
+    public void actionPerformed(ActionEvent e){
+      if(CreateCustomer)
+      {
+        customerModel = new CustomerModel();
+        customerModel.setCustomerID(DataAccessLayer.GetNextCustomerID());
+      }
+      setCustomerInformation();
+      if(CreateCustomer)
+      {
+        DataAccessLayer.CreateCustomer(customerModel);
+      }
+      else
+      {
+        DataAccessLayer.UpdateCustomer(customerModel);
+      }
+      modalDialog.dispose();
+    }
+  }
+  class CancelListener implements ActionListener{
+    
+    @Override
+    public void actionPerformed(ActionEvent e){
+      cancelled = true;
+      modalDialog.dispose();
+    }
+  }  
+}
+/*
+ * Author: TopGear Group
+ *
+ * CreateEditDiscountController provides the way to create and edit discounts
+ * depending on the parameter values of the constructor. Because there is 
+ * a requirement to find a discount before editing the controller also is used
+ * by the FindDiscountController to visualize the discount information
+ *
+ */
+
+package topgearshop.controllers;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Date;
+import javax.swing.JDialog;
+import topgearshop.models.CustomerModel;
+import topgearshop.models.DiscountsModel;
+import topgearshop.utils.DataAccessLayer;
+import topgearshop.views.CreateEditCustomerView;
+import topgearshop.views.CreateEditDiscountView;
+
+public class CreateEditDiscountController {
+  private DiscountsModel discount;
+  private Boolean cancelled;
+  private JDialog modalDialog;
+  private Boolean CreateDiscount = true;
+  private Date discountCreationDate;
+  private CreateEditDiscountView discountView;
+  
+  public CreateEditDiscountController(DiscountsModel dm, Boolean readOnly)
+  { 
+    discountCreationDate = new Date();
+    if(dm!=null)
+    {
+      CreateDiscount = false;
+      discount = dm;
+    }
+    
+    discountView = new CreateEditDiscountView();
+
+    modalDialog = new JDialog();
+    modalDialog.add(discountView);
+    modalDialog.setTitle("Top Gear System - Create or Edit Discounts");
+    if(readOnly)
+    {
+      setFoundInterface();
+    }
+    discountView.setSubmitActionHandler(new SubmitListener());
+    discountView.setCancelActionListener(new CancelListener());
+    modalDialog.setModal(true);
+    modalDialog.pack();
+    if(!CreateDiscount)
+    {
+      loadDiscountInformation();      
+    }
+    modalDialog.setVisible(true);
+    
+  }
+
+  private void setFoundInterface() {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
+
+  private void loadDiscountInformation() {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
+    class SubmitListener implements ActionListener{
+    
+    public void actionPerformed(ActionEvent e){
+
+      modalDialog.dispose();
+    }
+  }
+  class CancelListener implements ActionListener{
+    
+    @Override
+    public void actionPerformed(ActionEvent e){
+      cancelled = true;
+      modalDialog.dispose();
+    }
+  }
+}
+/*
+ * Author: TopGear Group
+ *
+ * CreateEditEmployeeController provides the way to create and edit employees
+ * depending on the parameter values of the constructor. Because there is 
+ * a requirement to find a employee before editing the controller also is used
+ * by the FindEmployeeController to visualize the employee information
+ *
+ */
+package topgearshop.controllers;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Date;
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JDialog;
+import topgearshop.models.EmployeeModel;
+import topgearshop.utils.DataAccessLayer;
+import topgearshop.views.CreateEditEmployeeView;
+
+public class CreateEditEmployeeController {
+  private EmployeeModel employee;
+  private CreateEditEmployeeView employeeView;
+  private Boolean cancelled = false;
+  private Boolean CreateEmployee = true;
+  private JDialog modalDialog;
+  
+  public CreateEditEmployeeController(EmployeeModel em, Boolean readOnly)
+  {
+    if(em!=null)
+    {
+      CreateEmployee = false;
+      employee = em;
+    }
+    
+    employeeView = new CreateEditEmployeeView();
+
+    modalDialog = new JDialog();
+    modalDialog.add(employeeView);
+    modalDialog.setTitle("Top Gear System - Create or Edit Employee");
+    if(readOnly)
+    {
+      setFoundInterface();
+    }
+    employeeView.setSubmitActionHandler(new SubmitListener());
+    employeeView.setCancelActionListener(new CancelListener());
+    modalDialog.setModal(true);
+    modalDialog.pack();
+    if(!CreateEmployee)
+    {
+      loadEmployeeInformation();      
+    }
+    else
+    {
+      employeeView.EmployeeTypeID.setModel(getComboModel());
+    }
+    modalDialog.setVisible(true);
+  }
+  private ComboBoxModel getComboModel ()
+  {
+    return new DefaultComboBoxModel<> (DataAccessLayer.getEmployeeTypes());
+  }
+  private void setEmployeeInformation() {
+    employee.setEmployeeID(Integer.parseInt(employeeView.EmployeeID.getText()));
+    employee.setFirstName(employeeView.FirstName.getText());
+    employee.setMiddleName(employeeView.MiddleName.getText());
+    employee.setLastName(employeeView.LastName.getText());
+    employee.setDateOfBirth(new Date( employeeView.DateOfBirth.getText()));
+    employee.setDriversLicenseNumber(employeeView.DriversLicenseNumber.getText());
+    /* Lookup the employee type id because the combo box doesn't support value */
+    employee.setEmployeeTypeID(employeeView.EmployeeTypeID.getSelectedIndex());
+     }
+  private void setFoundInterface() {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
+
+  private void loadEmployeeInformation() {
+    employeeView.EmployeeID.setText(employee.getEmployeeID().toString());
+    employeeView.FirstName.setText(employee.getFirstName());
+    employeeView.MiddleName.setText(employee.getMiddleName());
+    employeeView.LastName.setText(employee.getLastName());
+    employeeView.DateOfBirth.setText(employee.getDateOfBirth().toString());
+    employeeView.DriversLicenseNumber.setText(employee.getDriversLicenseNumber());
+    employeeView.EmployeeTypeID.setSelectedItem(employee.getEmployeeTypeID());
+  }
+  
+  private EmployeeModel validateEmployeeInformation() {
+      return DataAccessLayer.FindEmployee(employee);
+    }
+    
+    
+    class SubmitListener implements ActionListener{
+    
+    public void actionPerformed(ActionEvent e){
+      if(CreateEmployee)
+      {
+        employee = new EmployeeModel();
+      }
+      setEmployeeInformation();
+      if(CreateEmployee)
+      {
+        DataAccessLayer.CreateEmployee(employee);
+      }
+      else
+      {
+        DataAccessLayer.UpdateEmployee(employee);
+      }
+      EmployeeModel existingEmployee = validateEmployeeInformation();
+      if(existingEmployee==null)
+      {
+        return;
+      }
+      modalDialog.dispose();
+    }   
+  }
+  class CancelListener implements ActionListener{
+    
+    @Override
+    public void actionPerformed(ActionEvent e){
+      cancelled = true;
+      modalDialog.dispose();
+    }
+  }  
+}
+/*
+ * Author: TopGear Group
+ *
+ * CreateEditInventoryItemController provides the way to create and edit inventory
+ * items depending on the parameter values of the constructor. Because there is 
+ * a requirement to find a inventory item before editing the controller also is used
+ * by the FindInventoryController to visualize the inventory information
+ *
+ */
+package topgearshop.controllers;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Date;
+import javax.swing.JDialog;
+import topgearshop.models.EmployeeModel;
+import topgearshop.models.InventoryItemModel;
+import topgearshop.utils.DataAccessLayer;
+import topgearshop.views.CreateEditEmployeeView;
+import topgearshop.views.CreateEditInventoryItemView;
+
+public class CreateEditInventoryItemController {
+  private CreateEditInventoryItemView createEditInventoryView;
+  private InventoryItemModel inventoryItem;
+  private Boolean cancelled = false;
+  private Boolean Creating = true;
+  private JDialog modalDialog;
+  private Integer NewInventoryID;
+  
+  public CreateEditInventoryItemController(InventoryItemModel im, Boolean readOnly)
+  {    
+    if(im!=null)
+    {
+      Creating = false;
+      inventoryItem = im;
+    }
+    
+    createEditInventoryView = new CreateEditInventoryItemView();
+
+    modalDialog = new JDialog();
+    modalDialog.add(createEditInventoryView);
+    modalDialog.setTitle("Top Gear System - Create or Edit Inventory");
+    if(readOnly)
+    {
+      setFoundInterface();
+    }
+    createEditInventoryView.setSubmitActionHandler(new SubmitListener());
+    createEditInventoryView.setCancelActionListener(new CancelListener());
+    modalDialog.setModal(true);
+    modalDialog.pack();
+    if(!Creating)
+    {
+      loadModelInformation();      
+    }
+    else
+    {
+      NewInventoryID = DataAccessLayer.GetNextInventoryID();
+      createEditInventoryView.InventoryItemID.setText(NewInventoryID.toString());
+    }
+    modalDialog.setVisible(true);
+    
+  }
+  
+  private void setModelInformation() {
+    inventoryItem.setInventoryItemID(NewInventoryID);
+    inventoryItem.setItemName(createEditInventoryView.ItemName.getText());
+    inventoryItem.setItemCost(Double.parseDouble(createEditInventoryView.ItemCost.getText()));
+    inventoryItem.setSellingPrice(Double.parseDouble(createEditInventoryView.SellingPrice.getText()));
+    inventoryItem.setLocationInShop(createEditInventoryView.LocationInShop.getText());
+    inventoryItem.setQuantityOnHand(Integer.parseInt(createEditInventoryView.QuantityOnHand.getText()));
+    inventoryItem.setReorderLevel(Integer.parseInt(createEditInventoryView.ReorderLevel.getText()));
+    inventoryItem.setGrossProfit(getGrossProfit());
+  }
+  private Double getGrossProfit()
+  {
+    return inventoryItem.getSellingPrice()-inventoryItem.getItemCost();
+  }
+  private void setFoundInterface() {
+    
+  }
+
+  private void loadModelInformation() {
+
+  }
+  private InventoryItemModel validateModelInformation()
+  {
+    return DataAccessLayer.validateInventoryItem(inventoryItem);
+  }
+  class SubmitListener implements ActionListener{
+    
+    public void actionPerformed(ActionEvent e){
+      if(Creating)
+      {
+        inventoryItem = new InventoryItemModel();
+      }
+      setModelInformation();
+      if(Creating)
+      {
+        DataAccessLayer.CreateInventoryItem(inventoryItem);
+      }
+      else
+      {
+        DataAccessLayer.UpdateInventoryItem(inventoryItem);
+      }
+      InventoryItemModel existingInventoryItem = validateModelInformation();
+      if(existingInventoryItem==null)
+      {
+        return;
+      }
+      modalDialog.dispose();
+    }   
+  }
+  class CancelListener implements ActionListener{
+    
+    @Override
+    public void actionPerformed(ActionEvent e){
+      cancelled = true;
+      modalDialog.dispose();
+    }
+  } 
+}
+/*
+ * Author: TopGear Group
+ *
+ * CreateEditMaterialsListController provides the way to create and edit material
+ * lists depending on the parameter values of the constructor. Because there is 
+ * a requirement to find an inventory list before editing the controller also is used
+ * by the FindMaterialsListController to visualize the material list information
+ *
+ */
+package topgearshop.controllers;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Date;
+import java.util.List;
+import javax.swing.JDialog;
+import topgearshop.models.MaterialsListModel;
+import topgearshop.views.CreateEditMaterialsList;
+
+public class CreateEditMaterialsListController {
+  private List<MaterialsListModel> materialsList;
+  private Boolean cancelled;
+  private JDialog modalDialog;
+  private Boolean CreateMaterialsList = true;
+  private Date discountCreationDate;
+  private CreateEditMaterialsList ceMaterialsList;
+  
+  public CreateEditMaterialsListController(List<MaterialsListModel> ml, Boolean readOnly)
+  {    
+    discountCreationDate = new Date();
+    if(ml!=null)
+    {
+      CreateMaterialsList = false;
+      materialsList = ml;
+    }
+    
+    ceMaterialsList = new CreateEditMaterialsList();
+
+    modalDialog = new JDialog();
+    modalDialog.add(ceMaterialsList);
+    modalDialog.setTitle("Top Gear System - Create or Edit Materials List");
+    if(readOnly)
+    {
+      setFoundInterface();
+    }
+    ceMaterialsList.setSubmitActionHandler(new SubmitListener());
+    ceMaterialsList.setCancelActionListener(new CancelListener());
+    modalDialog.setModal(true);
+    modalDialog.pack();
+    if(!CreateMaterialsList)
+    {
+      loadDiscountInformation();      
+    }
+    modalDialog.setVisible(true);
+    
+  }
+
+  private void setFoundInterface() {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
+
+  private void loadDiscountInformation() {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
+  class SubmitListener implements ActionListener{
+    
+    public void actionPerformed(ActionEvent e){
+
+      modalDialog.dispose();
+    }
+  }
+  class CancelListener implements ActionListener{
+    
+    @Override
+    public void actionPerformed(ActionEvent e){
+      cancelled = true;
+      modalDialog.dispose();
+    }
+  }  
+}
+/*
+ * Author: TopGear Group
+ *
+ * CreateEditPartController provides the way to create and edit parts
+ * depending on the parameter values of the constructor. Because there is 
+ * a requirement to find a part before editing the controller also is used
+ * by the FindPartController to visualize the part information
+ *
+ */
+package topgearshop.controllers;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Date;
+import javax.swing.JDialog;
+import topgearshop.models.PartsModel;
+import topgearshop.views.CreateEditPart;
+
+public class CreateEditPartController {
+  private PartsModel part;
+  private Boolean cancelled;
+  private JDialog modalDialog;
+  private Boolean CreatePart = true;
+  private Date partCreationDate;
+  private CreateEditPart cePart;
+  
+  public CreateEditPartController(PartsModel pm, Boolean readOnly)
+  {
+    partCreationDate = new Date();
+    if(pm!=null)
+    {
+      CreatePart = false;
+      part = pm;
+    }
+    
+    cePart = new CreateEditPart();
+
+    modalDialog = new JDialog();
+    modalDialog.add(cePart);
+    modalDialog.setTitle("Top Gear System - Create or Edit Part");
+    if(readOnly)
+    {
+      setFoundInterface();
+    }
+    cePart.setSubmitActionHandler(new SubmitListener());
+    cePart.setCancelActionListener(new CancelListener());
+    modalDialog.setModal(true);
+    modalDialog.pack();
+    if(!CreatePart)
+    {
+      loadDiscountInformation();      
+    }
+    modalDialog.setVisible(true);    
+  }
+
+  private void setFoundInterface() {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
+
+  private void loadDiscountInformation() {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
+  class SubmitListener implements ActionListener{
+    
+    public void actionPerformed(ActionEvent e){
+
+      modalDialog.dispose();
+    }
+  }
+  class CancelListener implements ActionListener{
+    
+    @Override
+    public void actionPerformed(ActionEvent e){
+      cancelled = true;
+      modalDialog.dispose();
+    }
+  }
+}
+/*
+ * Author: TopGear Group
+ *
+ * CreateEditServiceItemController provides the way to create and edit service
+ * items depending on the parameter values of the constructor. Because there is 
+ * a requirement to find a service item before editing the controller also is used
+ * by the FindServiceItemController to visualize the service item information
+ *
+ */
+
+package topgearshop.controllers;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Date;
+import javax.swing.JDialog;
+import topgearshop.models.ServiceItemModel;
+import topgearshop.views.CreateEditPart;
+import topgearshop.views.CreateEditServiceItemView;
+
+public class CreateEditServiceItemController {
+  private ServiceItemModel serviceItem;
+  private Boolean cancelled;
+  private JDialog modalDialog;
+  private Boolean CreateServiceItem = true;
+  private Date serviceItemCreationDate;
+  private CreateEditServiceItemView ceServiceItem;
+  
+  public CreateEditServiceItemController(ServiceItemModel sm, Boolean readOnly)
+  {
+    serviceItemCreationDate = new Date();
+    if(sm!=null)
+    {
+      CreateServiceItem = false;
+      serviceItem = sm;
+    }
+    
+    ceServiceItem = new CreateEditServiceItemView();
+
+    modalDialog = new JDialog();
+    modalDialog.add(ceServiceItem);
+    modalDialog.setTitle("Top Gear System - Create or Edit Service Item");
+    if(readOnly)
+    {
+      setFoundInterface();
+    }
+    ceServiceItem.setSubmitActionHandler(new SubmitListener());
+    ceServiceItem.setCancelActionListener(new CancelListener());
+    modalDialog.setModal(true);
+    modalDialog.pack();
+    if(!CreateServiceItem)
+    {
+      loadDiscountInformation();      
+    }
+    modalDialog.setVisible(true);     
+  }
+
+  private void loadDiscountInformation() {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
+
+  private void setFoundInterface() {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
+  class SubmitListener implements ActionListener{
+    
+    public void actionPerformed(ActionEvent e){
+
+      modalDialog.dispose();
+    }
+  }
+  class CancelListener implements ActionListener{
+    
+    @Override
+    public void actionPerformed(ActionEvent e){
+      cancelled = true;
+      modalDialog.dispose();
+    }
+  }  
+}
+/*
+ * Author: TopGear Group
+ *
+ * CreateEditShopFeesController provides the way to create and edit shop fee
+ * items depending on the parameter values of the constructor. Because there is 
+ * a requirement to find a shop fee item before editing the controller also is used
+ * by the FindShopFeesController to visualize the shop fee item information
+ *
+ */
+
+package topgearshop.controllers;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Date;
+import javax.swing.JDialog;
+import topgearshop.models.RequiredFeesModel;
+import topgearshop.views.CreateEditServiceItemView;
+import topgearshop.views.CreateEditShopFeesView;
+
+public class CreateEditShopFeesController {
+  private RequiredFeesModel fees;
+  private Boolean cancelled;
+  private JDialog modalDialog;
+  private Boolean CreateFees = true;
+  private Date feeCreationDate;
+  private CreateEditShopFeesView ceShopFees;
+  
+  public CreateEditShopFeesController(RequiredFeesModel rfm, Boolean readOnly)
+  {
+    feeCreationDate = new Date();
+    if(rfm!=null)
+    {
+      CreateFees = false;
+      fees = rfm;
+    }
+    
+    ceShopFees = new CreateEditShopFeesView();
+
+    modalDialog = new JDialog();
+    modalDialog.add(ceShopFees);
+    modalDialog.setTitle("Top Gear System - Create or Edit Shop Fees");
+    if(readOnly)
+    {
+      setFoundInterface();
+    }
+    ceShopFees.setSubmitActionHandler(new SubmitListener());
+    ceShopFees.setCancelActionListener(new CancelListener());
+    modalDialog.setModal(true);
+    modalDialog.pack();
+    if(!CreateFees)
+    {
+      loadFeeInformation();      
+    }
+    modalDialog.setVisible(true);    
+  }
+
+  private void loadFeeInformation() {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
+
+  private void setFoundInterface() {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
+  class SubmitListener implements ActionListener{
+    
+    public void actionPerformed(ActionEvent e){
+
+      modalDialog.dispose();
+    }
+  }
+  class CancelListener implements ActionListener{
+    
+    @Override
+    public void actionPerformed(ActionEvent e){
+      cancelled = true;
+      modalDialog.dispose();
+    }
+  }  
+}
+/*
+ * Author: TopGear Group
+ *
+ * CreateEditTaxRateController provides the way to create and edit tax rate
+ * items depending on the parameter values of the constructor. Because there is 
+ * a requirement to find a tax rate item before editing the controller also is used
+ * by the FindTaxRateController to visualize the shop fee item information
+ *
+ */
+package topgearshop.controllers;
+
+public class CreateEditTaxRateController {
+  public CreateEditTaxRateController()
+  {
+    
+  }
+}
+/*
+ * Author: TopGear Group
+ *
+ * CreateEditUserController provides the way to create and edit system users
+ * depending on the parameter values of the constructor. Because there is 
+ * a requirement to find a system item before editing the controller also is used
+ * by the FindUserController to visualize the system user information
+ *
+ */
+package topgearshop.controllers;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+import topgearshop.models.CredentialsModel;
+import topgearshop.utils.DataAccessLayer;
+import topgearshop.utils.Notifications;
+import topgearshop.views.CreateEditUserView;
+import topgearshop.views.LoginView;
+
+public class CreateEditUserController {
+  private CreateEditUserView createEditUser;
+  private CredentialsModel systemUserModel;
+  private Boolean cancelled = false;
+  private Boolean CreateUser = true;
+  private JDialog modalDialog;
+  
+  public CreateEditUserController(CredentialsModel credentials, Boolean readOnly)
+  {
+    if(credentials!=null)
+    {
+      CreateUser = false;
+      systemUserModel = credentials;
+    }
+      createEditUser = new CreateEditUserView();
+      modalDialog = new JDialog();
+      modalDialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+      modalDialog.addWindowListener(
+              new WindowAdapter(){
+                @Override public void windowClosing(WindowEvent we){
+                }
+                                 });
+      modalDialog.add(createEditUser);
+      modalDialog.setTitle("Top Gear System - Create User");
+     if(readOnly)
+     {
+       setFoundInterface();
+     }
+      systemUserModel = new CredentialsModel();
+      createEditUser.setSubmitActionHandler(new SaveListener());
+      createEditUser.setCancelActionListener(new CancelListener());
+      modalDialog.setModal(true);
+      modalDialog.pack();
+      if(!CreateUser)
+      {
+        loadUserInformation();
+      }
+      modalDialog.setVisible(true);
+  }
+  public Boolean getCancelledStatus()
+  {
+    return cancelled;
+  }
+  private void loadUserInformation()
+  {
+    createEditUser.EmployeeID.setText(systemUserModel.getEmployeeID());
+    createEditUser.UserName.setText(systemUserModel.getUserName());
+    createEditUser.Password.setText("");
+    createEditUser.ConfirmPassword.setText("");
+    createEditUser.Salt.setText(systemUserModel.getSalt());
+  }
+  private void setUserInformation()
+  {
+    systemUserModel.setEmployeeID(createEditUser.EmployeeID.getText());
+    systemUserModel.setUserName(createEditUser.UserName.getText());
+    systemUserModel.setPassword(createEditUser.Password.getText());
+    systemUserModel.setSalt(createEditUser.Salt.getText()); 
+  }
+  private Boolean validateModel()
+  {
+    if(systemUserModel.getEmployeeID().equals("") ||
+       systemUserModel.getPassword().equals("") ||
+            systemUserModel.getUserName().equals("") ||
+            systemUserModel.getSalt().equals(""))
+      return false;
+    return true;
+              
+  }
+
+  private void setFoundInterface() {
+    createEditUser.EmployeeID.setEditable(false);
+    createEditUser.UserName.setEditable(false);
+    createEditUser.Password.setEditable(false);
+    createEditUser.ConfirmPassword.setEditable(false);
+    createEditUser.Salt.setEditable(false);
+  }
+  class SaveListener implements ActionListener{
+    
+    public void actionPerformed(ActionEvent e){
+      if(CreateUser)
+      {
+        systemUserModel = new CredentialsModel();
+      }
+      setUserInformation();
+      
+      String ConfirmedPassword = createEditUser.ConfirmPassword.getText();
+      if(!validateModel())
+      {
+        Notifications.DisplayNotification("You must enter all values.");
+        return;
+      }
+      if(!systemUserModel.getPassword().equals(ConfirmedPassword))
+      {
+        Notifications.DisplayNotification("The two passwords do not match");
+        return;
+      }
+      if(!DataAccessLayer.CreateUser(systemUserModel))
+      {
+        Notifications.DisplayNotification("A user with the specified Employee ID already exists");
+        return;
+      }
+      if(CreateUser)
+      {
+        DataAccessLayer.CreateUser(systemUserModel);
+      }
+      else
+      {
+        DataAccessLayer.UpdateUser(systemUserModel);
+      } 
+      modalDialog.dispose();
+      
+    }
+  }    
+  class CancelListener implements ActionListener{
+    
+    public void actionPerformed(ActionEvent e){
+      cancelled = true;
+      modalDialog.dispose();
+    }
+  }  
+}
+/*
+ * Author: TopGear Group
+ *
+ * CreateEditVehicleController provides the way to create and edit vehicles
+ * depending on the parameter values of the constructor. Because there is 
+ * a requirement to find a vehicle before editing the controller also is used
+ * by the FindVehicleController to visualize the vehicle information
+ *
+ */
+package topgearshop.controllers;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JDialog;
+import topgearshop.models.VehicleModel;
+import topgearshop.utils.DataAccessLayer;
+import topgearshop.views.CreateEditVehicleView;
+
+public class CreateEditVehicleController {
+  private VehicleModel vehicleModel;
+  private CreateEditVehicleView ceVehicleView;
+  private Boolean CreateVehicle = true;
+  private JDialog modalDialog;
+  private Boolean cancelled = false;
+  private Date vehicleCreationDate;
+  private Boolean readOnly;
+  public CreateEditVehicleController(VehicleModel cm, Boolean readOnly)
+  {
+    this.readOnly = readOnly;
+    vehicleCreationDate = new Date();
+    if(cm!=null)
+    {
+      CreateVehicle = false;
+      vehicleModel = cm;
+    }
+    
+    ceVehicleView = new CreateEditVehicleView();
+
+    modalDialog = new JDialog();
+    modalDialog.add(ceVehicleView);
+    modalDialog.setTitle("Top Gear System - Create or Edit Vehicle");
+    if(readOnly)
+    {
+      setFoundInterface();
+    }
+    ceVehicleView.setSubmitActionHandler(new SubmitListener());
+    ceVehicleView.setCancelActionListener(new CancelListener());
+    modalDialog.setModal(true);
+    modalDialog.pack();
+    if(!CreateVehicle)
+    {
+      loadCustomerInformation();      
+    }
+    modalDialog.setVisible(true);
+  }
+  public Boolean getCancelledStatus()
+  {
+    return cancelled;
+  }
+  private void setFoundInterface()
+  {
+    modalDialog.setTitle("Top Gear System - Find Vehicle Results");
+    ceVehicleView.Color.setEnabled(false);
+    ceVehicleView.Make.setEnabled(false);
+    ceVehicleView.Mileage.setEnabled(false);
+    ceVehicleView.Model.setEnabled(false);
+    ceVehicleView.VehicleIDNumber.setEnabled(false);
+    ceVehicleView.Year.setEnabled(false);
+  }
+  private void loadCustomerInformation()
+  {
+    ceVehicleView.Color.setText(vehicleModel.getColor());
+    ceVehicleView.Make.setText(vehicleModel.getMake());
+    ceVehicleView.Mileage.setText(vehicleModel.getMileage().toString());
+    ceVehicleView.Model.setText(vehicleModel.getModel());
+    ceVehicleView.VehicleIDNumber.setText(vehicleModel.getVehicleIDNumber());
+    ceVehicleView.Year.setText(vehicleModel.getYear());
+    // this needs to be added 
+    //ceVehicleView.vehicleCreationDate.setText(sdf.format(customerModel.getCustomerCreationDate()));
+    
+  }
+  private void setCustomerInformation()
+  {
+      vehicleModel.setColor(ceVehicleView.Color.getText());
+      vehicleModel.setMake(ceVehicleView.Make.getText());
+      vehicleModel.setMileage(Integer.parseInt(ceVehicleView.Mileage.getText()));
+      vehicleModel.setModel(ceVehicleView.Model.getText());
+      vehicleModel.setVehicleIDNumber(ceVehicleView.VehicleIDNumber.getText());
+      vehicleModel.setYear(ceVehicleView.Year.getText()); 
+      // need to implement
+      //vehicleModel.setVehicleCreationDate(vehicleCreationDate);
+  }
+  class SubmitListener implements ActionListener{
+    
+    public void actionPerformed(ActionEvent e){
+      if(CreateVehicle)
+      {
+        vehicleModel = new VehicleModel();
+      }
+      setCustomerInformation();
+      if(!readOnly)
+        {
+        if(CreateVehicle)
+        {
+          DataAccessLayer.CreateVehicle(vehicleModel);
+        }
+        else
+        {
+          DataAccessLayer.UpdateVehicle(vehicleModel);
+        }
+      }
+      modalDialog.dispose();
+    }
+  }
+  class CancelListener implements ActionListener{
+    
+    @Override
+    public void actionPerformed(ActionEvent e){
+      cancelled = true;
+      modalDialog.dispose();
+    }
+  }  
+}
+/*
+ * Author: TopGear Group
+ *
+ * CreateEditWarrantyInfoController provides the way to create and edit warranty
+ * informationdepending on the parameter values of the constructor. Because there is 
+ * a requirement to find warranty information before editing the controller also is used
+ * by the FindWarrantyInfoController to visualize the warranty information
+ *
+ */
+package topgearshop.controllers;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Date;
+import javax.swing.JDialog;
+import topgearshop.models.CustomerModel;
+import topgearshop.models.WarrantyModel;
+import topgearshop.utils.DataAccessLayer;
+import topgearshop.views.CreateEditWarrantyInfoView;
+
+public class CreateEditWarrantyInfoController {
+  private WarrantyModel warrantyModel;
+  private CreateEditWarrantyInfoView createWarranty;
+  private Boolean CreateWarranty = true;
+  private JDialog modalDialog;
+  private Boolean cancelled = false;
+  private Date warrantyCreationDate;
+  public CreateEditWarrantyInfoController(WarrantyModel wm, Boolean readOnly)
+  {
+    if(wm!=null)
+        CreateWarranty = false;
+    
+    warrantyCreationDate = new Date();
+    createWarranty = new CreateEditWarrantyInfoView();
+    modalDialog = new JDialog();
+    modalDialog.add(createWarranty);
+    modalDialog.setTitle("Top Gear System - Create or Edit Warranty");
+    createWarranty.setSubmitActionHandler(new SubmitListener());
+    createWarranty.setCancelActionHandler(new CancelListener());
+    modalDialog.setModal(true);
+    modalDialog.pack();
+    
+    createWarranty.WarrantyID.setEditable(false);
+
+    modalDialog.setVisible(true);
+  }
+   class SubmitListener implements ActionListener{
+    
+    public void actionPerformed(ActionEvent e){
+      if(CreateWarranty)
+      {
+        warrantyModel = new WarrantyModel();
+      }
+      setWarrantyInformation();
+      if(CreateWarranty)
+      {
+        DataAccessLayer.CreateWarranty(warrantyModel);
+      }
+      else
+      {
+        DataAccessLayer.UpdateWarranty(warrantyModel);
+      }
+      modalDialog.dispose();
+    }
+
+    private void setWarrantyInformation() {
+      warrantyModel.setWarranty(createWarranty.Warranty.getText());
+    }
+  }
+  class CancelListener implements ActionListener{
+    
+    @Override
+    public void actionPerformed(ActionEvent e){
+      cancelled = true;
+      modalDialog.dispose();
+    }
+  }   
+}
+/*
+ * Author: TopGear Group
+ *
+ * CreateEditWorkItemController provides the way to create and edit work items
+ * depending on the parameter values of the constructor. Work items must exist
+ * in a work order. Therefore, to edit a work item one must already have been
+ * created in a work order
+ *
+ */
+package topgearshop.controllers;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Date;
+import javax.swing.JDialog;
+import topgearshop.models.CustomerModel;
+import topgearshop.utils.DataAccessLayer;
+import topgearshop.views.CreateEditWorkItemView;
+
+public class CreateEditWorkItemController {
+  private Date workOrderCreationDate;
+  private CreateEditWorkItemView ceWorkItemView;
+  private JDialog modalDialog;
+  private Boolean cancelled = false;
+  
+  public CreateEditWorkItemController()
+  {
+    workOrderCreationDate = new Date();
+//    if(cm!=null)
+//    {
+//      CreateCustomer = false;
+//      customerModel = cm;
+//    }
+//    
+    ceWorkItemView = new CreateEditWorkItemView();
+
+    modalDialog = new JDialog();
+    modalDialog.add(ceWorkItemView);
+    modalDialog.setTitle("Top Gear System - Create or Edit Work Order Items");
+    ceWorkItemView.setSubmitActionHandler(new SubmitListener());
+    ceWorkItemView.setCancelActionListener(new CancelListener());
+    modalDialog.setModal(true);
+    modalDialog.pack();
+
+    modalDialog.setVisible(true);
+  }
+    class SubmitListener implements ActionListener{
+    
+    public void actionPerformed(ActionEvent e){
+
+      modalDialog.dispose();
+    }
+  }
+  class CancelListener implements ActionListener{
+    
+    @Override
+    public void actionPerformed(ActionEvent e){
+      cancelled = true;
+      modalDialog.dispose();
+    }
+  }  
+}
+/*
+ * Author: TopGear Group
+ *
+ * FindCustomerController provides the way to find already created customers in
+ * the system. The find user interface is presented and depending on the criteria
+ * provided the customer is returned. 
+ *
+ */
+package topgearshop.controllers;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JDialog;
+import topgearshop.models.CustomerModel;
+import topgearshop.utils.DataAccessLayer;
+import topgearshop.views.CreateEditCustomerView;
+import topgearshop.views.FindCustomerView;
+
+public class FindCustomerController {
+  /*
+  All of the Controllers shall contain at least one view and one model
+  It is possible to have many view and many models.
+  The modalDialog is a container for our views such that we can easily
+  get the return values from a modal form.
+  */
+  private FindCustomerView findCustomer;
+  private JDialog modalDialog;
+  private CustomerModel foundCustomer;
+  private Boolean cancelled = false;
+  
+  // The construtor is the work horse because these objects do not need
+  // to have a long life span
+  public FindCustomerController()
+  {
+    findCustomer = new FindCustomerView();
+    modalDialog = new JDialog();
+    modalDialog.add(findCustomer);
+    modalDialog.setTitle("Top Gear System - Find Customer");
+    findCustomer.setSubmitActionHandler(new SubmitListener());
+    findCustomer.setCancelActionListener(new CancelListener());
+    modalDialog.setModal(true);
+    modalDialog.pack();
+    modalDialog.setVisible(true);
+  }
+  // Any view that implements a cancel button, which is practically all of them
+  // needs to have a getCancelledStatus method. This can cascade to any controller
+  // so the status of one action can be sent up the chain and handled as 
+  // required
+  public Boolean getCancelledStatus()
+  {
+    return cancelled;
+  }
+  public CustomerModel getCustomer()
+  {
+    return foundCustomer;
+  }
+  class SubmitListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      CustomerModel cm = new CustomerModel();
+      cm.setEmailAddress(findCustomer.EmailAddress.getText());
+      cm.setPhoneNumber(findCustomer.PhoneNumber.getText());
+      cm.setFirstName(findCustomer.FirstName.getText());
+      cm.setLastName(findCustomer.LastName.getText());
+      foundCustomer = DataAccessLayer.FindCustomer(cm);
+      modalDialog.dispose();
+      if(!cancelled)
+      {
+        CreateEditCustomerController theFoundCustomer = new CreateEditCustomerController(foundCustomer, true);
+        cancelled = theFoundCustomer.getCancelledStatus();
+      }
+    }
+  }
+  class CancelListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      // The default cancelled value should be false. It is auto set when the
+      // instance is created. It should only be set to false in the cancel event
+      cancelled = true;
+      modalDialog.dispose();
+    }
+  }
+}
+/*
+ * Author: TopGear Group
+ *
+ * FindDiscountController provides the way to find already created discounts in
+ * the system. The find discount interface is presented and depending on the criteria
+ * provided the discount is returned. 
+ *
+ */
+
+package topgearshop.controllers;
+
+public class FindDiscountController {
+  public FindDiscountController()
+  {
+  
+  }
+}
+/*
+ * Author: TopGear Group
+ *
+ * FindEmployeeController provides the way to find already created employees in
+ * the system. The find employee interface is presented and depending on the criteria
+ * provided the employee is returned. 
+ *
+ */
+
+
+package topgearshop.controllers;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Date;
+import javax.swing.JDialog;
+import topgearshop.controllers.CreateEditCustomerController.SubmitListener;
+import topgearshop.models.EmployeeModel;
+import topgearshop.views.FindCustomerView;
+import topgearshop.views.FindEmployeeView;
+
+public class FindEmployeeController {
+  private EmployeeModel employeeModel;
+  private FindEmployeeView findEmployee;
+  private JDialog modalDialog;
+  private Boolean cancelled = false;
+  
+  public FindEmployeeController()
+  {
+    findEmployee = new FindEmployeeView();
+    modalDialog = new JDialog();
+    modalDialog.add(findEmployee);
+    modalDialog.setTitle("Top Gear System - Find Employee");
+    findEmployee.setSubmitActionHandler(new SubmitListener());
+    findEmployee.setCancelActionListener(new CancelListener());
+    modalDialog.setModal(true);
+    modalDialog.pack();
+    modalDialog.setVisible(true);
+
+  }
+  boolean getCancelledStatus() {
+    return cancelled;
+  }
+  
+  class SubmitListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      // The default cancelled value should be false. It is auto set when the
+      // instance is created. It should only be set to false in the cancel event
+      
+      modalDialog.dispose();
+    }
+  }
+  class CancelListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      // The default cancelled value should be false. It is auto set when the
+      // instance is created. It should only be set to false in the cancel event
+      cancelled = true;
+      modalDialog.dispose();
+    }
+  }
+}
+/*
+ * Author: TopGear Group
+ *
+ * FindInventoryController provides the way to find already created inventory items in
+ * the system. The find inventory item interface is presented and depending on the criteria
+ * provided the inventory item is returned. 
+ *
+ */
+package topgearshop.controllers;
+
+public class FindInventoryController {
+  public FindInventoryController()
+  {
+    
+  }
+}
+/*
+ * Author: TopGear Group
+ *
+ * FindMaterialsListController provides the way to find already created material lists in
+ * the system. The find materials list interface is presented and depending on the criteria
+ * provided the materials list is returned. 
+ *
+ */
+
+package topgearshop.controllers;
+
+public class FindMaterialsListController {
+  public FindMaterialsListController()
+  {
+    
+  }
+}
+/*
+ * Author: TopGear Group
+ *
+ * FindPartController provides the way to find already created parts in
+ * the system. The find part interface is presented and depending on the criteria
+ * provided the part information is returned. 
+ *
+ */
+
+package topgearshop.controllers;
+
+public class FindPartController {
+  public FindPartController()
+  {
+    
+  }
+}
+/*
+ * Author: TopGear Group
+ *
+ * FindServiceItemController provides the way to find already created service items in
+ * the system. The find service item interface is presented and depending on the criteria
+ * provided the service item is returned. 
+ *
+ */
+
+
+package topgearshop.controllers;
+
+public class FindServiceItemController {
+  public FindServiceItemController()
+  {
+    
+  }
+}
+/*
+ * Author: TopGear Group
+ *
+ * FindShopFeesController provides the way to find already created shop fees in
+ * the system. The find shop fees interface is presented and depending on the criteria
+ * provided the shop fee is returned. 
+ *
+ */
+
+package topgearshop.controllers;
+
+public class FindShopFeesController {
+  public FindShopFeesController()
+  {
+    
+  }
+}
+/*
+ * Author: TopGear Group
+ *
+ * FindTaxRateController provides the way to find already created tax rates in
+ * the system. The find tax rate interface is presented and depending on the criteria
+ * provided the tax rate information is returned. 
+ *
+ */
+
+package topgearshop.controllers;
+
+public class FindTaxRateController {
+  public FindTaxRateController()
+  {
+    
+  }
+}
+/*
+ * Author: TopGear Group
+ *
+ * FindUserController provides the way to find already created users in
+ * the system. The find user interface is presented and depending on the criteria
+ * provided the user information is returned but without the password.
+ *
+ */
+
+package topgearshop.controllers;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JDialog;
+import topgearshop.models.CredentialsModel;
+import topgearshop.models.CustomerModel;
+import topgearshop.utils.DataAccessLayer;
+import topgearshop.views.FindCustomerView;
+import topgearshop.views.FindUserView;
+
+public class FindUserController {
+   /*
+  All of the Controllers shall contain at least one view and one model
+  It is possible to have many view and many models.
+  The modalDialog is a container for our views such that we can easily
+  get the return values from a modal form.
+  */
+  private FindUserView findUser;
+  private JDialog modalDialog;
+  private CredentialsModel foundUser;
+  private Boolean cancelled = false;
+  
+  // The construtor is the work horse because these objects do not need
+  // to have a long life span
+  public FindUserController()
+  {
+    findUser = new FindUserView();
+    modalDialog = new JDialog();
+    modalDialog.add(findUser);
+    modalDialog.setTitle("Top Gear System - Find User");
+    findUser.setSubmitActionHandler(new SubmitListener());
+    findUser.setCancelActionListener(new CancelListener());
+    modalDialog.setModal(true);
+    modalDialog.pack();
+    modalDialog.setVisible(true);
+  }
+  // Any view that implements a cancel button, which is practically all of them
+  // needs to have a getCancelledStatus method. This can cascade to any controller
+  // so the status of one action can be sent up the chain and handled as 
+  // required
+  public Boolean getCancelledStatus()
+  {
+    return cancelled;
+  }
+  public CredentialsModel getUser()
+  {
+    return foundUser;
+  }
+  class SubmitListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      /*
+      What you need to do is get the employee model going
+      Then you need to assign an employee to a credential so you can
+      Look up the employee by ID or by name which requires
+      Two models
+      */
+      CredentialsModel cm = new CredentialsModel();
+      cm.setEmployeeID(findUser.EmployeeID.getText());
+//      cm.setUserName(findUser.
+//      foundUser = DataAccessLayer.FindUser(cm);
+      modalDialog.dispose();
+      if(!cancelled)
+      {
+        //CreateEditCustomerController theFoundCustomer = new CreateEditCustomerController(foundCustomer, true);
+//        cancelled = theFoundCustomer.getCancelledStatus();
+      }
+    }
+  }
+  class CancelListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      // The default cancelled value should be false. It is auto set when the
+      // instance is created. It should only be set to false in the cancel event
+      cancelled = true;
+      modalDialog.dispose();
+    }
+  }
+}
+/*
+ * Author: TopGear Group
+ *
+ * FindVehicleController provides the way to find already created vehicles in
+ * the system. The find vehicle interface is presented and depending on the criteria
+ * provided the vehicle information is returned..
+ *
+ */
+
+package topgearshop.controllers;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JDialog;
+import topgearshop.models.CustomerModel;
+import topgearshop.models.VehicleModel;
+import topgearshop.utils.DataAccessLayer;
+import topgearshop.views.FindVehicleView;
+
+public class FindVehicleController {
+    /*
+  All of the Controllers shall contain at least one view and one model
+  It is possible to have many view and many models.
+  The modalDialog is a container for our views such that we can easily
+  get the return values from a modal form.
+  */
+  private FindVehicleView findVehicle;
+  private JDialog modalDialog;
+  private VehicleModel foundVehicle;
+  private Boolean cancelled = false;
+  
+  // The construtor is the work horse because these objects do not need
+  // to have a long life span
+  public FindVehicleController()
+  {
+    findVehicle = new FindVehicleView();
+    modalDialog = new JDialog();
+    modalDialog.add(findVehicle);
+    modalDialog.setTitle("Top Gear System - Find Vehicle");
+    findVehicle.setSubmitActionHandler(new SubmitListener());
+    findVehicle.setCancelActionListener(new CancelListener());
+    modalDialog.setModal(true);
+    modalDialog.pack();
+    modalDialog.setVisible(true);
+  }
+  // Any view that implements a cancel button, which is practically all of them
+  // needs to have a getCancelledStatus method. This can cascade to any controller
+  // so the status of one action can be sent up the chain and handled as 
+  // required
+  public Boolean getCancelledStatus()
+  {
+    return cancelled;
+  }
+  public VehicleModel getVehicle()
+  {
+    return foundVehicle;
+  }
+  class SubmitListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      VehicleModel vm = new VehicleModel();
+      vm.setVehicleIDNumber(findVehicle.VehicleIDNumber.getText());
+      vm.setMake(findVehicle.Make.getText());
+      vm.setModel(findVehicle.Model.getText());
+      vm.setYear(findVehicle.Year.getText());
+      foundVehicle = DataAccessLayer.FindVehicle(vm);
+      modalDialog.dispose();
+      if(!cancelled)
+      {
+        CreateEditVehicleController theFoundVehicle = new CreateEditVehicleController(foundVehicle, true);
+        cancelled = theFoundVehicle.getCancelledStatus();
+      }
+    }
+  }
+  class CancelListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      // The default cancelled value should be false. It is auto set when the
+      // instance is created. It should only be set to false in the cancel event
+      cancelled = true;
+      modalDialog.dispose();
+    }
+  }
+}
+
+
+/*
+ * Author: TopGear Group
+ *
+ * FindWarrantyInfoController provides the way to find already created warranties in
+ * the system. The find warranty info interface is presented and depending on the criteria
+ * provided the warranty information is returned..
+ *
+ */
+package topgearshop.controllers;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JDialog;
+import topgearshop.models.WarrantyModel;
+import topgearshop.utils.DataAccessLayer;
+import topgearshop.views.FindWarrantyView;
+
+public class FindWarrantyInfoController {
+  private WarrantyModel warrantyModel;
+  private FindWarrantyView findWarranty;
+  private JDialog modalDialog;
+  private Boolean cancelled = false;
+  private List<WarrantyModel> warranties;
+  
+  public FindWarrantyInfoController()
+  {
+    findWarranty = new FindWarrantyView();
+    modalDialog = new JDialog();
+    modalDialog.add(findWarranty);
+    modalDialog.setTitle("Top Gear System - Find Warrantty");
+    findWarranty.setSubmitActionHandler(new SubmitListener());
+    findWarranty.setCancelActionListener(new CancelListener());
+    getWarranties();
+    setComboBoxModel();
+    modalDialog.setModal(true);
+    modalDialog.pack();
+    modalDialog.setVisible(true);
+
+  }
+  private void getWarranties()
+  {
+    warranties = DataAccessLayer.GetWarranties();
+  }
+  private void setComboBoxModel()
+  {
+    Object[] models = new Object[warranties.size()];
+    Integer idx = 0;
+    for(WarrantyModel mod : warranties)
+    {
+      models[idx++] = mod.getWarranty();
+    }
+    DefaultComboBoxModel cboModel = new DefaultComboBoxModel(models);
+    findWarranty.cboWarranties.setModel(cboModel);
+  }
+  public boolean getCancelledStatus() {
+    return cancelled;
+  }
+  
+  class SubmitListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      // The default cancelled value should be false. It is auto set when the
+      // instance is created. It should only be set to false in the cancel event
+      for(WarrantyModel wm : warranties)
+      {
+        if(wm.getWarranty().equals(findWarranty.cboWarranties.getSelectedItem()))
+          System.out.println(wm.getWarrantyID());
+      }
+      modalDialog.dispose();
+    }
+  }
+  class CancelListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      // The default cancelled value should be false. It is auto set when the
+      // instance is created. It should only be set to false in the cancel event
+      cancelled = true;
+      modalDialog.dispose();
+    }
+  }
+}
+/*
+ * Author: TopGear Group
+ *
+ * FindWorkOrderController provides the way to find already created work orders in
+ * the system. The find work order interface is presented and depending on the criteria
+ * provided the work order is returned..
+ *
+ */
+
+package topgearshop.controllers;
+
+public class FindWorkOrderController {
+  public FindWorkOrderController()
+  {
+    
+  }
+}
+/*
+ * Author: TopGear Group
+ *
+ * LoginController provides a way for system users to log into the system.
+ * The login controller validates the user name and password. If the credentials
+ * are valid the login proceeds, the user role is obtained and an activity logging
+ * object is created. If the login fails the user is presented with a message
+ * to tell them the possible error. The logon controller then allows the user to
+ * try logging into the system again.
+ *
+ */
+
+package topgearshop.controllers;
+
+import topgearshop.views.LoginView;
+import topgearshop.models.CredentialsModel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.*;
+import javax.swing.JOptionPane;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import javax.swing.JDialog;
+import topgearshop.utils.ConnectionManager;
+import topgearshop.views.LoginView;
+
+public class LoginController {
+  private final LoginView loginView;
+  private final CredentialsModel credentials;
+  private JDialog modalDialog;
+  private Boolean successfulLogin = false;
+    public LoginController()
+    {
+      loginView = new LoginView();
+      modalDialog = new JDialog();
+      modalDialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+      modalDialog.addWindowListener(
+              new WindowAdapter(){
+                @Override public void windowClosing(WindowEvent we){
+                  System.exit(0);
+                }
+                                 });
+      modalDialog.add(loginView);
+      modalDialog.setTitle("Top Gear System - Logon");
+      credentials = new CredentialsModel();
+      loginView.setSubmitActionHandler(new LoginListener());
+      loginView.setExitActionListener(new CancelLoginListener());
+      modalDialog.setModal(true);
+      modalDialog.pack();
+      modalDialog.setVisible(true);
+    }
+    public CredentialsModel getCredentials()
+    {
+      return this.credentials;
+    }
+    
+    public void validate(){
+        boolean exists = false;
+        
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        try{
+            Class.forName("org.sqlite.JDBC");
+            Connection conn = ConnectionManager.getConnection();
+            
+            statement = (PreparedStatement) conn.prepareStatement("select * from credentials where userName=? and password=?");
+            statement.setString(1,credentials.getUserName());
+            statement.setString(2,credentials.getPassword());
+            resultSet = statement.executeQuery();
+            
+            while(resultSet.next()){
+                credentials.setEmployeeID(resultSet.getString(1));
+                exists = true;
+                //JOptionPane.showMessageDialog(null, "Login Successful! Hello " + credentials.getUserName(),"Information",JOptionPane.INFORMATION_MESSAGE);
+                modalDialog.dispose();
+            
+            }
+                
+            if(!exists){
+                
+             JOptionPane.showMessageDialog(null, "Entered incorrect Username and Password","Information",JOptionPane.INFORMATION_MESSAGE);
+             
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+       
+    }
+    class LoginListener implements ActionListener{
+    
+    public void actionPerformed(ActionEvent e){
+      credentials.setUserName(loginView.UserName.getText());
+      credentials.setPassword(loginView.Password.getText());
+        validate();
+    }
+  }    
+  class CancelLoginListener implements ActionListener{
+    
+    public void actionPerformed(ActionEvent e){
+      System.exit(0);
+    }
+  }
+}
+
+/*
+ * Author: TopGear Group
+ *
+ * PaymentController provides a way for the system to take payments. The payment
+ * controller uses two models, PaymentTypesModel and PaymentModel. The payment
+ * controller presents the user with Payments view which takes all of the 
+ * payment information and depending on the PaymentType a computer based
+ * authorization may take place. Otherwise, the system takes the payment as
+ * cash, check or money order.
+ *
+ */
+
+package topgearshop.controllers;
+
+import topgearshop.models.PaymentTypesModel;
+import topgearshop.models.PaymentsModel;
+
+public class PaymentController {
+  private PaymentTypesModel paymentType;
+  private PaymentsModel payment;
+  
+  public PaymentController()
+  {
+    
+  }
+}
+/*
+ * Author: TopGear Group
+ *
+ * ReportViewController provides a way for the system to take run predefined
+ * reports required for the operations of the business. ReportViewController
+ * will use various models as required by the specific reports to be run.
+ * ReportViewController may also use various views to display reports with
+ * different information
+ *
+ */
+
+
+package topgearshop.controllers;
+
+public class ReportViewController {
+  public ReportViewController()
+  {
+    
+  }
+}
+/*
+ * Author: TopGear Group
+ *
+ * StatusPanelViewController keeps track of the application status and modifies
+ * various sections of the activity panel to display information about the 
+ * system to the user.
+ *
+ */
+package topgearshop.controllers;
+
+public class StatusPanelViewController {
+  public StatusPanelViewController()
+  {
+
+  }
+}
+/*
+ * Author: TopGear Group
+ *
+ * TopGearShopMainUIController is the main controller in the system which receives
+ * control from the main method once main validates the user and signs the user
+ * into the system. The TopGearShopMainUIController then coordinates all other
+ * requests with all of the other controllers. If two controllers need to
+ * communicate they must pass models to the main controller.
+ *
+ */
+package topgearshop.controllers;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import topgearshop.views.*;
+import topgearshop.models.*;
+import topgearshop.utils.DataAccessLayer;
+
+public class TopGearShopMainUIController {
+  private TopGearMainUI tgsUI;
+  private CredentialsModel credentials;
+  
+  public TopGearShopMainUIController(CredentialsModel cm)
+  {
+    tgsUI = new TopGearMainUI();
+    tgsUI.setVisible(true);
+    credentials = cm;
+    tgsUI.setChangePasswordActionListener(new ChangePasswordListener());
+    tgsUI.setCompleteWorkOrderActionListener(new CompleteWorkOrderListener());
+    tgsUI.setCreateCustomerActionListener(new CreateCustomerListener());
+    tgsUI.setCreateEmployeeActionListener(new CreateEmployeeListener());
+    tgsUI.setCreateInventoryActionListener(new CreateInventoryListener());
+    tgsUI.setCreateServiceActionListener(new CreateServiceListener());
+    tgsUI.setCreateUserActionListener(new CreateUserListener());
+    tgsUI.setCreateVehicleActionListener(new CreateVehicleListener());
+    tgsUI.setCreateWarrantyActionListener(new CreateWarrantyListener());
+    tgsUI.setCreateWorkOrderActionListener(new CreateWorkOrderListener());
+    tgsUI.setCustomerReportActionListener(new CustomerReportListener());
+    tgsUI.setEditCustomerActionListener(new EditCustomerListener());
+    tgsUI.setEditEmployeeActionListener(new EditEmployeeListener());
+    tgsUI.setEditInventoryActionListener(new EditInventoryListener());
+    tgsUI.setEditServiceActionListener(new EditServiceListener());
+    tgsUI.setEditUserActionListener(new EditUserListener());
+    tgsUI.setEditVehicleActionListener(new EditVehicleListener());
+    tgsUI.setEditWarrantyActionListener(new EditWarrantyListener());
+    tgsUI.setEditWorkOrderActionListener(new EditWorkOrderListener());
+    tgsUI.setFindCustomerActionListener(new FindCustomerListener());
+    tgsUI.setFindEmployeeActionListener(new FindEmployeeListener());
+    tgsUI.setFindInventoryActionListener(new FindInventoryListener());
+    tgsUI.setFindUserActionListener(new FindUserListener());
+    tgsUI.setFindVehicleActionListener(new FindVehicleListener());
+    tgsUI.setFindWarrantyActionListener(new FindWarrantyListener());
+    tgsUI.setFindWorkOrderActionListener(new FindWorkOrderListener());
+    tgsUI.setHoursWorkedReportActionListener(new HoursWorkedReportListener());
+    tgsUI.setProfitReportActionListener(new ProfitReportListener());
+    tgsUI.setRemoveInventoryActionListener(new RemoveInventoryListener());
+    tgsUI.setRemoveServiceActionListener(new RemoveServiceListener());
+    tgsUI.setRemoveWarrantyActionListener(new RemoveWarrantyListener());
+    tgsUI.setServicesPerformedActionListener(new ServicesPerformedListener());
+    tgsUI.setTechnicianReportActionListener(new TechnicianReportListener());
+    tgsUI.setVehicleHistoryActionListener(new VehicleHistoryListener());
+  }
+  public class ChangePasswordListener implements ActionListener{
+    
+    @Override
+    public void actionPerformed(ActionEvent e){
+      ChangePasswordController changePassword = new ChangePasswordController(credentials);
+      System.out.println("The ChangePassword event listner was called");
+    }
+  }
+class CompleteWorkOrderListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      System.out.println("The CompleteWorkOrder event listner was called");
+    }
+  }
+class CreateCustomerListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      CreateEditCustomerController customerController = new CreateEditCustomerController(null, false);
+      
+      System.out.println("The CreateCustomer event listner was called");
+    }
+  }
+class CreateEmployeeListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      CreateEditEmployeeController employeeController = new CreateEditEmployeeController(null, false);
+      
+      System.out.println("The CreateCustomer event listner was called");
+    }
+  }
+class CreateInventoryListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      CreateEditInventoryItemController createInventoryItem = new CreateEditInventoryItemController(null, false);
+      System.out.println("The CreateInventory event listner was called");
+    }
+  }
+class CreateServiceListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      System.out.println("The CreateService event listner was called");
+    }
+  }
+class CreateUserListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      CreateEditUserController createUser = new CreateEditUserController(null, false);
+      
+      System.out.println("The CreateUser event listner was called");
+    }
+  }
+class CreateVehicleListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      CreateEditVehicleController createVehicle = new CreateEditVehicleController(null, false);
+      System.out.println("The CreateVehicle event listner was called");
+    }
+  }
+class CreateWarrantyListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      CreateEditWarrantyInfoController createWarrantyInfo = new CreateEditWarrantyInfoController(null, false);
+      System.out.println("The CreateWarranty event listner was called");
+    }
+  }
+class CreateWorkOrderListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      CreateEditWorkItemController ceWorkItem = new CreateEditWorkItemController();
+      System.out.println("The CreateWorkOrder event listner was called");
+      
+    }
+  }
+class CustomerReportListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      System.out.println("The CustomerReport event listner was called");
+    }
+  }
+class EditCustomerListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      FindCustomerController findCustomer = new FindCustomerController();
+      CustomerModel m = findCustomer.getCustomer();
+      if(!findCustomer.getCancelledStatus())
+      {
+        CreateEditCustomerController cc = new CreateEditCustomerController(m, false);
+      }
+      System.out.println("The EditCustomer event listner was called");
+    }
+  }
+class EditEmployeeListener implements ActionListener{
+  @Override
+  public void actionPerformed(ActionEvent e){
+    FindEmployeeController findEmployee = new FindEmployeeController();
+    if(!findEmployee.getCancelledStatus())
+    {
+      CreateEditEmployeeController ceEmployee = new CreateEditEmployeeController(new EmployeeModel(), false);
+    }
+  }
+          
+}
+class FindEmployeeListener implements ActionListener{
+  @Override
+  public void actionPerformed(ActionEvent e){
+    FindEmployeeController findEmployee = new FindEmployeeController();
+   
+  }
+          
+}
+class EditInventoryListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      System.out.println("The EditInventory event listner was called");
+    }
+  }
+class EditServiceListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      System.out.println("The EditService event listner was called");
+    }
+  }
+class EditUserListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      FindUserController findUser = new FindUserController();
+      if(!findUser.getCancelledStatus())
+      {
+        CredentialsModel cm = findUser.getUser();
+        CreateEditUserController editUser = new CreateEditUserController(cm, false);
+      }
+      System.out.println("The EditUser event listner was called");
+    }
+  }
+class EditVehicleListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      FindVehicleController findVehicle = new FindVehicleController();
+      if(!findVehicle.getCancelledStatus())
+      {
+      CreateEditVehicleController createVehicle = new CreateEditVehicleController(null, false);
+      }
+      System.out.println("The EditVehicle event listner was called");
+    }
+  }
+class EditWarrantyListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      System.out.println("The EditWarranty event listner was called");
+    }
+  }
+class EditWorkOrderListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      System.out.println("The EditWorkOrder event listner was called");
+    }
+  }
+class FindCustomerListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      FindCustomerController findCustomer = new FindCustomerController();
+      CustomerModel m = findCustomer.getCustomer();
+      //CreateEditCustomerController cc = new CreateEditCustomerController(m);
+      System.out.println("The FindCustomer event listner was called");
+    }
+  }
+class FindInventoryListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      System.out.println("The FindInventory event listner was called");
+    }
+  }
+class FindUserListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      FindUserController findUser = new FindUserController();
+      System.out.println("The FindUser event listner was called");
+    }
+  }
+class FindVehicleListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      FindVehicleController fvc = new FindVehicleController();
+      System.out.println("The FindVehicle event listner was called");
+    }
+  }
+class FindWarrantyListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      FindWarrantyInfoController findWarranty = new FindWarrantyInfoController();
+      System.out.println("The FindWarranty event listner was called");
+    }
+  }
+class FindWorkOrderListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      System.out.println("The FindWorkOrder event listner was called");
+    }
+  }
+class HoursWorkedReportListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      System.out.println("The HoursWorkedReport event listner was called");
+    }
+  }
+class ProfitReportListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      System.out.println("The ProfitReport event listner was called");
+    }
+  }
+class RemoveInventoryListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      System.out.println("The RemoveInventory event listner was called");
+    }
+  }
+class RemoveServiceListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      System.out.println("The RemoveService event listner was called");
+    }
+  }
+class RemoveWarrantyListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      System.out.println("The RemoveWarranty event listner was called");
+    }
+  }
+class ServicesPerformedListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      System.out.println("The ServicesPerformed event listner was called");
+    }
+  }
+class TechnicianReportListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      System.out.println("The TechnicianReport event listner was called");
+    }
+  }
+class VehicleHistoryListener implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      System.out.println("The VehicleHistory event listner was called");
+    }
+  }
+
+}
+

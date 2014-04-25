@@ -6,6 +6,8 @@
 
 package topgearshop.views;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author rmattaway
@@ -18,7 +20,14 @@ public class CreateEditPart extends javax.swing.JPanel {
   public CreateEditPart() {
     initComponents();
   }
-
+  public void setSubmitActionHandler(ActionListener al)
+  {
+    cmdSubmit.addActionListener(al);
+  }
+  public void setCancelActionListener(ActionListener al)
+  {
+    cmdCancel.addActionListener(al);
+  }  
   /**
    * This method is called from within the constructor to initialize the form.
    * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,19 +37,38 @@ public class CreateEditPart extends javax.swing.JPanel {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
+    cmdCancel = new javax.swing.JButton();
+    cmdSubmit = new javax.swing.JButton();
+
+    cmdCancel.setText("Cancel");
+
+    cmdSubmit.setText("Submit");
+
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
     this.setLayout(layout);
     layout.setHorizontalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 400, Short.MAX_VALUE)
+      .addGroup(layout.createSequentialGroup()
+        .addGap(47, 47, 47)
+        .addComponent(cmdSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addContainerGap(46, Short.MAX_VALUE))
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 300, Short.MAX_VALUE)
+      .addGroup(layout.createSequentialGroup()
+        .addGap(122, 122, 122)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(cmdCancel)
+          .addComponent(cmdSubmit))
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
   }// </editor-fold>//GEN-END:initComponents
 
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JButton cmdCancel;
+  private javax.swing.JButton cmdSubmit;
   // End of variables declaration//GEN-END:variables
 }
